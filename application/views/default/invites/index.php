@@ -25,15 +25,6 @@ function remove_div(invite_id)
                     <div class="alert alert-danger message"><?php echo SecureShowData($error_msg); ?></div>
                 <?php }?>
 
-<?php 
-//echo "<pre>";
-//print_r($event_detail);
-//die;
-
-//$event_title = $event_detail['event_title'];
-
-
-?>
 <?php $this->load->view('default/common/dashboard-header')?>
 <section>  
             <div class="container marTB50">
@@ -154,8 +145,6 @@ function remove_div(invite_id)
                           
                             	foreach ($draft_invite as $de)
                             	{
-                            		//echo "<pre>";
-                            		//print_r($se);
                             		
                             		$created_at = $de['created_at'];
                             		$subject = $de['subject'];

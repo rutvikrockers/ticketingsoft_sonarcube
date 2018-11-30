@@ -108,8 +108,8 @@
                             <tr>
                                 <td>
                                     <div class="sticker" style=" background: transparent;">            
-                                        <img style="margin: 5px 0px 20px 0px; height: 250px; width: 60px;" src="<?php echo str_replace("https","http",$barcode_file); ?>" />
-                                        <img style="float: right; width: 60px; margin: -17px 35px 20px -4px;" src="<?php echo str_replace("https","http",$qrcode_file);?>" />
+                                        <img style="margin: 5px 0px 20px 0px; height: 250px; width: 60px;" src="<?php echo str_replace("https","http",$barcode_file); ?>" alt="barcode" />
+                                        <img style="float: right; width: 60px; margin: -17px 35px 20px -4px;" src="<?php echo str_replace("https","http",$qrcode_file);?>" alt="qrcode" />
                                     </div>
                                 </td>
                             </tr>
@@ -135,8 +135,7 @@
             <p style="margin:0px 20px;"><strong><?php echo PLESE_PRINT_TICKETS;?></strong></p>
             <?php } ?>
             </div>
-            <!-- <img style="float: right; margin-right: 305px; width: 6%; margin-top: 30px;" src="<?php echo $qrcode_file;?>" /> -->
-            <img style="float: right; margin-bottom: 30px; margin-right: 0px; max-width: 240px;"  src="<?php echo  str_replace("https","http",base_url("images")).'/'.$site_logo; ?>" />
+            <img style="float: right; margin-bottom: 30px; margin-right: 0px; max-width: 240px;"  src="<?php echo  str_replace("https","http",base_url("images")).'/'.$site_logo; ?>" alt="site logo" />
 <p></p>
 <p></p>
 <p></p>
@@ -153,19 +152,3 @@
 <p></p>
 <p></p>
 <p></p>
-<!-- <p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p><p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p> -->
-
-<!-- </body>
-</html> -->
-

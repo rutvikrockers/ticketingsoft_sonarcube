@@ -16,7 +16,6 @@
 
 
 <!-- Favicon -->
- <!-- <link rel="icon" href="<?php echo base_url(); ?>images/favicons.png" sizes="32x32"> -->
 
 <link rel="icon" href="<?php echo base_url(); ?>admin_images/<?php echo $site_fav_icon;?>" sizes="32x32">
 
@@ -40,8 +39,6 @@
 
 
 <script type="text/javascript">var switchTo5x=true;</script>
-<!-- <script type="text/javascript" src="<?php echo base_url('js/buttons.js');?>"></script> -->
-<!-- <script type="text/javascript">stLight.options({publisher: "489f209d-055d-4a72-8738-8d3e4875b39a", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script> -->
  				
 <script>
 $( document ).ready(function() {

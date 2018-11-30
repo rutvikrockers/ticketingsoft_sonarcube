@@ -406,21 +406,21 @@ function delete_question(id){
 											<div class="col-sm-8 col-xs-8 width-xs">
 												<div class="radio">
 													<label>
-														<input type="radio" name="info_radio" id="info_radio_basic" value="0" <?php if($ctype==0) echo 'checked';?> >
+														<input type="radio" name="info_radio" id="info_radio_basic" value="0" <?php if($ctype==0) { echo 'checked'; } ?> >
 														<?php echo COLLECT_ONLY_BASIC_INFORMATION; ?> (<?php echo EMAIL;?>, <?php echo NAME;?>)
 													</label>
 												</div>
 												
 												<div class="radio">
 													<label>
-														<input type="radio" name="info_radio" id="info_radio_inter" value="1" <?php if($ctype==1) echo 'checked';?>>
+														<input type="radio" name="info_radio" id="info_radio_inter" value="1" <?php if($ctype==1) { echo 'checked'; } ?>>
 														<?php echo COLLECT_INFORMATION_BELOW_FOR_THE_TICKET_BUYER_ONLY; ?>
 													</label>
 												</div>
 												
 												<div class="radio">
 													<label>
-														<input type="radio" name="info_radio" id="info_radio_advanced" value="2" <?php if($ctype==2) echo 'checked';?>>
+														<input type="radio" name="info_radio" id="info_radio_advanced" value="2" <?php if($ctype==2) { echo 'checked'; } ?>>
 														<?php echo COLLECT_INFORMATION_BELOW_FOR_EACH_ATTENDEE; ?>
 														<i class="glyphicon glyphicon-question-sign edit" data-toggle="tooltip" data-placement="top" title="" data-original-title="Collect information from just the ticket buyer or from all attendees (tickets purchased)."></i>
 													</label>
@@ -496,14 +496,14 @@ function delete_question(id){
 																<div class="col-xs-6 col-sm-6">
 																	<div class="checkbox">
 																		<label>
-																			<input type="checkbox" value="1" name="prefix_i" id="prefix_i" <?php if($prefix) echo 'checked';?>>
+																			<input type="checkbox" value="1" name="prefix_i" id="prefix_i" <?php if($prefix) { echo 'checked'; } ?>>
 																		</label>
 																	</div>
 																</div>
 																<div class="col-xs-6 col-sm-6">
 																	<div class="checkbox">
 																		<label>
-																			<input type="checkbox" value="1" disabled name="prefix_r" id="prefix_r" <?php if($prefix==11) echo 'checked';?>>
+																			<input type="checkbox" value="1" disabled name="prefix_r" id="prefix_r" <?php if($prefix==11) { echo 'checked'; } ?>>
 																		</label>
 																	</div>
 																</div>
@@ -568,14 +568,14 @@ function delete_question(id){
 																<div class="col-xs-6 col-sm-6">
 																	<div class="checkbox">
 																		<label>
-																			<input type="checkbox" value="1" name="suffix_i" id="suffix_i" <?php if($suffix) echo 'checked';?>>
+																			<input type="checkbox" value="1" name="suffix_i" id="suffix_i" <?php if($suffix) { echo 'checked'; } ?>>
 																		</label>
 																	</div>
 																</div>
 																<div class="col-xs-6 col-sm-6">
 																	<div class="checkbox">
 																		<label>
-																			<input type="checkbox" value="1" disabled name="suffix_r" id="suffix_r" <?php if($suffix==11) echo 'checked';?>>
+																			<input type="checkbox" value="1" disabled name="suffix_r" id="suffix_r" <?php if($suffix==11) { echo 'checked'; } ?>>
 																		</label>
 																	</div>
 																</div>
@@ -616,14 +616,14 @@ function delete_question(id){
 																<div class="col-xs-6 col-sm-6">
 																	<div class="checkbox">
 																		<label>
-																			<input type="checkbox" value="1" name="home_phone_i" id="home_phone_i" <?php if($home_phone) echo 'checked';?>>
+																			<input type="checkbox" value="1" name="home_phone_i" id="home_phone_i" <?php if($home_phone) { echo 'checked'; } ?>>
 																		</label>
 																	</div>
 																</div>
 																<div class="col-xs-6 col-sm-6">
 																	<div class="checkbox">
 																		<label>
-																			<input type="checkbox" value="1" disabled name="home_phone_r" id="home_phone_r" <?php if($home_phone==11) echo 'checked';?>>
+																			<input type="checkbox" value="1" disabled name="home_phone_r" id="home_phone_r" <?php if($home_phone==11) { echo 'checked'; } ?>>
 																		</label>
 																	</div>
 																</div>
@@ -681,14 +681,14 @@ function delete_question(id){
 																	<div class="col-xs-6 col-sm-6">
 																		<div class="checkbox">
 																			<label>
-																				<input type="checkbox" value="1" name="work_address_i" id="work_address_i" <?php if($work_address) echo 'checked';?>>
+																				<input type="checkbox" value="1" name="work_address_i" id="work_address_i" <?php if($work_address) { echo 'checked'; } ?>>
 																			</label>
 																		</div>
 																	</div>
 																	<div class="col-xs-6 col-sm-6">
 																		<div class="checkbox">
 																			<label>
-																				<input type="checkbox" value="1" disabled name="work_address_r" id="work_address_r" <?php if($work_address==11) echo 'checked';?>>
+																				<input type="checkbox" value="1" disabled name="work_address_r" id="work_address_r" <?php if($work_address==11) { echo 'checked'; } ?>>
 																			</label>
 																		</div>
 																	</div>
@@ -704,14 +704,14 @@ function delete_question(id){
 																	<div class="col-xs-6 col-sm-6">
 																		<div class="checkbox">
 																			<label>
-																				<input type="checkbox" value="1" name="job_title_i" id="job_title_i" <?php if($job_title) echo 'checked';?>>
+																				<input type="checkbox" value="1" name="job_title_i" id="job_title_i" <?php if($job_title) { echo 'checked'; } ?>>
 																			</label>
 																		</div>
 																	</div>
 																	<div class="col-xs-6 col-sm-6">
 																		<div class="checkbox">
 																			<label>
-																				<input type="checkbox" value="1" disabled name="job_title_r" id="job_title_r" <?php if($job_title==11) echo 'checked';?>>
+																				<input type="checkbox" value="1" disabled name="job_title_r" id="job_title_r" <?php if($job_title==11) { echo 'checked'; } ?>>
 																			</label>
 																		</div>
 																	</div>
@@ -728,14 +728,14 @@ function delete_question(id){
 																	<div class="col-xs-6 col-sm-6">
 																		<div class="checkbox">
 																			<label>
-																				<input type="checkbox" value="1" name="company_i" id="company_i" <?php if($company) echo 'checked';?>>
+																				<input type="checkbox" value="1" name="company_i" id="company_i" <?php if($company) { echo 'checked'; } ?>>
 																			</label>
 																		</div>
 																	</div>
 																	<div class="col-xs-6 col-sm-6">
 																		<div class="checkbox">
 																			<label>
-																				<input type="checkbox" value="1" disabled name="company_r" id="company_r" <?php if($company==11) echo 'checked';?>>
+																				<input type="checkbox" value="1" disabled name="company_r" id="company_r" <?php if($company==11) { echo 'checked'; } ?>>
 																			</label>
 																		</div>
 																	</div>
@@ -754,14 +754,14 @@ function delete_question(id){
 																	<div class="col-xs-6 col-sm-6">
 																		<div class="checkbox">
 																			<label>
-																				<input type="checkbox" value="1" name="work_phone_i" id="work_phone_i" <?php if($work_phone) echo 'checked';?>>
+																				<input type="checkbox" value="1" name="work_phone_i" id="work_phone_i" <?php if($work_phone) { echo 'checked'; } ?>>
 																			</label>
 																		</div>
 																	</div>
 																	<div class="col-xs-6 col-sm-6">
 																		<div class="checkbox">
 																			<label>
-																				<input type="checkbox" value="1" disabled name="work_phone_r" id="work_phone_r" <?php if($work_phone==11) echo 'checked';?>>
+																				<input type="checkbox" value="1" disabled name="work_phone_r" id="work_phone_r" <?php if($work_phone==11) { echo 'checked'; } ?>>
 																			</label>
 																		</div>
 																	</div>
@@ -778,14 +778,14 @@ function delete_question(id){
 																	<div class="col-xs-6 col-sm-6">
 																		<div class="checkbox">
 																			<label>
-																				<input type="checkbox" value="1" name="website_i" id="website_i" <?php if($website) echo 'checked';?>>
+																				<input type="checkbox" value="1" name="website_i" id="website_i" <?php if($website) { echo 'checked'; } ?>>
 																			</label>
 																		</div>
 																	</div>
 																	<div class="col-xs-6 col-sm-6">
 																		<div class="checkbox">
 																			<label>
-																				<input type="checkbox" value="1" disabled name="website_r" id="website_r" <?php if($website==11) echo 'checked';?>>
+																				<input type="checkbox" value="1" disabled name="website_r" id="website_r" <?php if($website==11) { echo 'checked'; } ?>>
 																			</label>
 																		</div>
 																	</div>
@@ -802,14 +802,14 @@ function delete_question(id){
 																	<div class="col-xs-6 col-sm-6">
 																		<div class="checkbox">
 																			<label>
-																				<input type="checkbox" value="1" name="blog_i" id="blog_i" <?php if($blog) echo 'checked';?>>
+																				<input type="checkbox" value="1" name="blog_i" id="blog_i" <?php if($blog) { echo 'checked'; } ?>>
 																			</label>
 																		</div>
 																	</div>
 																	<div class="col-xs-6 col-sm-6">
 																		<div class="checkbox">
 																			<label>
-																				<input type="checkbox" value="1" disabled name="blog_r" id="blog_r" <?php if($blog==11) echo 'checked';?>>
+																				<input type="checkbox" value="1" disabled name="blog_r" id="blog_r" <?php if($blog==11) { echo 'checked'; } ?>>
 																			</label>
 																		</div>
 																	</div>
@@ -846,14 +846,14 @@ function delete_question(id){
 																	<div class="col-xs-6 col-sm-6">
 																		<div class="checkbox">
 																			<label>
-																				<input type="checkbox" value="1" name="billing_address_i" id="billing_address_i" <?php if($billing_address) echo 'checked';?>>
+																				<input type="checkbox" value="1" name="billing_address_i" id="billing_address_i" <?php if($billing_address) { echo 'checked'; } ?>>
 																			</label>
 																		</div>
 																	</div>
 																	<div class="col-xs-6 col-sm-6">
 																		<div class="checkbox">
 																			<label>
-																				<input type="checkbox" value="1" disabled name="billing_address_r" id="billing_address_r" <?php if($billing_address==11) echo 'checked';?>>
+																				<input type="checkbox" value="1" disabled name="billing_address_r" id="billing_address_r" <?php if($billing_address==11) { echo 'checked'; } ?>>
 																			</label>
 																		</div>
 																	</div>
@@ -870,14 +870,14 @@ function delete_question(id){
 																	<div class="col-xs-6 col-sm-6">
 																		<div class="checkbox">
 																			<label>
-																				<input type="checkbox" value="1" name="home_address_i" id="home_address_i" <?php if($home_address) echo 'checked';?>> 
+																				<input type="checkbox" value="1" name="home_address_i" id="home_address_i" <?php if($home_address) { echo 'checked'; } ?>> 
 																			</label>
 																		</div>
 																	</div>
 																	<div class="col-xs-6 col-sm-6">
 																		<div class="checkbox">
 																			<label>
-																				<input type="checkbox" value="1" disabled name="home_address_r" id="home_address_r" <?php if($home_address==11) echo 'checked';?>>
+																				<input type="checkbox" value="1" disabled name="home_address_r" id="home_address_r" <?php if($home_address==11) { echo 'checked'; } ?>>
 																			</label>
 																		</div>
 																	</div>
@@ -894,14 +894,14 @@ function delete_question(id){
 																	<div class="col-xs-6 col-sm-6">
 																		<div class="checkbox">
 																			<label>
-																				<input type="checkbox" value="1" name="shipping_address_i" id="shipping_address_i" <?php if($shipping_address) echo 'checked';?>>
+																				<input type="checkbox" value="1" name="shipping_address_i" id="shipping_address_i" <?php if($shipping_address) { echo 'checked'; } ?>>
 																			</label>
 																		</div>
 																	</div>
 																	<div class="col-xs-6 col-sm-6">
 																		<div class="checkbox">
 																			<label>
-																				<input type="checkbox" value="1" disabled name="shipping_address_r" id="shipping_address_r" <?php if($shipping_address==11) echo 'checked';?>>
+																				<input type="checkbox" value="1" disabled name="shipping_address_r" id="shipping_address_r" <?php if($shipping_address==11) { echo 'checked'; } ?>>
 																			</label>
 																		</div>
 																	</div>
@@ -935,14 +935,14 @@ function delete_question(id){
 																	<div class="col-xs-6 col-sm-6">
 																		<div class="checkbox">
 																			<label>
-																				<input type="checkbox" value="1" name="gender_i" id="gender_i" <?php if($gender) echo 'checked';?>>
+																				<input type="checkbox" value="1" name="gender_i" id="gender_i" <?php if($gender) { echo 'checked'; } ?>>
 																			</label>
 																		</div>
 																	</div>
 																	<div class="col-xs-6 col-sm-6">
 																		<div class="checkbox">
 																			<label>
-																				<input type="checkbox" value="1" disabled name="gender_r" id="gender_r" <?php if($gender==11) echo 'checked';?>>
+																				<input type="checkbox" value="1" disabled name="gender_r" id="gender_r" <?php if($gender==11) { echo 'checked'; } ?>>
 																			</label>
 																		</div>
 																	</div>
@@ -959,14 +959,14 @@ function delete_question(id){
 																	<div class="col-xs-6 col-sm-6">
 																		<div class="checkbox">
 																			<label>
-																				<input type="checkbox" value="1" name="birthdate_i" id="birthdate_i" <?php if($birth_date) echo 'checked';?>>
+																				<input type="checkbox" value="1" name="birthdate_i" id="birthdate_i" <?php if($birth_date) { echo 'checked'; } ?>>
 																			</label>
 																		</div>
 																	</div>
 																	<div class="col-xs-6 col-sm-6">
 																		<div class="checkbox">
 																			<label>
-																				<input type="checkbox" value="1" disabled name="birthdate_r" id="birthdate_r" <?php if($birth_date==11) echo 'checked';?>>
+																				<input type="checkbox" value="1" disabled name="birthdate_r" id="birthdate_r" <?php if($birth_date==11) { echo 'checked'; } ?>>
 																			</label>
 																		</div>
 																	</div>
@@ -983,14 +983,14 @@ function delete_question(id){
 																	<div class="col-xs-6 col-sm-6">
 																		<div class="checkbox">
 																			<label>
-																				<input type="checkbox" value="1" name="age_i" id="age_i" <?php if($age) echo 'checked';?>>
+																				<input type="checkbox" value="1" name="age_i" id="age_i" <?php if($age) { echo 'checked'; } ?>>
 																			</label>
 																		</div>
 																	</div>
 																	<div class="col-xs-6 col-sm-6">
 																		<div class="checkbox">
 																			<label>
-																				<input type="checkbox" value="1" disabled name="age_r" id="age_r" <?php if($age==11) echo 'checked';?>>
+																				<input type="checkbox" value="1" disabled name="age_r" id="age_r" <?php if($age==11) { echo 'checked'; } ?>>
 																			</label>
 																		</div>
 																	</div>
@@ -1039,14 +1039,14 @@ function delete_question(id){
 																			<div class="col-xs-6 col-sm-4">
 																				<div class="checkbox">
 																					<label>
-																						<input type="checkbox" value="<?php echo $question_id;?>" name="questions_i[]" id="questions_i_<?php echo $question_id;?>" <?php if($rules==1 || $rules==11) echo 'checked';?> >
+																						<input type="checkbox" value="<?php echo $question_id;?>" name="questions_i[]" id="questions_i_<?php echo $question_id;?>" <?php if($rules==1 || $rules==11) { echo 'checked'; } ?> >
 																					</label>
 																				</div>
 																			</div>
 																			<div class="col-xs-6 col-sm-4">
 																				<div class="checkbox">
 																					<label>
-																						<input type="checkbox" value="<?php echo $question_id;?>" disabled name="questions_r[]" id="questions_r_<?php echo $question_id;?>" <?php if($rules==11) echo 'checked';?>>
+																						<input type="checkbox" value="<?php echo $question_id;?>" disabled name="questions_r[]" id="questions_r_<?php echo $question_id;?>" <?php if($rules==11) { echo 'checked'; } ?>>
 																					</label>
 																				</div>
 																			</div>
@@ -1135,24 +1135,11 @@ function delete_question(id){
 													<div class="col-sm-7 clearfix">
 														<div class="checkbox">
 															<label>
-																<input type="checkbox" value="1" name="management" id="management" <?php if($management) echo 'checked';?>><?php echo ALLOW_ATTENDEE_TO_UPDATE_INFORMATION_AFTER_REGISTRATION; ?>
+																<input type="checkbox" value="1" name="management" id="management" <?php if($management) { echo 'checked'; } ?>><?php echo ALLOW_ATTENDEE_TO_UPDATE_INFORMATION_AFTER_REGISTRATION; ?>
 															</label>
 														</div>
 													</div>
 												</div>
-												
-                 <!-- <div class="form-group clearfix">
-                 <div class="col-sm-4 col-xs-12 lable-rite">
-                   <label><?php echo REFUND_POLICY; ?></label>
-                 </div>
-                 <div class="col-sm-7 clearfix">
-                     <div class="checkbox">
-                     <label>
-                     	<input type="checkbox" value="1" name="return_policy" id="return_policy" <?php if($return_policy) echo 'checked';?>><?php echo ALLOW_ATTENDEE_TO_REQUEST_REFUNDS_FOR_PURCHASED_TICKETS; ?>
-                     </label>
-                     </div>
-                 </div>
-               </div> -->
                
              </div> <!-- event detail closes -->
              

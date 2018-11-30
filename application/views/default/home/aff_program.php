@@ -1,22 +1,23 @@
 <?php 
 $referral_percentage='';
-
-if($affiliate_data['fee_amt'] == '' || $affiliate_data['fee_amt'] > 0)
+$fee_amt = $affiliate_data['fee_amt'];
+if($fee_amt == '' || $fee_amt > 0)
 		{
 
-			$referral_percentage = set_event_currency($affiliate_data['fee_amt'],$eid). ' per ticket';
+			$referral_percentage = set_event_currency($fee_amt,$eid). ' per ticket';
 
 		}
 		else
 		{
-			if($affiliate_data['fee_perc'] != '' || $affiliate_data['fee_perc'] > 0.00)
+            $fee_perc = $affiliate_data['fee_perc'];
+			if($fee_perc != '' || $fee_perc > 0.00)
 			{
-				$referral_percentage = $affiliate_data['fee_perc']. '% of ticket';
+				$referral_percentage = $fee_perc. '% of ticket';
 			}
 			
 		}
 
-;?>
+?>
 
 <section>
 

@@ -219,7 +219,6 @@
                 </div>
                 <div class="col-lg-12 pt">
                     <input type="submit" class="btn-event2" value="<?php echo SEARCH; ?>">
-                    <!-- <button type="button" class="btn-eventgrey" onclick="goBack()">Cancel</button> -->
                     <a href="<?php echo site_url('contact_list')?>" class="btn-eventgrey" id="cancel"><?php echo CANCEL; ?></a>
                 </div>
 			</div>                        

@@ -79,7 +79,6 @@
                                                             $ticket_type = 'Paid';
                                                         }
                                                         
-                                                        //$amount = get_currency($total);
                                                         
                                     ?>
                                         <tr class="odd gradeX">
@@ -108,7 +107,8 @@
                                             <td>
                                             <?php if($ticket_type!="Free"){ ?>
                                                 <?php if(DEMO_MODE=="0"){ ?><img src="<?php echo base_url(); ?>admin_images/tick1.png" alt=" " height=" " width=" "  /> <a href="<?php echo site_url('admin/cancel_order/confirm_request/'.$id)?>">Confirm</a> 
-                                            | <?php }} ?><a href="<?php echo site_url('admin/cancel_order/view_reason/'.$id); ?>">Show Reason</a>
+                                            | <?php }
+                                            } ?><a href="<?php echo site_url('admin/cancel_order/view_reason/'.$id); ?>">Show Reason</a>
                                             <?php if(DEMO_MODE=="0"){ ?>  | <a href="<?php echo site_url('admin/cancel_order/show_decline/'.$id); ?>">Decline</a>
                                             <?php } ?>
                                             </td>

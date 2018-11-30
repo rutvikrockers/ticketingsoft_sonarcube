@@ -1,7 +1,7 @@
 <script>
 $(document).ready(function(){
 
-	var specialKeys = [];
+	var specialKeys = new Array();
     specialKeys.push(8); //Backspace
     specialKeys.push(9); //Tab
     specialKeys.push(46); //Delete
@@ -33,20 +33,27 @@ if($single_aff){
 	$code = $single_aff['code'];
 	$fee_amt = $single_aff['fee_amt'];
 	$fee_perc = $single_aff['fee_perc'];
-	
-	if($fee_amt>0) $fee_amt = $fee_amt;
-	else $fee_amt = '';
-	
-	if($fee_perc>0) $fee_perc = $fee_perc;
-	else $fee_perc = '';
-	
+	if($fee_amt<0) {
+        $fee_amt = '';
+    }
+	if($fee_perc<0) {
+	   $fee_perc = '';
+    }
 	$public = $single_aff['public'];
 	$notes = $single_aff['notes'];
 }else{
-  if(isset($code)){ $code = $code;}else{ $code = ''; }
-  if(isset($fee_amt)){ $fee_amt = $fee_amt;}else{ $fee_amt = ''; }
-  if(isset($fee_perc)){ $fee_perc = $fee_perc;}else{ $fee_perc = ''; }
-  if(isset($notes)){ $notes = $notes;}else{ $notes = ''; }
+    if(!isset($code)) {
+        $code = ''; 
+    }
+    if(!isset($fee_amt)) {
+        $fee_amt = ''; 
+    }
+    if(!isset($fee_perc)) {
+        $fee_perc = ''; 
+    }
+    if(!isset($notes)) {
+        $notes = ''; 
+    }
 }
 
 $aff_user = getAllRecordById('user_affiliates','affiliate_id',$aff_id);

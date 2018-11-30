@@ -13,10 +13,9 @@
             }else{
                 $work=0;
             }
-            in_array($order['blog'],array('11','10','1'));
 ?>
 
-<?php if(($order['prefix']=='10' || $order['prefix']=='11' || $order['prefix']=='1')){?>
+<?php if($order['prefix']=='10' || $order['prefix']=='11' || $order['prefix']=='1') {?>
 <div class="form-group clearfix">
     <div class="col-sm-3 col-xs-12 lable-rite">
     <label><?php echo Prefix; if($order['prefix']=='11'){?><span>*</span><?php } ?></label>
@@ -45,7 +44,7 @@
     </div>
 </div>
 
-<?php if(($order['suffix']=='10' || $order['suffix']=='11' || $order['suffix']=='1') ){?>
+<?php if($order['suffix']=='10' || $order['suffix']=='11' || $order['suffix']=='1') {?>
 <div class="form-group clearfix">
     <div class="col-sm-3 col-xs-12 lable-rite">
     <label><?php echo Suffix; if($order['suffix']=='11'){?><span>*</span><?php } ?></label>
@@ -652,5 +651,8 @@
     	</div>
     </div>
 </div>
-<?php } } } }?>
+            <?php } 
+        } 
+    } 
+} ?>
 <?php /*waivers end*/ ?>

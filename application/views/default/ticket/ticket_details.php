@@ -41,7 +41,6 @@
         </script>
         
 <?php
-	//print_r($tickets);die;
 	$ticket_amt = $tickets[0]['ticket_amt'];
     $ticket_total = $tickets[0]['total'];
 	$ticket_qty = $tickets[0]['ticket_qty'];
@@ -49,16 +48,13 @@
 	$start_sale = $tickets[0]['start_sale'];
 	$end_sale = $tickets[0]['end_sale'];
 	$event_title = $tickets[0]['event_title'];
-	//$vanue_name = $tickets[0]['vanue_name'];
     $vanue_name = $event_venue['name'];
 	$event_logo = $tickets[0]['event_logo'];
-	//$event_detail = $tickets[0]['event_detail'];
 	$street_address = $tickets[0]['street_address'];
         $organizer_id = $tickets[0]['organizer_id'];
         $event_id = $tickets[0]['eid'];
         
 	
-	//if(!(float)$ticket_amt>0){
     if(!(float)$ticket_total>0){
 		$ticket_type = 'Free';
 	}else{
@@ -99,7 +95,7 @@
                                 <h3><?php echo $event_title;?></h3>
                                 <address>
                                 <?php if($event_detail['online_event_option']!='0' && $event_detail['online_event_option']=='1'){ echo "Online Event";}else{ ?>
-                                  <p><?php echo SecureShowData($vanue_name);?> | <?php echo setAddress($event_id, $event_venue);//$address;//$street_address;?></p>
+                                  <p><?php echo SecureShowData($vanue_name);?> | <?php echo setAddress($event_id, $event_venue); ?></p>
                                   <p>8:00 p.m.</p>
                                   <?php } ?>
                                 </address>                                
@@ -107,22 +103,7 @@
                                   <p><strong><?php echo TICKET_QUANTITY; ?>:</strong> <?php echo $ticket_qty;?></p>
                                 
                                 <div class="pt pb">
-                                    <a href="<?php echo site_url('ticket/ticket_pdf/'.$purchase_id);?>" class="btn-event prnt-tckt"><?php echo PRINT_TICKETS; ?></a>                                    
-                                    <!--<?php $event_live = getEventStatus($event_id);
-                                    if($event_live){
-                                     ?> 
-                                    <?php $cancel_order = getRecordById('cancel_orders','id',$purchase_id);  
-                                        if(is_array($cancel_order)){ 
-                                     ?>                                   
-                                    <a href="javascript:void(0);" class="btn-eventgrey marL10 prnt-tckt"><?php echo CANCEL_TICKET; ?></a>
-                                    <?php }else{ if($ticket_type!="Free"){?> 
-                                    <a href="<?php echo site_url('ticket/cancel_order/'.$purchase_id);?>" class="btn-event marL10 prnt-tckt" onclick="return confirm_delete();"><?php echo CANCEL_TICKET; ?></a>
-                                    <?php }else{ ?> 
-                                        <a href="<?php echo site_url('ticket/cancel_free_order/'.$purchase_id);?>" class="btn-event marL10 prnt-tckt" onclick="return confirm_delete();"><?php echo CANCEL_TICKET; ?></a>
-                                         
-                                    <?php }}}else{ ?>
-                                      <a href="javascript:void(0);" class="btn-eventgrey marL10 prnt-tckt"><?php echo CANCEL_TICKET; ?></a>
-                                     <?php } ?>-->
+                                    <a href="<?php echo site_url('ticket/ticket_pdf/'.$purchase_id);?>" class="btn-event prnt-tckt"><?php echo PRINT_TICKETS; ?></a>
                                     <a href="<?php echo site_url('event/contact_organizer/'.$organizer_id.'/'.$event_id)?>" class="btn-eventgrey marL10 mfPopup"><?php echo CONTACT_THE_HOST; ?></a>
                                 </div>
                                 </div>

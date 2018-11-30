@@ -161,10 +161,10 @@ function setaction(elename, actionval, actionmsg, formname) {
                                                 <?php 
                                                     if($active == 1)
                                                         { ?>
-                                                        <img src="<?php echo base_url(); ?>admin_images/tick1.png" /> &nbsp;
+                                                        <img src="<?php echo base_url(); ?>admin_images/tick1.png" alt="tick" /> &nbsp;
                                                         <?php echo ACTIVE;
                                                         } else{?>
-                                                        <img src="<?php echo base_url(); ?>admin_images/eb_close-fc.png" />&nbsp;
+                                                        <img src="<?php echo base_url(); ?>admin_images/eb_close-fc.png" alt="close" />&nbsp;
                                                         <?php echo INACTIVE;
                                                         }
                                                     ?>

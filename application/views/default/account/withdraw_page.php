@@ -57,7 +57,8 @@ return true;
                               {
                               ?>
                                 <option value="<?php echo $vall['currency_symbol'].$vall['shares']?>"><?php echo  $vall['currency_symbol'].$vall['shares'] ?></option>
-                        <?php } }
+                            <?php } 
+                            }
                              ?>                            
                     </select>                
                 </div>

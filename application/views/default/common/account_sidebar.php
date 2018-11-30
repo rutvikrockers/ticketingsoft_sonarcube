@@ -123,15 +123,30 @@ if($unreadMsg<=0){ $unreadMsg_text=''; }
                       
                     </div>
                     
-                     <?php  if($multi===false)
-                     if(isset($user_event)){ ?>
-                     <div class="panel">
-                        <a href="<?php echo site_url('user/close_account'); ?>" class="list-group-item collapsed">
-                        <?php echo CLOSE_ACCOUNT;?>
-                      </a>                      
-                    </div>
-                    <?php } ?>  
+                     <?php  if($multi===false) {
+                        $total_event = total_user_active_event($this->session->userdata['user_id']);
+                        if($total_event) { ?>
+                            <div class="panel">
+                                <a href="javascript:void(0);" class="list-group-item collapsed" data-original-title="<?php echo CLOSE_ACCOUNT_MESSAGE; ?>" data-placement="left" data-toggle="tooltip">
+                                    <?php echo CLOSE_ACCOUNT;?>
+                                </a>
+                            </div>
+                        <?php } else { ?>
+                            <div class="panel">
+                                <a href="<?php echo site_url('user/close_account'); ?>" class="list-group-item collapsed">
+                                    <?php echo CLOSE_ACCOUNT;?>
+                                </a>
+                            </div>
+                        <?php } ?>
+                    <?php } ?>
                     
           </div><!-- inner-link ENDS -->          
         </div>                              
     </div>
+
+
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>

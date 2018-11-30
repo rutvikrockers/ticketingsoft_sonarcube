@@ -91,9 +91,9 @@
                                 </div>
                                 <div class="col-sm-4">
                                 	<select class="form-control" name="mailer">
-                                		 <option value="mail" <?php if($mailer=='mail') echo "selected";?>>PHP Mail</option>
-										 <option value="smtp" <?php if($mailer=='smtp') echo "selected";?>>SMTP</option>
-										 <option value="sendmail" <?php if($mailer=='sendmail') echo "selected";?>>Sendmail</option>
+                                		 <option value="mail" <?php if($mailer=='mail') { echo "selected"; } ?>>PHP Mail</option>
+										 <option value="smtp" <?php if($mailer=='smtp') { echo "selected"; } ?>>SMTP</option>
+										 <option value="sendmail" <?php if($mailer=='sendmail') { echo "selected"; } ?>>Sendmail</option>
                                     </select>
                                 </div>
                             </div>

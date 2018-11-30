@@ -34,7 +34,6 @@ function setaction(elename, actionval, actionmsg, formname) {
                     <h1><?php echo EVENT_LAYOUT; ?> <small><?php echo SecureShowData($site_setting['site_name']);?> <?php echo ADMIN_PANEL; ?></small></h1>
                 </div>
                 <div class="col-lg-4 col-xs-12 clearfix mt20 text-right">
-                <!--<a href="<?php echo site_url();?>admin/event_view_layout/add_event_layout" class="btn btn-primary"><?php echo ADD_NEW_LAYOUT; ?></a>-->
                 </div> 
                  <div class="page-header border clearfix"></div>
                  <ol class="breadcrumb">
@@ -141,21 +140,19 @@ function setaction(elename, actionval, actionmsg, formname) {
                                             <td><?php echo SecureShowData($tem_category); ?></td>
                                             <td>
                                             <?php if(file_exists('images/'.$tem_image)) { ?>
-                                            <img src="<?php echo base_url(); ?>images/<?php echo SecureShowData($tem_image); ?>" alt=" " height="150" width="190" >
-                                            <?php } elseif(file_exists('images/'.$tem_image)) { ?>
-                                            <img src="<?php echo base_url(); ?>images/<?php echo SecureShowData($tem_image); ?>" alt=" " height="150" width="190" >
+                                            <img src="<?php echo base_url(); ?>images/<?php echo SecureShowData($tem_image); ?>" alt="category" height="150" width="190" >
                                             <?php }else { ?>
-                                            <img src="<?php echo base_url(); ?>upload/home_banner/no_img.jpg" alt=" " height="150" width="190" >
+                                            <img src="<?php echo base_url(); ?>upload/home_banner/no_img.jpg" alt="no_img" height="150" width="190" >
                                             <?php } ?>
                                             </td>
                                             <td>
                                             	<?php 
 													if($active == 1)
 														{ ?>
-                                                        <img src="<?php echo base_url(); ?>admin_images/tick1.png" /> &nbsp;
+                                                        <img src="<?php echo base_url(); ?>admin_images/tick1.png" alt="tick" /> &nbsp;
 														<?php echo ACTIVE;
 													 	} else{?>
-														<img src="<?php echo base_url(); ?>admin_images/eb_close-fc.png" />&nbsp;
+														<img src="<?php echo base_url(); ?>admin_images/eb_close-fc.png" alt="close" />&nbsp;
 														<?php echo INACTIVE;
 														}
 													?>

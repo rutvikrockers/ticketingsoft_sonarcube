@@ -33,14 +33,6 @@
 
     <script src="<?php echo base_url(); ?>admin_js/sb-admin.js"></script>
     
-   <?php /*?><script src="<?php echo base_url(); ?>admin_js/scripts.js"></script><?php */?>
-	 <!--<script src="<?php echo base_url(); ?>admin_js/plugins/morris/raphael-2.1.0.min.js"></script>
-    <script src="<?php echo base_url(); ?>admin_js/plugins/morris/morris.js"></script>-->
-   
-   <!-- <script src="<?php echo base_url(); ?>admin_js/demo/dashboard-demo.js"></script>-->
-	
-
-
 </head>
 
  <?php 
@@ -53,7 +45,6 @@
 <body >
  <div id="wrapper">
  <?php echo $header; ?>
-      <!-- <h1 style="text-transform:capitalize;" class="h1"><?php //echo $title; ?>&nbsp;</h1> -->
 <?php echo $main_content; ?>        
 <?php echo $footer; ?>
 </div>

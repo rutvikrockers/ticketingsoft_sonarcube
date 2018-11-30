@@ -2,19 +2,6 @@
 <div class="white-popup-block popup-container popup-slider">
   <div class="flexslider1 flexslider">
               <ul class="slides">
-            <!--     <li>
-                   <?php 
-                          $image = base_url().'upload/event_default/no_img.jpg';
-                          $event_logo =  $event_details['event_logo'];
-                          if($event_logo != '' && file_exists(base_path().'upload/event/orig/'.$event_logo)){ 
-                              $image = base_url().'upload/event/orig/'.$event_logo;
-                          }
-                          elseif($event_logo != '' && file_exists(base_path().'upload/event/thumb/'.$event_logo)){ 
-                              $image = base_url().'upload/event/thumb/'.$event_logo;
-                          }
-                      ?>
-                <img src="<?php echo $image; ?>" alt=" " height="" class="img-responsive " > 
-                </li> -->
                 <?php  
                   
 

@@ -96,10 +96,6 @@ function setaction(elename, actionval, actionmsg, formname) {
             <div class="row">
             	<div class="col-lg-12 clearfix">
                 	<div class="panel panel-default">
-                       <!--  <div class="panel-heading">
-                            <?php echo ADD_NEW_EXTENSION; ?>
-                            <input type="file" name="extenstion_name" id="extenstion_name" >
-                        </div> -->
                     	<div id="collapseOne" class="panel-collapse collapse in">
                             <div class="panel-body">
                             <div id="dataTables-example_wrapper" class="dataTables_wrapper form-inline" role="grid">

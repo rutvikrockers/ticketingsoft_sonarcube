@@ -116,7 +116,6 @@ function setaction(elename, actionval, actionmsg, formname) {
                                   <table class="table table-striped table-bordered table-hover" id="sample_1">
                                     <thead>
                                         <tr>
-                                        	<!-- <th class="sorting_disabled"><input type="checkbox" id="selecctall"></th> -->
                                              <th><?php echo MESSAGE_SUBJECT; ?></th>
                                              <th><?php echo EVENT; ?></th>
                                              <th><?php echo SENDER_NAME; ?></th>
@@ -154,7 +153,6 @@ function setaction(elename, actionval, actionmsg, formname) {
 									?>
                                         <?php if($sender_info && $receiver_info) { ?>
                                             <tr class="odd gradeX">
-                                            	<!-- <td><input type="checkbox" class="checkbox1" name="chk[]" value="<?php echo $id;?>" ></td> -->
                                                	<td><?php echo SecureShowData($message_subject); ?></td>
                                                <td><?php echo SecureShowData($event_title); ?> </td>
                                                <td><?php echo SecureShowData($sender_name); ?> </td>

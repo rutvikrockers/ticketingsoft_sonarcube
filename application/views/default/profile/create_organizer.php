@@ -247,35 +247,22 @@
 <section>
 <?php
 if($single_org){
-	foreach($single_org as $orgs)
-		$name=$orgs['name'];
-		$description=$orgs['description'];
-		$org_logo=$orgs['org_logo'];
-		$show_website=$orgs['show_website'];
-		$website=$orgs['website'];
-		$show_no_event=$orgs['show_no_event'];
-		$display_event=$orgs['display_event'];
-		//$add_facebook=$orgs['display_event'];
-		$facebook_link=$orgs['facebook_link'];
-		$add_facebook=$orgs['add_facebook'];
-		$add_twitter=$orgs['add_twitter'];
-		$twitter_link=$orgs['twitter_link'];
-    $org_icon=$orgs['org_icon'];
+	foreach($single_org as $orgs) {
+        $name=$orgs['name'];
+        $description=$orgs['description'];
+        $org_logo=$orgs['org_logo'];
+        $show_website=$orgs['show_website'];
+        $website=$orgs['website'];
+        $show_no_event=$orgs['show_no_event'];
+        $display_event=$orgs['display_event'];
+        $facebook_link=$orgs['facebook_link'];
+        $add_facebook=$orgs['add_facebook'];
+        $add_twitter=$orgs['add_twitter'];
+        $twitter_link=$orgs['twitter_link'];
+        $org_icon=$orgs['org_icon'];
+    }
 
-}/*else{
-		$name='';
-		$description='';
-		$org_logo='';
-		$show_website='';
-		$website='';
-		$show_no_event='';
-		$display_event='';
-		$add_facebook='';
-		$facebook_link='';
-		$add_facebook='';
-		$add_twitter='';
-		$twitter_link='';
-}*/
+}
 ?>
 
 
@@ -308,13 +295,7 @@ if($single_org){
                 <form name="org_form" id="org_form" method="post" action="<?php echo site_url('profile/create_organizer/'.$url);?>" class="event-title">
                 <!-- 1st part--> 
                 
-            	<div class="row">  
-                
-                <!--<div class="event-webpage col-sm-12 pt">
-                	<div class="red-one text-center"><h4>1.</h4></div>
-                    <div class="red-event"><h4>Add your Event Details</h4></div>
-                    <div class="clear"></div>
-                </div> End event-webpage -->
+            	<div class="row">
                 
            		<div class="event-webpage col-sm-12">
                 	<div class="red-event width100 "><h4><?php echo ABOUT_THE_ORGANIZER;?></h4></div>
@@ -426,13 +407,13 @@ if($single_org){
                                 <div class="col-sm-8 col-sm-offset-3 clearfix">
                                 	<div class="checkbox">
                                           <label>
-                                            <input type="checkbox" name="chkwebsite" id="chkwebsite" value="1" <?php if($show_website) echo 'checked';?> ><?php echo SHOW_MY_WEBSITE;?>
+                                            <input type="checkbox" name="chkwebsite" id="chkwebsite" value="1" <?php if($show_website) { echo 'checked'; } ?> ><?php echo SHOW_MY_WEBSITE;?>
                                           </label>
                                     </div>
                                     
                                     <div class="checkbox">
                                           <label>
-                                            <input type="checkbox" name="chkevents" id="chkevents" value="1" <?php if($show_no_event) echo 'checked';?>><?php echo SHOW_NUMBER_OF_EVNT_HELD;?>
+                                            <input type="checkbox" name="chkevents" id="chkevents" value="1" <?php if($show_no_event) { echo 'checked'; } ?>><?php echo SHOW_NUMBER_OF_EVNT_HELD;?>
                                           </label>
                                     </div>
                                </div>
@@ -447,14 +428,14 @@ if($single_org){
                             	<div class="col-sm-8 col-xs-12">
                                 	<div class="radio">
                                           <label>
-                                            <input type="radio" name="eventinfo" id="event_org" value="1" <?php if($display_event==1) echo 'checked';?> >
+                                            <input type="radio" name="eventinfo" id="event_org" value="1" <?php if($display_event==1) { echo 'checked'; } ?> >
                                             <?php echo DISPLAY_ONLY_EVENTS_BY_ORGANIZER;?>
                                           </label>
                                         </div>
                                         
                                      <div class="radio">
                                           <label>
-                                            <input type="radio" name="eventinfo" id="all_event" value="2" <?php if($display_event==2) echo 'checked';?>>
+                                            <input type="radio" name="eventinfo" id="all_event" value="2" <?php if($display_event==2) { echo 'checked'; } ?>>
                                             <?php echo DISPLAY_ALL_OF_MY_EVENTS;?>
                                           </label>
                                     </div>
@@ -505,13 +486,13 @@ if($single_org){
                                         
                                      <div class="radio">
                                           <label>
-                                            <input type="radio" name="optionsRadios" id="radio_medium" value="2" <?php if($org_icon==2) echo 'checked';?>>
+                                            <input type="radio" name="optionsRadios" id="radio_medium" value="2" <?php if($org_icon==2) { echo 'checked'; } ?>>
                                             <?php echo MEDIUM_34PX;?>
                                           </label>
                                     </div>
                                     <div class="radio">
                                           <label>
-                                            <input type="radio" name="optionsRadios" id="radio_small" value="3" <?php if($org_icon==3) echo 'checked';?>>
+                                            <input type="radio" name="optionsRadios" id="radio_small" value="3" <?php if($org_icon==3) { echo 'checked'; } ?>>
                                             <?php echo SMALL_24PX;?>
                                     </div>
                                     
@@ -524,7 +505,7 @@ if($single_org){
                             	</div>
                                 
                             	<div class="col-sm-8 col-xs-12">
-                            		<textarea name="change_me" id="change_me" disabled><a href="<?php echo site_url('profile/create_organizer/'.$url);?>" target="_blank"><img src="<?php echo base_url();?>images/bl3.png" /></a></textarea>
+                            		<textarea name="change_me" id="change_me" disabled><a href="<?php echo site_url('profile/create_organizer/'.$url);?>" target="_blank"><img src="<?php echo base_url();?>images/bl3.png" alt="organizer" /></a></textarea>
                             		<span id="change_this"></span>
                             
                                     <p class="fromText"><?php echo COPY_AND_PASTE_THIS_CODE_FOR_USE_ON_YOUR_WEBSITE;?></p>
@@ -557,7 +538,7 @@ if($single_org){
                             	<div class="col-sm-8 col-sm-offset-3 clearfix">
                                 	<div class="checkbox">
                                           <label>
-                                            <input type="checkbox" value="1" id="fbchk" name="fbchk"  <?php if($add_facebook) echo 'checked';?>><?php echo ADD_MY_PAGE_FACEBOOK;?>
+                                            <input type="checkbox" value="1" id="fbchk" name="fbchk"  <?php if($add_facebook) { echo 'checked'; } ?>><?php echo ADD_MY_PAGE_FACEBOOK;?>
                                           </label>
                                     </div>
                                </div>
@@ -578,7 +559,7 @@ if($single_org){
                                 <div class="col-sm-8 col-sm-offset-3 clearfix">
                                 	<div class="checkbox">
                                           <label>
-                                            <input type="checkbox" value="1" name="twitterchk" id="twitterchk" <?php if($add_twitter) echo 'checked'; ?>><?php echo ADD_MY_PAGE_TWITTER;?>
+                                            <input type="checkbox" value="1" name="twitterchk" id="twitterchk" <?php if($add_twitter) { echo 'checked'; } ?>><?php echo ADD_MY_PAGE_TWITTER;?>
                                           </label>
                                     </div>
                                     
@@ -589,41 +570,7 @@ if($single_org){
 			                            	</div>
 			                            	 <div class="col-sm-8 col-xs-12">
 			                            		<input type="text" placeholder="Twitter page" name="tw_link" id="tw_link" value="<?php echo $twitter_link;?>">
-                                    	<!--
-                                    	<div class="radio">
-                                          <label>
-                                            <input type="radio" value="1" id="tw_user" name="tw_feed" <?php if($twitter_link) echo 'checked'; ?> >Username
-                                          </label>
                                     	</div>
-                                    	<div class="radio">
-                                          <label>
-                                            <input type="radio" value="1" id="tw_query" name="tw_feed" <?php if($twitter_link) echo 'checked'; ?>>Search Query
-                                          </label>
-                                    	</div>
-                                    	
-                                    	<div id="twuser_div">
-			                            	<div class="col-sm-6 col-xs-12 lable-rite">
-			                            		<label class="wordbrk">http://www.boleteria.com/MiEvento</label>
-			                            	</div>
-			                            	 <div class="col-sm-8 col-xs-12">
-			                            		<input type="text" placeholder="" name="tw_username" id="tw_username" value="<?php echo $twitter_link;?>">
-			                            	</div>
-			                            </div>
-			                            	
-			                       <div id="twquery_div">
-			                            	<div class="col-sm-3 col-xs-12 lable-rite">
-			                            		<label class="wordbrk">http://www.boleteria.com/MiEventor</label>
-			                            	</div>
-			                            	 <div class="col-sm-8 col-xs-12">
-			                            		<input type="text" placeholder="Search Query" name="tw_link" id="tw_link" value="<?php echo $twitter_link;?>">
-			                            	</div>
-			                            </div>
-			                       
-                                    </div> -->                      </div>
-                            
-                               
-                          
-                               
                         	</div>
                                               
                    </div>
@@ -645,7 +592,6 @@ if($single_org){
                 
              </div>
                   
-            <!-- </div> End browse -->
             </form> 
             
              

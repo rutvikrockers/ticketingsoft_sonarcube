@@ -174,8 +174,9 @@
   </script>
    
   <?php 
-  if(isset($birth_date))
-  if($birth_date=='0000-00-00') $birth_date='';
+  if(isset($birth_date) && $birth_date=='0000-00-00') {
+    $birth_date='';
+  }
   ?>
   
     <section>  
@@ -204,8 +205,7 @@
                <?php 	
                      }?>
                      <?php 
-                     if(isset($del_msg))
-                     if($del_msg!=''){
+                     if(isset($del_msg) && $del_msg!=''){
                         			?>
                         <div class="alert alert-success mar10"><?php echo $del_msg; ?></div>
                <?php 	
@@ -248,8 +248,9 @@
               </div><!-- End Row-->         
             
             <?php
-            if(!isset($venue_id)||$venue_id==0)
+            if(!isset($venue_id)||$venue_id==0) {
             	$venue_id='';
+            }
             ?>         
                 
             <form name="venue_form" id="venue_form" class="event-title"  method="post" action="<?php echo site_url('venues/my_venues/'.$venue_id);?>">

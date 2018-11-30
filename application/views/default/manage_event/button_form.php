@@ -3,47 +3,50 @@
 $address='';
 // print_r($event_venue);die();
 if($event_id!=''){
-	
-		if($event_venue['venue_add1']!='')
+        $venue_add1 = $event_venue['venue_add1'];
+        $venue_add2 = $event_venue['venue_add2'];
+        $venue_city = $event_venue['venue_city'];
+        $venue_state = $event_venue['venue_state'];
+        $venue_country = $event_venue['venue_country'];
+		if($venue_add1!='')
 		{	
-
-			$address=$event_venue['venue_add1'];
+			$address=$venue_add1;
 		}
-		if($event_venue['venue_add2']!='')
+		if($venue_add2!='')
 		{
 			if($address!=''){
-			$address=$address.','.$event_venue['venue_add2'];
+			$address=$address.','.$venue_add2;
 				}else
 				{
-					$address=$event_venue['venue_add1'];
+					$address=$venue_add2;
 				}
 		}
-		if($event_venue['venue_city']!='')
+		if($venue_city!='')
 		{
 			if($address!=''){
-			$address=$address.','.$event_venue['venue_city'];
+			$address=$address.','.$venue_city;
 				}else
 				{
-					$address=$event_venue['venue_city'];
+					$address=$venue_city;
 				}
 		}
-		if($event_venue['venue_state']!='')
+		if($venue_state!='')
 		{
 			if($address!=''){
-			$address=$address.','.$event_venue['venue_state'];
+			$address=$address.','.$venue_state;
 				}else
 				{
-					$address=$event_venue['venue_state'];
+					$address=$venue_state;
 				}
 		}
-		if($event_venue['venue_country']!='')
+		if($venue_country!='')
 		{
 			if($address!='')
 			{
-				$address=$address.','.$event_venue['venue_country'];
+				$address=$address.','.$venue_country;
 				}else
 				{
-					$address=$event_venue['venue_country'];
+					$address=$venue_country;
 				}
 		}
 	}
@@ -225,13 +228,9 @@ $data1['events_id']=$id;
 
 $event_status = $event_data['active'];
 $event_title = $event_data['event_title'];
-//$vanue_name = $event_data['vanue_name']; // Darshan
 $venue_id = $event_data['venue_id']; // Darshan
 $street_address = $event_data['street_address'];
 $event_start_date_time = datetimeformat($event_data['event_start_date_time']);
-//$total_net_sales=$final_admin_fees + $final_total_gross;
-//$event_status = $event_data['active'];
-//$event_status = $event_data['active'];
 
 
 $is_delete = delete_check($event_status);
@@ -256,13 +255,13 @@ $is_delete = delete_check($event_status);
             <div class="btn_bg">
               <?php 
         			$page_url; 
-        			if($event_details['event_url_link']=='' || $event_details['event_url_link']==null){
+                    $event_url_link = $event_details['event_url_link'];
+        			if($event_url_link=='' || $event_url_link==null){
         				$page_url = site_url('event/view/'.$events_id);
         			}else{
-        				$page_url = site_url('event/view/'.$event_details['event_url_link']);
+        				$page_url = site_url('event/view/'.$event_url_link);
         			} ?>
               <a href="<?php echo $page_url; ?>" target="_blank">
-              <!-- <input type="submit" class="btn" id="btn_widget" value =""  /> -->
               <input type="button" class="btn" id="btn_widget" value =""  />
               </a> </div>
             <div class="clear"></div>

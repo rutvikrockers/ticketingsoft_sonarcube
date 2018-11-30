@@ -7,16 +7,6 @@
                 <div class="page-header border"></div>
                 <!-- /.col-lg-12 -->
             </div>
-         <!--    <?php 
-				if($msg == 'update')
-					{	?>
-						
-                        	<div class="alert alert-success" role="alert">
-							<button class="close" data-dismiss="alert">x</button>
-							<strong><?php echo SUCCESS; ?>!</strong> <?php echo RECORD_HAS_BEEN_SUCCESSFULLY_UPDATED;?>
-                            </div>
-			
-			<?php } ?> -->
             <?php 
 				if($error!= '')
 				{ ?>

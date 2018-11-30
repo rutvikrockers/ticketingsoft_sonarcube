@@ -38,24 +38,7 @@ function setaction(elename, actionval, actionmsg, formname) {
     overflow-y: scroll !important;
     overflow-x: hidden !important;
 }
-</style> 
-<script type="text/javascript" language="javascript">
-
-	<?php /*?>function delete_rec(id,offset)
-	{
-		var ans = confirm("<?php echo ARE_YOU_SURE_TO_DELETE_USER; ?>");
-		if(ans)
-			{
-				location.href = "<?php echo site_url('admin/admin_user/delete_user/'); ?>"+"/"+id+"/";
-
-			}else{
-
-			return false;
-
-			}
-	}<?php */?>
-</script>    
-
+</style>
   <div id="page-wrapper">
     <div class="container-fluid">
             <div class="row">

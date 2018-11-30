@@ -137,19 +137,6 @@
                                         </select>
                                     </div>
                                 </div>
-                                
-                                <!--<div class="form-group clearfix">
-                                	<div class="col-sm-3">
-                                    	<label><?php echo UPATES; ?></label>
-                                    </div>
-                                    <div class="col-sm-4">
-                                    	<select class="form-control" name="update">
-                                                <option value="1" <?php if($latest_update == 1){ echo "selected"; } ?>><?php echo YES; ?></option>
-                                            	<option value="0" <?php if($latest_update == 0){ echo "selected";} ?>><?php echo NO; ?></option>
-                                        </select>
-                                    </div>
-                                </div>-->
-                                
                         </div>
                    	
                  </div>

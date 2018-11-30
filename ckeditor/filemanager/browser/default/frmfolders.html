@@ -35,15 +35,15 @@ var sActiveFolder ;
 var bIsLoaded = false ;
 var iIntervalId ;
 
-var oListManager = {} ;
+var oListManager = new Object() ;
 
 oListManager.Init = function()
 {
 	this.Table = document.getElementById('tableFiles') ;
 	this.UpRow = document.getElementById('trUp') ;
 
-	this.TableRows = {} ;
-};
+	this.TableRows = new Object() ;
+}
 
 oListManager.Clear = function()
 {
@@ -52,8 +52,8 @@ oListManager.Clear = function()
 		this.Table.deleteRow(1) ;
 
 	// Reset the TableRows collection.
-	this.TableRows = {} ;
-};
+	this.TableRows = new Object() ;
+}
 
 oListManager.AddItem = function( folderName, folderPath )
 {
@@ -75,7 +75,7 @@ oListManager.AddItem = function( folderName, folderPath )
 	oCell.innerHTML = '&nbsp;' + sLink + folderName + '<\/a>' ;
 
 	this.TableRows[ folderPath ] = oRow ;
-};
+}
 
 oListManager.ShowUpFolder = function( upFolderPath )
 {
@@ -89,7 +89,7 @@ oListManager.ShowUpFolder = function( upFolderPath )
 			return false ;
 		}
 	}
-};
+}
 
 function CheckLoaded()
 {

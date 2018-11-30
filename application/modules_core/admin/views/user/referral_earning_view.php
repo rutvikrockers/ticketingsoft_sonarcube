@@ -30,28 +30,19 @@
                                     <thead>
                                         <tr>
                                         	
-                                     <!--  <th>&nbsp;</th> -->
                                      
                                     <th>Amount</th>
                                     <th>Paid</th>
                                     <th>Due</th>
                                    
-                                   <!--  <th>Status</th>
-                                    <th>Action</th> -->
                                             
                                         </tr>
                                     </thead>
                                     <tbody>
                                     <?php 
 
-									
-                       //echo $user_id;die;
-                                         // echo "<pre>";
-                                         // print_r($result);die;
 											 $p_data=getreferral_data_byuser($user_id);
                        if($p_data){
-                       // echo "<pre>";
-                       // print_r($p_data);die;
                          $amount ='';$paid='';$status='';$due='';
                            if(is_array($p_data))
                            {
@@ -59,21 +50,14 @@
                              {
                               if(is_array($vall))
                                {
-                                if( $amount=='') $amount= $vall['currency_symbol'].$vall['shares'];
-                                else $amount.=",".$vall['currency_symbol'].$vall['shares'];
+                                if( $amount=='') { $amount= $vall['currency_symbol'].$vall['shares']; }
+                                else { $amount.=",".$vall['currency_symbol'].$vall['shares']; }
                               
                               /*  check by kartik */
-                                //if($amount == '') $amount = set_event_currency($vall['shares'],$event_id);
-                                //else $amount.=",".set_event_currency($vall['shares'],$event_id);
                                /* check by Kartik */
                                }
 
                              }
-                               if($amount!='')
-                               {
-                          
-                               } 
-                           else{ /*$amount ='0.00';*/} 
                           
                           /* end the account code */
 
@@ -91,8 +75,8 @@
                                if(is_array($vall))
                                {
                                 
-                                if( $paid=='') $paid= $vall['currency_symbol'].$vall['shares'];
-                                else $paid.=",".$vall['currency_symbol'].$vall['shares'];
+                                if( $paid=='') { $paid= $vall['currency_symbol'].$vall['shares']; }
+                                else { $paid.=",".$vall['currency_symbol'].$vall['shares']; }
                               }
 
                              }
@@ -105,8 +89,8 @@
                                if(is_array($vall))
                                {
                                 
-                                if( $due=='') $due= $vall['currency_symbol'].$vall['shares'];
-                                else $due.=",".$vall['currency_symbol'].$vall['shares'];
+                                if( $due=='') { $due= $vall['currency_symbol'].$vall['shares']; }
+                                else { $due.=",".$vall['currency_symbol'].$vall['shares']; }
                               }
 
                              }

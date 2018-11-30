@@ -47,7 +47,8 @@
             <td><?php echo $rcase1; ?></td>
             
           </tr>
-          <?php } }else{
+          <?php } 
+            }else{
                      echo '<tr><td colspan="7">'.NO_RECORDS.'</td></tr>';
                  } ?>
             </tbody>

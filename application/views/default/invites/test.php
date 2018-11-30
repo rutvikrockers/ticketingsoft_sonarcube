@@ -10,7 +10,6 @@
 <!-- Start of Darshan Code -->
 <?php 
 $address='';
- //print_r($event_detail);die();
 if($event_detail['id']!='')
 {
   $address=setAddress($event_detail['id'], $event_detail);
@@ -22,17 +21,13 @@ if($event_detail['id']!='')
 
 <?php 
 
-  //$invite = $invite[0];
   $inv_facebook = $invite['facebook'];
   $inv_twitter = $invite['twitter'];
   $inv_message = $invite['message'];    
   $inv_from_name = $invite['from_name'];
   $inv_reply_to = $invite['reply_to'];
   $inv_subject = $invite['subject'];
-  //$inv_message = $invite['message'];
   $inv_salutation = $invite['salutation'];
-  //$inv_twitter = $invite['twitter'];
-  //$inv_facebook = $invite['facebook'];
   $inv_image= $invite['image'];
   $inv_text_color = $invite['text_color'];
   $inv_back_color = $invite['back_color'];
@@ -59,9 +54,7 @@ $event_images=getAllRecordById('event_images','event_id',$event_id);
 $event_logo_image = $event_images[0]['image_name'];
 $event_url_link = $event_detail['event_url_link'];
 $online_event_option = $event_detail['online_event_option'];
-//$vanue_name = $event_detail['vanue_name']; // Kartik
 $vanue_name = $event_detail['name'];
-//$street_address = $event_detail['street_address'];
 $street_address = $address;
 $password_protect = $event_detail['password_protect'];
 $password_value=$event_detail['password_value'];
@@ -122,7 +115,7 @@ body{
                 <?php if($inv_image){ ?>
                 <div style="width:100%">
                     <div id="event_image" style="background-color:<?php echo $invite['back_color'];?>; color:<?php echo $invite['text_color'];?>; padding: 15px 10px;width: 30%;line-height: 1.42857143;float: left;display: <?php if ($inv_image==1 ) {?> block; <?php }else{ ?> none; <?php } ?>">
-                        <img style="width: 100%;" src="<?php echo $event_image;?>">
+                        <img style="width: 100%;" src="<?php echo $event_image;?>" alt=inv"">
                     </div>
                 <?php
                 }
@@ -134,7 +127,7 @@ body{
 
 
                 <p class="p0" style="font-weight: bold;">
-                     <span>Start Date : &nbsp;&nbsp;<?php echo datetimeformat($event_start_date_time).' '.timeFormat($event_start_date_time);;?></span> <br>
+                     <span>Start Date : &nbsp;&nbsp;<?php echo datetimeformat($event_start_date_time).' '.timeFormat($event_start_date_time);?></span> <br>
                     <span>End Date : &nbsp;&nbsp;&nbsp;&nbsp;<?php echo datetimeformat($event_end_date_time).' '.timeFormat($event_end_date_time);?></span>
                     <br><br>
                     
@@ -192,7 +185,6 @@ body{
                         <strong>Share this event on
                             <?php
                             if($inv_facebook){ ?>
-                                <!--<a id="fb_link" href="http://facebook.com/<?php echo $event_detail['facebook_link']; ?>" style="display: block <?php if ($event_detail['add_facebook']==1  && $invite['facebook']==1 ){?> inline-block; <?php }else{ ?> none; <?php } ?>; color: <?php echo $invite['link_color'];?>;">  <?php echo 'Facebook'; ?> </a> -->
                                 <a target="_blank" id="fb_link" href="http://www.facebook.com/sharer/sharer.php?u=<?php echo site_url('event/view/'.$event_detail['event_url_link']);?>&t=<?php echo SecureShowData($event_detail['event_title']); ?>" style="display: block <?php if ($event_detail['add_facebook']==1  && $invite['facebook']==1 ){?> inline-block; <?php }else{ ?> none; <?php } ?>; color: <?php echo $invite['link_color'];?>;">  <?php echo 'Facebook'; ?> </a>
 
                             <?php

@@ -78,7 +78,7 @@
                                                 $language_name=$lang['language_name'];
                                                 $lan_id=$lang['id']; 
                                                 $select="";
-                                                if($lan_id == $site_language) $select="selected=selected";
+                                                if($lan_id == $site_language) { $select="selected=selected"; }
                                                 
                                                 ?>
                                                  <option value="<?php echo $lan_id;?>" <?php echo  $select; ?>><?php echo SecureShowData($language_name); ?></option>
@@ -196,10 +196,6 @@
                                         </div>
                                         <div class="col-sm-4">
                                             <select class="form-control" name="currency_symbol_side">
-                                                    <!-- <option value="left" <?php if($currency_symbol_side == 'left') { echo "selected";}?> >$100</option>
-                                                    <option value="left_space" <?php if($currency_symbol_side == 'left_space') { echo "selected";}?>>$ 100</option>
-                                                    <option value="right" <?php if($currency_symbol_side == 'right') { echo "selected";}?>>100$</option>
-                                                    <option value="right_space" <?php if($currency_symbol_side == 'right_space') { echo "selected";}?>>100 $</option> -->
                                                     <option value="left_code"<?php if($currency_symbol_side == 'left_code') { echo "selected";}?>>USD100 </option>
                                                     <option value="left_space_code" <?php if($currency_symbol_side == 'left_space_code') { echo "selected";}?>>USD 100</option>
                                                     <option value="right_code" <?php if($currency_symbol_side == 'right_code') { echo "selected";}?>>100USD</option>
@@ -281,7 +277,6 @@
                                     </div>
                                     <div class="col-sm-3">
                                     <select class="form-control" name="date_time_format" id="date_time_format">
-                                        <!-- <input class="form-control" type="text" name="date_time_format" value="<?php echo $date_time_format; ?>"> -->
                                         <option value='H:i' <?php if($date_time_format == 'H:i') { echo 'selected="selected"'; } ?>>05:45 (24 Hours)</option>
                                         <option value='g:i a' <?php if($date_time_format == 'g:i a') { echo 'selected="selected"'; } ?>>05:45 PM (12 Hours)</option>
                                     </select>
@@ -371,7 +366,6 @@
                                     <div class="col-sm-3">
                                         <select  class="form-control" name="ticket_type">
                                             <option value="0" <?php if($ticket_type == 0){ echo "selected"; } ?>><?php echo NORMAL_TICKET; ?></option>
-                                            <!-- <option value="1" <?php if($ticket_type == 1){ echo "selected"; } ?>><?php echo SEAT_TICKET; ?></option> -->
                                         </select>
                                     </div>
                                 </div>
@@ -381,10 +375,6 @@
                                         <label><?php echo PAYMENT_TESTING_MODE; ?></label>
                                     </div>
                                     <div class="col-sm-4">
-                                <!--         <select class="form-control" name="test_payments">
-                                                 <option value="0" <?php if($test_payments == 0) { echo "selected"; } ?> ><?php echo DISABLE; ?></option>
-                                                 <option value="1" <?php if($test_payments == 1) { echo "selected"; } ?>><?php echo ENABLE; ?></option>
-                                         </select> -->
                                          <label style="font-size: 11px;">Virtual Payment Gateway (Purchase ticket without payment gateway)</label>
                                     </div>
                                 </div>

@@ -18,7 +18,6 @@
             ?>
         </div>
          <div class="orgRight">
-           <!-- <h1><?php echo SecureShowData($single_org[0]['page_url']);?></h1> -->
            <h1><?php echo SecureShowData($single_org[0]['name']);?></h1>
            <p><a href="<?php echo $single_org[0]['website'];?>"><?php echo $single_org[0]['website'];?></a></p>
            <p><?php echo SecureShowData($single_org[0]['description']);?></p>
@@ -49,8 +48,6 @@
                                     <?php 
                                     	if($active_event){
                                     		foreach ($active_event as $aevent ) {
-                                    			// echo "<pre>";
-                                    			// print_r($aevent);die;
 												$event_logo = $aevent['event_logo'];
 												$event_title = $aevent['event_title'];
 												$active=$aevent['active'];
@@ -69,10 +66,6 @@
 			                                        	<div class="imgLeft">
                                                         <div class="flexslider">
                                                         <ul class="slides">
-                                                         <!--  <li>
-                                                             
-                                                          <img src="<?php echo $event_img; ?>" alt=" "  height="110px" width="110px"  > 
-                                                          </li> -->
                                                           <?php  
                                                             $event_images=getAllRecordById('event_images','event_id',$event_id);
 

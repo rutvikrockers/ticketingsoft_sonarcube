@@ -56,8 +56,8 @@
                                     </div>
                                     <div class="col-sm-4">
                                     	<select class="form-control" name="country_status">
-                                                <option value="1" <?php if($active=='1') echo "selected"; ?> ><?php echo ACTIVE; ?></option>
-                                            	<option value="0" <?php if($active=='0') echo "selected"; ?> ><?php echo INACTIVE; ?></option>
+                                                <option value="1" <?php if($active=='1') { echo "selected"; } ?> ><?php echo ACTIVE; ?></option>
+                                            	<option value="0" <?php if($active=='0') { echo "selected"; } ?> ><?php echo INACTIVE; ?></option>
                                         </select>
                                     </div>
                                 </div>

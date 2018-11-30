@@ -11,8 +11,6 @@
              <p><?php echo $site_setting['site_name']; ?> <?php echo ACCOUNT_SINCE; ?> <span><?php echo datetimeformat($user_data['created_at']);?> <?php echo timeFormat($user_data['created_at']); ?></span></p>
             <?php 
 
-            // echo "<pre>";
-            // print_r($user_info);die;
             if($user_data['ref_id']){
               $admin=getRecordById('users','id',$user_data['ref_id']);
 

@@ -138,7 +138,6 @@ $data1['events_id'] = $id;
                             
                 <div class="event-webpage mt col-sm-12">
                 	<div class="red-event clearfix "><h4 class="date_left">
-                     <?php //echo $month.' '.$day.','.' ' .$year;?> <?php //echo $time;?>
                             <?php echo datetimeformat($created_at).' '.timeFormat($created_at); ?>
                     </h4>
                 		<div class="editdelt-icon">

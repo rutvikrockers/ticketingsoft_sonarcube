@@ -200,7 +200,7 @@ if($order['ctype'] == 2 && $flag == 1){?>
 				<div class="radio">
 					<label>
 						<input type="radio" name="site[payment]" id="paypal" style="float:none;" value="paypal" onclick="set_payment_gateway();" /> <?php echo Paypal;?> 
-						&nbsp;<img src="<?php echo base_url().'images/paypal_logo.png'; ?>" style='height: 45px;width: 75px;'/>
+						&nbsp;<img src="<?php echo base_url().'images/paypal_logo.png'; ?>" alt="paypal" style='height: 45px;width: 75px;'/>
 					</label>
 				</div>
 				<?php } ?>
@@ -209,7 +209,7 @@ if($order['ctype'] == 2 && $flag == 1){?>
 					<br/>
 					<label>	
 						<input type="radio" name="site[payment]" id="stripe" style="float:none;" value="stripe" onclick="set_payment_gateway();" /> <?php echo CREDIT_DEBIT_CARD; ?>
-						&nbsp;<img src="<?php echo base_url().'images/credit_card_logos_15.gif'; ?>" style='height: 45px;width: 200px;'/>
+						&nbsp;<img src="<?php echo base_url().'images/credit_card_logos_15.gif'; ?>" alt="credit card" style='height: 45px;width: 200px;'/>
 					</label>
 				</div>
 				<?php } ?>
@@ -218,7 +218,7 @@ if($order['ctype'] == 2 && $flag == 1){?>
 					<br/>
 					<label>	
 						<input type="radio" name="site[payment]" id="authorize_net" style="float:none;" value="authorize_net" onclick="set_payment_gateway();" /> <?php echo CREDIT_DEBIT_CARD; ?>
-						&nbsp;<img src="<?php echo base_url().'images/credit_card_logos_15.gif'; ?>" style='height: 45px;width: 200px;'/>
+						&nbsp;<img src="<?php echo base_url().'images/credit_card_logos_15.gif'; ?>" alt="credit card" style='height: 45px;width: 200px;'/>
 					</label>
 				</div>
 				<?php } ?>

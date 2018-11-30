@@ -15,15 +15,6 @@ if($event_id!=''){
 
 			$address=$event_venue['venue_add1'];
 		}
-		// if($event_venue['venue_add2']!='')
-		// {
-		// 	if($address!=''){
-		// 	$address=$address.', '.$event_venue['venue_add2'];
-		// 		}else
-		// 		{
-		// 			$address=$event_venue['venue_add1'];
-		// 		}
-		// }
 		if($event_venue['venue_city']!='')
 		{
 			if($address!=''){
@@ -42,16 +33,6 @@ if($event_id!=''){
 					$address=$event_venue['venue_state'];
 				}
 		}
-		// if($event_venue['venue_country']!='')
-		// {
-		// 	if($address!='')
-		// 	{
-		// 		$address=$address.', '.$event_venue['venue_country'];
-		// 		}else
-		// 		{
-		// 			$address=$event_venue['venue_country'];
-		// 		}
-		// }
 	}
 ?>
 
@@ -134,7 +115,6 @@ if($event_id!=''){
     </style>
 <?php
 
-//print_r($order);die; 
 $sy = date('Y',strtotime('-100 years'));
 $ey = date('Y'); 
 
@@ -468,10 +448,10 @@ function validateEmail(email) {
 	}
 </style>
 <script type="text/javascript">
-        var specialKeys = [];
+        var specialKeys = new Array();
         specialKeys.push(8); //Backspace
         function IsNumeric(e) {
-            var keyCode = e.which ? e.which : e.keyCode;
+            var keyCode = e.which ? e.which : e.keyCode
             var ret = ((keyCode >= 48 && keyCode <= 57) || specialKeys.indexOf(keyCode) != -1);            
             return ret;
         }
@@ -502,7 +482,6 @@ function validateEmail(email) {
 				$organizers = getRecordById('organizers','id',$organizer_id);
 			?>
             <h1 class="main_event_title"><?php echo SecureShowData(ucfirst($event_details['event_title']));?></h1>
-            <!-- <p class="orgName"> <?php // echo ORGANIZED_BY; ?>: <a href="<?php // echo site_url('/profile/user_profile/'.$organizers['page_url']); ?>"><?php // echo $org_name;?></a></p> -->
             <p>
             <?php 
 
@@ -537,25 +516,7 @@ function validateEmail(email) {
             <?php }else{ echo online_event; }?>
             <?php if($event_audio){ ?>
 				<audio loop controls <?php if($event_audio['is_autoplay']) { ?>autoplay<?php } ?>><source src="<?php echo  base_url('upload/event/audio');?>/<?php echo $event_audio['audio_name'];?>" type="audio/mpeg"></audio>
-				<!-- <object type='application/x-shockwave-flash' data='<?php // echo base_url('js/dewplayer.swf');?>' width='200' height='20'>
-				<param name='movie' value='<?php // echo base_url('js/dewplayer.swf');?>'>
-				<param name='quality' value='high'>
-				<param name='bgcolor' value='#ffffff'>
-				<param name='play' value='true'>
-				<param name='loop' value='true'>
-				<param name='wmode' value='transparent'>
-				<param name='scale' value='showall'>
-				<param name='menu' value='true'>
-
-				<param name='devicefont' value='false'>
-				<param name='salign' value=''>
-				<param name='allowScriptAccess' value='sameDomain'>
-				<param name='flashvars' value="mp3=<?php // echo  base_url('upload/event/audio');?>/<?php // echo $event_audio['audio_name'];?>&amp;autostart=<?php // echo $event_audio['is_autoplay'];?>&amp;autoreplay=0&amp;showtime=1">
-				</object> -->
             <?php } ?>
-          <!--   <?php if($event_details['customize_web_url']){?>
-           	 <p class="orgName"> <?php echo Customize_Web_Address; ?> : <a href="http://<?php echo $event_details['customize_web_url'].'.'.$_SERVER['HTTP_HOST'];?>"><?php echo $event_details['customize_web_url'].'.'.$_SERVER['HTTP_HOST'];?></a></p>
-            <?php  } ?>  -->
             <ul class="event-type ">
             	<li><?php echo getCategoryName($event_details['category']);?></li>
             	<li><?php echo getCategoryName($event_details['subcategory']);?></li>
@@ -565,69 +526,11 @@ function validateEmail(email) {
             	<?php } ?>
             </ul>
           </div>
-					<!-- <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12 eventTitleColor">
-			        	
-						<ul class="col-md-3 col-lg-2 col-sm-4 text-center ptbox" style="display: none;">
-			            	<li><strong><?php echo date('M d', strtotime($event_details['created_at']));?></strong></li>
-			                <li><strong><?php echo date('h:i a', strtotime($event_details['created_at']));?></strong></li>
-			            </ul>
-			            <?php 
-							$organizers = getRecordById('organizers','id',$event_id);
-						?>
-			            <div class="event-content">
-			            	<h1 class="main_event_title"><?php echo $event_details['event_title'];?></h1>
-			          		<p class="orgName"><a href="<?php echo site_url('/profile/user_profile/'.$organizers['page_url']); ?>"><?php echo $organizers['name'];?></a></p>
-			              <address>
-			        	<?php if($event_details['online_event_option']){
-			              echo "Online Event";
-			            }else{?>
-							
-			            <?php } ?>  
-			            <p>
-				            <?php 
-					            $input_tz = date_default_timezone_get();
-					            $output_tz = $timezone;
-					            $zoneList = timezone_identifiers_list();
-				            
-					            echo changeDateTime($event_details['event_start_date_time'], $input_tz, $output_tz).' - '.changeDateTime($event_details['event_end_date_time'], $input_tz, $output_tz); 
-					            echo ' ('.$timezone.')';
-				            ?> 
-			            </p>			       
-			            <?php echo $event_venue['name'];?> <?php echo " | ".$event_details['street_address'];?>       
-			            </address>
-                       </div>
-			    	</div> -->
 			    	
 			        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 text-right add-finca pt15">
-			          
-<!-- 
-                    	<?php 
-							$image = base_url().'images/no-preview.png';
-							$event_logo =  $event_details['event_logo'];
-							if($event_logo != '' && file_exists(base_path().'upload/event/orig/'.$event_logo)){ 
-								$image = base_url().'upload/event/orig/'.$event_logo;
-							}
-							elseif($event_logo != '' && file_exists(base_path().'upload/event/thumb/'.$event_logo)){ 
-								$image = base_url().'upload/event/thumb/'.$event_logo;
-							}
-						?>
-			        	<img src="<?php echo $image; ?>" alt=" " height=" " width=" " class="img-responsive"> -->
 			        	 <a href="<?php echo site_url('event/slider/'.$event_id);?>" class='mfPopup event-page'>     
 					        <div class="flexslider">
 									  <ul class="slides">
-									  <!--   <li>
-									       <?php 
-								                $image = base_url().'upload/event_default/no_img.jpg';
-								                $event_logo =  $event_details['event_logo'];
-								                if($event_logo != '' && file_exists(base_path().'upload/event/orig/'.$event_logo)){ 
-								                    $image = base_url().'upload/event/orig/'.$event_logo;
-								                }
-								                elseif($event_logo != '' && file_exists(base_path().'upload/event/thumb/'.$event_logo)){ 
-								                    $image = base_url().'upload/event/thumb/'.$event_logo;
-								                }
-								            ?>
-											<img src="<?php echo $image; ?>" alt=" " height="180px" class="img-responsive smallimg" > 
-									    </li> -->
 									    <?php  
 									    	$event_images=getAllRecordById('event_images','event_id',$event_id);
 
@@ -691,14 +594,12 @@ function validateEmail(email) {
 			                </div>
 			                
 			                <div class="Pad1 ticket-table" id="price_list">
-			                	<?php // $this->load->view("default/ticket/price_list"); ?>
 			                	<?php include("price_list.php"); ?>
 			                </div>
 			                
 
 		                       <?php    
 		                
-		                	//echo '<pre>'; print_r($order);  echo '</pre>'; 
 			               if($order['time_limit']!='' && $order['time_limit']!=0){
 								$randomId = $_GET['session'];
 								if($order['time_limit'] < 10){
@@ -706,7 +607,7 @@ function validateEmail(email) {
 								} else {
 									$new_timer = $order['time_limit'].':'.'00';
 								}
-								$now= date('Y-m-d H:i:s');//var_dump($_SESSION['timer'.$event_id]);die;
+								$now= date('Y-m-d H:i:s');
 								
 								if(isset($_SESSION['timer'.$randomId]))
 								{
@@ -714,7 +615,6 @@ function validateEmail(email) {
 									{
 										$endDate = date_create($now);
 										$arr=(array) $endDate;
-										//echo "<pre>";var_dump( $arr["date"]);
 										$currentDate=$arr["date"];
 										if(strtotime($_SESSION['timer'.$randomId]->date)<strtotime($currentDate))
 										{ 
@@ -726,8 +626,6 @@ function validateEmail(email) {
 								}
 								
 								if(isset($_SESSION['timer'.$randomId])){
-									//echo "in if";
-									// $start = date_create('2015-01-26 12:01:00');
 									$end = date_create($now);
 									$diff=date_diff($_SESSION['timer'.$randomId],$end);
 									$hours  = $diff->h ;
@@ -737,7 +635,6 @@ function validateEmail(email) {
 								} else {
 									$now= date('Y-m-d H:i:s');
 									$currentDate = strtotime($now);
-									//$futureDate = $currentDate+(60*5);
 									$futureDate = $currentDate+(60*$order['time_limit']);
 									$now= date('Y-m-d H:i:s',$futureDate);
 									$_SESSION['timer'.$randomId] =date_create($now);
@@ -805,21 +702,7 @@ function validateEmail(email) {
 			           </div>
 		                </div><!--panal-end-->
 		              
-			        </div> 
-                    <!-- <h3>
-                    	<strong>
-		                	<?php 
-		                		if($order){
-		                			if($order['title_of_page'] != '') { 
-		                				echo $order['title_of_page'];
-		                			}
-		                			else { echo Registration_Information;} 
-		                		} else {
-		                			echo Registration_Information;
-		                		}
-		                	?>
-	                	</strong>
-	                </h3> -->
+			        </div>
 
 			    	<div class="col-lg-9 col-md-9 col-lg-pull-3 col-md-pull-3 col-md-9  col-sm-12 lucha">
 			    		<div class="panel panel-default who-go br">
@@ -851,10 +734,6 @@ function validateEmail(email) {
 	                				</div>
 	                			</div>
 
-	                			<?php if($user_id==''){ ?>
-	                				<!-- <div class="form-group clearfix" id="divLogin"> -->
-	                			<?php }else{ ?>
-	                			<?php } ?>
 	                				<div class="form-group clearfix" id="divLogin" style="display: none;">
 	                				<div class="col-sm-3 col-xs-12 ">
 	                					
@@ -916,7 +795,6 @@ function validateEmail(email) {
 		                				<div class="col-sm-8 col-xs-12">
 	                						<a id="loginBtn" class="btn-event" href="javascript:void(0);" onclick="ajaxLogin();"><?php echo LOGIN; ?></a>
 		                					<label class="setLoginSignUp"> <?php echo NEW_TO;?> <?php echo SecureShowData($site_setting['site_name']); ?> <strong><u><a class="" href="javascript:void(0);" onclick="toggleLogin(0);"><?php echo SIGNUP; ?></a></u></strong></label>
-	                						<!-- <label><a class="setLoginSignUp" href="javascript:void(0);" onclick="toggleLogin(0);">Sign up</a><?php // echo Logging_in_is_optional; ?></label> -->
 		                				</div>
 	                				</div>
 	                			</div>
@@ -975,21 +853,6 @@ function validateEmail(email) {
                 		<input id="gateway" name="gateway" type="hidden" value="<?php if($site_setting['payment_gateway']=="1"){ echo "paypal"; }else{ echo "stripe"; } ?>" />
                 	
 			    	<!-- End lucha -->
-              
-              		<!-- <div class="col-lg-3 col-md-3 text-center clearfix" style="display: none;">  
-			         
-				         <?php 	
-				         if(!check_user_authentication()){
-				         	$page=base64_encode(getcurrenturl());
-				         	echo anchor('home/login/'.$page,Save_this_Event,'class="contact_icon"');
-				         	
-				         } else { ?>
-				         <?php   }  ?> 
-				         
-				         <div id="saveeventInfo"></div>
-
-              		</div>			    
-                     -->
                    
                       </div> 
                       	</form>
@@ -1027,7 +890,7 @@ function validateEmail(email) {
 				type: 'POST',
 				timeout: 99999,
 				global: false,
-				data: '',
+				data: '[]',
 				success: function(resp)
 				{
 					states = resp.result;
@@ -1123,7 +986,7 @@ function validateEmail(email) {
 
 	                }else{ 
 		                data = data[1].replace("<p>","");
-		            	data = data.replace("</p>","");
+		            	data = data.replace("</p>","")
 		            	$("#ajax_login_err").html(data);
 	                }
 					<?php if($result['status'] != 1) { ?>
@@ -2741,7 +2604,7 @@ function submit_check_form(){
 									if($ask == 1){
 									?>	
 									
-									var qid = <?php echo $q['id']; //echo $free['id'];  //?>;
+									var qid = <?php echo $q['id']; ?>;
 									var qtype = '<?php echo $q['que_type'];?>';
 									if(qtype == 'text' || qtype == 'para' || qtype == 'select' ){
 
@@ -2856,7 +2719,7 @@ function submit_check_form(){
 									if($ask == 1){
 									?>	
 							
-									var qid = <?php echo $q['id']; //echo $paid['id'];  //?>;
+									var qid = <?php echo $q['id']; ?>;
 									var qtype = '<?php echo $q['que_type'];?>';
 									if(qtype == 'text' || qtype == 'para' || qtype == 'select' ){
 		             	 	
@@ -2966,7 +2829,7 @@ function submit_check_form(){
 									if($ask == 1){
 									?>	
 							
-									var qid = <?php echo $q['id']; //echo $donation['id'];  //?>;
+									var qid = <?php echo $q['id']; ?>;
 									var qtype = '<?php echo $q['que_type'];?>';
 									if(qtype == 'text' || qtype == 'para' || qtype == 'select' ){
 		             	 	

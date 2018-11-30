@@ -178,11 +178,11 @@ function set_amount(id,price,ele){
                       $qty_args = 'free';
                       $textbox_class = 'all_free_tickets';
 										}else if($type =='2'){
-                                            $price_fee += $tkt['fee'] + $tkt['price'];
-											$price = set_event_currency($tkt['price'], $id);
-											$fee = set_event_currency($tkt['fee'], $id);
+                                            $qty_args = $tkt['price'];
+                                            $price_fee += $tkt['fee'] + $qty_args;
+                                            $price = set_event_currency($qty_args, $id);
+                                            $fee = set_event_currency($tkt['fee'], $id);
                       $type_ticket = 'paid_textbox';
-                      $qty_args = $tkt['price'];
                       $textbox_class = 'all_paid_tickets';
 										}
 										else{
@@ -218,7 +218,7 @@ function set_amount(id,price,ele){
                                   }else{
 	                                     if($type==1 || $type==2){ ?>
                                         <?php if($avail){ ?>
-                                          <select class="select-pad" name="ticket_qty[<?php echo $tid?>]" id="ticket_qty_<?php echo $tid;?>" onchange="set_amount('<?php echo $tid; ?>','<?php echo $qty_args; ?>',this);" > <!--onchange="drop_change('<?php echo $tid;?>');" >-->
+                                          <select class="select-pad" name="ticket_qty[<?php echo $tid?>]" id="ticket_qty_<?php echo $tid;?>" onchange="set_amount('<?php echo $tid; ?>','<?php echo $qty_args; ?>',this);" >
                                           <option value="">Select</option>
                                           <?php
                                           if($avail){

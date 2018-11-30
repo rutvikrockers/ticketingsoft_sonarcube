@@ -783,7 +783,7 @@ var FlipClock;
 			
 			face.build();
 
-			this.face = face;
+			this.face = face
 
 			if(hasStopped) {
 				this.start();

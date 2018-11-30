@@ -22,14 +22,6 @@
 
       });
     </script>
-        <script>
-        $(document).ready(function() {
-		
-		//$(".fancybox").fancybox({
-			
-		//});
-        });
-        </script>
         <script type="text/javascript">
         function confirm_delete(){
             if(confirm('<?php echo ARE_YOU_SRE_WANT_TO_CANCEL_THIS_TICKET; ?>')){
@@ -41,8 +33,6 @@
         </script>
         
 <?php
-// var_dump($tickets);
-	//print_r($tickets);die;
    $p_id = $order_detail[0]['id'];
 	$ticket_amt = $tickets[0]['ticket_amt'];
     $ticket_total = $tickets[0]['total'];
@@ -51,10 +41,8 @@
 	$start_sale = $tickets[0]['start_sale'];
 	$end_sale = $tickets[0]['end_sale'];
 	$event_title = $tickets[0]['event_title'];
-	//$vanue_name = $tickets[0]['vanue_name'];
     $vanue_name = $event_venue['name'];
 	$event_logo = $tickets[0]['event_logo'];
-	//$event_detail = $tickets[0]['event_detail'];
 	$street_address = $tickets[0]['street_address'];
         $organizer_id = $tickets[0]['organizer_id'];
         $event_id = $tickets[0]['eid'];
@@ -142,13 +130,8 @@
                                           }
                                           ?>
                                           <div class="col-sm-4">
-                                                               <div class="josef">                                      
-                                                                 <!-- <div class="imgLeft">  
-                                                                      <img src="<?php echo $event_image;?>" alt=" " height="65px" width="65px" >
-                                                                  </div>
-                                                                      -->
+                                                               <div class="josef">
                                                                   <div class="tour">
-                                                                      <!--<h2><a href="<?php echo site_url('ticket/ticket_detail/'.$purchase_id);?>"><?php echo SecureShowData($event_title);?></a></h2>-->
                                                                       <h2><a><?php echo SecureShowData($ticket_name);?></a></h2>
                                                                       <p><?php echo TICKET_NUMBER.' : '.$t_id; ?></p>
                                                                       <p><?php echo $created_at;?> <?php echo timeFormat($ticket['created_at']); ?></p>

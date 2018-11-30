@@ -1,7 +1,3 @@
-<?php 
-    //$check = json_encode($check_status);
-    //echo "<PRE>"; print_r($check); die();
-?>
 <script type="text/javascript">
 function drawChart() {
 
@@ -60,7 +56,6 @@ function drawChart() {
     
     <script src="<?php echo base_url();?>js/morris/raphael.min.js"></script>
     <script src="<?php echo base_url();?>js/morris/morris.js"></script>
-    <!--<script src="<?php echo base_url();?>js/morris/morris-data.js"></script>-->
     <link href="<?php echo base_url();?>css/morris.css" rel="stylesheet">
 
     <script type="text/javascript">
@@ -186,7 +181,6 @@ $event_title = $event_data['event_title'];
 $venue_id = $event_data['venue_id']; 
 $street_address = $event_data['street_address'];
 $event_start_date_time = datetimeformat($event_data['event_start_date_time']);
-// $total_net_sales=$final_admin_fees + $final_total_gross;
 $is_delete = delete_check($event_status);
 
 ?>
@@ -204,8 +198,7 @@ $is_delete = delete_check($event_status);
             <ul class="nav nav-tabs responsive hidden-xs hidden-sm" id="myTab">
                 
                   <li class="active"><a href="#stats1" data-toggle="tab"><?php echo DSALES;?></a></li>
-                  <?php if(!$rights){ ?>
-                  <!--<li><a href="#stats2" data-toggle="tab"><?php echo TOTAL_SALES; ?></a></li>--><?php } ?>
+                  
                   <li><a href="#stats3" data-toggle="tab" id="sales_type" ><?php echo SALES_BY_TICKET_TYPE; ?></a></li>
                   <li><a href="#stats4" data-toggle="tab" id="manual_sale_type" ><?php echo MANUAL_SALES; ?></a></li>
             </ul>

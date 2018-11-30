@@ -1,3 +1,4 @@
+<?php $site_name = $site_setting['site_name']; ?>
 <script type="text/javascript">
 function goBack() {
     window.history.back();
@@ -170,7 +171,7 @@ function goBack() {
 	                                    </div>
 	                                    <div class="col-sm-4">
 	                                    	<input class="form-control" type="text" name="start_date" id="datepicker2">
-	                                        <?php echo "Server Date Time : ".date('Y-m-d H:i:s'); ?>
+	                                        <?php echo SERVER_DATE_TIME." ".date('Y-m-d H:i:s'); ?>
 	                                    </div>
                        				 </div>             
 									
@@ -180,7 +181,7 @@ function goBack() {
 	                                    </div>
 	                                    <div class="col-sm-4">
 	                                    	<input class="form-control" type="text" name="end_date" id="datepicker3">
-	                                        <?php echo "Server Date Time : ".date('Y-m-d H:i:s'); ?>
+	                                        <?php echo SERVER_DATE_TIME." ".date('Y-m-d H:i:s'); ?>
 	                                    </div>
                        				 </div>     
 									
@@ -193,7 +194,7 @@ function goBack() {
                                     </div>
                                     <div class="col-sm-4">
                                     	<input class="form-control" type="text" name="job_start_date" id="datepicker1">
-                                        <?php echo "Server Date Time : ".date('Y-m-d H:i:s'); ?>
+                                        <?php echo SERVER_DATE_TIME." ".date('Y-m-d H:i:s'); ?>
                                     </div>
                                 </div>
                             
@@ -201,39 +202,23 @@ function goBack() {
                             <div id="attending">
                             <div class="form-group clearfix">
                                 	<div class="col-sm-3">
-                                    	<label><?php echo 'Updates about new '.SecureShowData($site_setting['site_name']).' features and announcements'; ?></label>
+                                    	<label><?php echo 'Updates about new '.SecureShowData($site_name).' features and announcements'; ?></label>
                                     </div>
                                     <div class="col-sm-4">
-                                        <input class="" type="checkbox" name="attending_new" id="attending_new" value="1" <?php if($attending_new) echo 'checked';?>>
+                                        <input class="" type="checkbox" name="attending_new" id="attending_new" value="1" <?php if($attending_new) { echo 'checked'; } ?>>
                                     </div>
                                 </div>
-                            <!-- <div class="form-group clearfix">
-                                	<div class="col-sm-3">
-                                    	<label><?php echo 'A digest of personalized event recommendations('.SecureShowData($site_setting['site_name']).' Picks)'; ?></label>
-                                    </div>
-                                    <div class="col-sm-4">
-                                    	<input class="" type="checkbox" name="attending_recommend" id="attending_recommend" value="1" <?php if($attending_recommend) echo 'checked';?>>
-                                    </div>
-                                </div> -->
                             </div>
                             
                             <div id="organizing">
                             <div class="form-group clearfix">
                                 	<div class="col-sm-3">
-                                    	<label><?php echo 'Updates about new '.SecureShowData($site_setting['site_name']).' features and announcements'; ?></label>
+                                    	<label><?php echo 'Updates about new '.SecureShowData($site_name).' features and announcements'; ?></label>
                                     </div>
                                     <div class="col-sm-4">
-                                    	<input class="" type="checkbox" name="organizing_new" id="organizing_new" value="1" <?php if($organizing_new) echo 'checked';?>>
+                                    	<input class="" type="checkbox" name="organizing_new" id="organizing_new" value="1" <?php if($organizing_new) { echo 'checked'; } ?>>
                                     </div>
                                 </div>
-                            <!-- <div class="form-group clearfix">
-                                	<div class="col-sm-3">
-                                    	<label><?php echo 'A digest of personalized event recommendations('.SecureShowData($site_setting['site_name']).' Picks)'; ?></label>
-                                    </div>
-                                    <div class="col-sm-4">
-                                    	<input class="" type="checkbox" name="organizing_recommend" id="organizing_recommend" value="1" <?php if($organizing_recommend) echo 'checked';?>>
-                                    </div>
-                                </div> -->
                             </div>
                             <!-- end added by Rahul-->
                             

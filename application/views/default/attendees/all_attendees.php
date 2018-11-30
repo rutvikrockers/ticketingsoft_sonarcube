@@ -55,7 +55,6 @@ $data1['events_id'] = $id;
 									<table class="table table_res table_res2 mb0 event-info contct-table">
 										<thead>
 											<tr>
-												<!-- <th><?php echo NO;?>.</th>          -->
 												<th><?php echo ATTENDEE_NAME; ?></th>   
 												<th><?php echo EMAIL;?></th>
 												<th><?php echo TICKET_TYPE?></th>
@@ -71,7 +70,6 @@ $data1['events_id'] = $id;
 												foreach($all_attendee as $attendee){
 													$first_name = $attendee['first_name'];
 													$attendee_id = $attendee['id'];
-									//$pid = $attendee['pid'];
 													$ticket_name = $attendee['ticket_name'];
 													$last_name = $attendee['last_name'];
 													$email = $attendee['email'];

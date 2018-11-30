@@ -103,16 +103,10 @@ function setaction(elename, actionval, actionmsg, formname) {
                                   <table class="table table-striped table-bordered table-hover" id="sample_1">
                                     <thead>
                                         <tr>
-                                           <!-- <th>User Id</th>-->
                                            	<th class="sorting_disabled"><input type="checkbox" id="selecctall"></th>
                                             <th><?php echo USER; ?></th>
                                             <th><?php echo ATTENDEE_UPDATE; ?></th>
-                                            <!-- <th><?php echo ATTENDEE_PICKS; ?></th>
-                                            <th><?php echo ATTENDEE_BUY_TICKET; ?></th> -->
                                             <th><?php echo ORG_UPDATE; ?></th>
-                                            <!-- <th><?php echo ORG_PICKS; ?></th> -->
-                                            <!--<th><?php echo ORG_NEXT_EVENT; ?></th>
-                                            <th><?php echo ORG_ORDER_CONFIRM; ?></th>-->
                                             <th class="sorting_disabled"><?php echo ACTION; ?></th>
                                         </tr>
                                     </thead>
@@ -137,7 +131,6 @@ function setaction(elename, actionval, actionmsg, formname) {
 															$email=$user_data['email'];
 											?>
                                         <tr class="odd gradeX">
-                                            <!--<td>155</td>-->
                                            
                                             <td><input type="checkbox" class="checkbox1" name="chk[]" value="<?php echo $email_id;?>" ></td>
                                             <td><a href=""><?php echo $email; ?></a></td>
@@ -152,28 +145,6 @@ function setaction(elename, actionval, actionmsg, formname) {
 													
 												 ?>
                                             </td>
-                                            <!-- <td>
-											<?php if($attendee_picks == 1)
-													{
-														echo YES;
-													}else
-													{
-														echo NO;
-													}
-													
-												 ?>
-                                            </td>
-                                            <td>
-                                            	<?php if($attendee_buy_ticket == 1)
-													{
-														echo YES;
-													}else
-													{
-														echo NO;
-													}
-													
-												 ?>
-                                            </td> -->
                                             <td>
                                             	<?php if($org_update == 1)
 													{
@@ -185,39 +156,6 @@ function setaction(elename, actionval, actionmsg, formname) {
 													
 												 ?>
                                             </td>
-                                            <!-- <td>
-                                            	<?php if($org_picks == 1)
-													{
-														echo YES;
-													}else
-													{
-														echo NO;
-													}
-													
-												 ?>
-                                            </td> -->
-                                            <!--<td>
-                                            	<?php if($org_next_event == 1)
-													{
-														echo YES;
-													}else
-													{
-														echo NO;
-													}
-													
-												 ?>
-                                            </td>
-                                            <td>
-                                            	<?php if($org_order_confirm == 1)
-													{
-														echo YES;
-													}else
-													{
-														echo NO;
-													}
-													
-												 ?>
-                                            </td>-->
                                             <td><?php echo anchor('admin/email_preferences/view_email_preference/'.$email_id.'/',VIEW);?> / <?php echo anchor('admin/email_preferences/edit_email_preference/'.$email_id.'/',EDIT);?></td>
                                         </tr>
                                         

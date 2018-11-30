@@ -14,7 +14,7 @@ var App = function () {
         var showMap = function (name) {
             jQuery('.vmaps').hide();
             jQuery('#vmap_' + name).show();
-        };
+        }
 
         var setMap = function (name) {
             var data = {
@@ -53,7 +53,7 @@ var App = function () {
             map.show();
             map.vectorMap(data);
             map.hide();
-        };
+        }
 
         setMap("world");
         setMap("usa");
@@ -83,7 +83,7 @@ var App = function () {
 
         $('#region_statistics_loading').hide();
         $('#region_statistics_content').show();
-    };
+    }
 
     var handleAllJQVMAP = function () {
 
@@ -124,14 +124,14 @@ var App = function () {
             var map = jQuery('#vmap_' + name);
             map.width(map.parent().width());
             map.vectorMap(data);
-        };
+        }
 
         setMap("world");
         setMap("usa");
         setMap("europe");
         setMap("russia");
         setMap("germany");
-    };
+    }
 
 
 
@@ -211,7 +211,7 @@ var App = function () {
             }]
         });
 
-    };
+    }
 
     var handleCalendar = function () {
 
@@ -254,7 +254,7 @@ var App = function () {
                 revert: true, // will cause the event to go back to its
                 revertDuration: 0 //  original position after the drag
             });
-        };
+        }
 
         var addEvent = function (title, priority) {
             title = title.length == 0 ? "Untitled Event" : title;
@@ -263,7 +263,7 @@ var App = function () {
             var html = $('<div data-class="label label-' + priority + '" class="external-event label label-' + priority + '">' + title + '</div>');
             jQuery('#event_box').append(html);
             initDrag(html);
-        };
+        }
 
         $('#external-events div.external-event').each(function () {
             initDrag($(this))
@@ -283,7 +283,7 @@ var App = function () {
             $('#event_priority_chzn_o_3').html('<span class="label label-info">' + $('#event_priority_chzn_o_3').text() + '</span>');
             $('#event_priority_chzn_o_4').html('<span class="label label-warning">' + $('#event_priority_chzn_o_4').text() + '</span>');
             $('#event_priority_chzn_o_5').html('<span class="label label-important">' + $('#event_priority_chzn_o_5').text() + '</span>');
-        };
+        }
 
         $('#event_priority_chzn').click(handleDropdown);
 
@@ -372,7 +372,7 @@ var App = function () {
             }]
         });
 
-    };
+    }
 
     var handleChat = function () {
         var cont = $('#chats');
@@ -407,7 +407,7 @@ var App = function () {
             $('.scroller', cont).slimScroll({
                 scrollTo: list.height()
             });
-        };
+        }
 
         btn.click(handleClick);
         input.keypress(function (e) {
@@ -416,7 +416,7 @@ var App = function () {
                 return false; //<---- Add this line
             }
         });
-    };
+    }
 
     var handleClockfaceTimePickers = function () {
 
@@ -439,7 +439,7 @@ var App = function () {
         $('#clockface_3').clockface({
             format: 'H:mm'
         }).clockface('show', '14:30');
-    };
+    }
 
     var handlePortletSortable = function () {
         if (!jQuery().sortable) {
@@ -458,7 +458,7 @@ var App = function () {
             tolerance: 'pointer'
         });
 
-    };
+    }
 
     var handleMainMenu = function () {
         jQuery('#sidebar .has-sub > a').click(function () {
@@ -477,7 +477,7 @@ var App = function () {
                 sub.slideDown(200);
             }
         });
-    };
+    }
 
     var handleWidgetTools = function () {
         jQuery('.widget .tools .icon-remove').click(function () {
@@ -502,7 +502,7 @@ var App = function () {
                 el.slideDown(200);
             }
         });
-    };
+    }
 
     var handleDashboardCharts = function () {
 
@@ -523,7 +523,7 @@ var App = function () {
             }
             // zip the generated y values with the x values
             var res = [];
-            for (var i = 0; i < data.length; ++i) res.push([i, data[i]]);
+            for (var i = 0; i < data.length; ++i) res.push([i, data[i]])
             return res;
         }
 
@@ -728,7 +728,7 @@ var App = function () {
             setTimeout(update, updateInterval);
         }
         update();
-    };
+    }
 
     var handleCharts = function () {
 
@@ -749,7 +749,7 @@ var App = function () {
             }
             // zip the generated y values with the x values
             var res = [];
-            for (var i = 0; i < data.length; ++i) res.push([i, data[i]]);
+            for (var i = 0; i < data.length; ++i) res.push([i, data[i]])
             return res;
         }
 
@@ -1242,7 +1242,7 @@ var App = function () {
         chart4();
         chart5();
         graphs();
-    };
+    }
 
     var handleFancyBox = function () {
         if (!jQuery().fancybox) {
@@ -1262,7 +1262,7 @@ var App = function () {
                 }
             });
         }
-    };
+    }
 
     var handleLoginForm = function () {
         jQuery('#forget-password').click(function () {
@@ -1275,7 +1275,7 @@ var App = function () {
             jQuery('#loginform').slideDown(200);
             jQuery('#forgotform').slideUp(200);
         });
-    };
+    }
 
     var handleFixInputPlaceholderForIE = function () {
         //fix html5 placeholder attribute for ie7 & ie8
@@ -1299,7 +1299,7 @@ var App = function () {
                 });
             });
         }
-    };
+    }
 
    /* var handleStyler = function () {
         var scrollHeight = '25px';
@@ -1387,7 +1387,7 @@ var App = function () {
                 });
             });
         }
-    };
+    }
 
     var handlePeity = function () {
         if (!jQuery().peity) {
@@ -1476,7 +1476,7 @@ var App = function () {
             width: 40,
             colour: "#52e136"
         }).show();
-    };
+    }
 
     var handleDeviceWidth = function () {
         function fixWidth(e) {
@@ -1545,7 +1545,7 @@ var App = function () {
                 }, 200); // wait for 200ms on resize event           
             }
         });
-    };
+    }
 
     var handleGritterNotifications = function () {
         if (!jQuery.gritter) {
@@ -1640,15 +1640,15 @@ var App = function () {
             return false;
 
         });
-    };
+    }
 
     var handleTooltip = function () {
         jQuery('.tooltips').tooltip();
-    };
+    }
 
     var handlePopover = function () {
         jQuery('.popovers').popover();
-    };
+    }
 
     var handleChoosenSelect = function () {
         if (!jQuery().chosen) {
@@ -1658,7 +1658,7 @@ var App = function () {
         $(".chosen-with-diselect").chosen({
             allow_single_deselect: true
         });
-    };
+    }
 
     var handleUniform = function () {
         if (!jQuery().uniform) {
@@ -1667,7 +1667,7 @@ var App = function () {
         if (test = $("input[type=checkbox]:not(.toggle), input[type=radio]:not(.toggle)")) {
             test.uniform();
         }
-    };
+    }
 
     var handleWysihtml5 = function () {
         if (!jQuery().wysihtml5) {
@@ -1677,7 +1677,7 @@ var App = function () {
         if ($('.wysihtml5').size() > 0) {
             $('.wysihtml5').wysihtml5();
         }
-    };
+    }
 
     var handleToggleButtons = function () {
         if (!jQuery().toggleButtons) {
@@ -1734,7 +1734,7 @@ var App = function () {
             transitionspeed: 1 // default value: 0.05
         });
 
-    };
+    }
 
     var handleTables = function () {
         if (!jQuery().dataTable) {
@@ -1839,7 +1839,7 @@ var App = function () {
 
         jQuery('#sample_3_wrapper .dataTables_filter input').addClass("input-small"); // modify table search input
         jQuery('#sample_3_wrapper .dataTables_length select').addClass("input-mini"); // modify table per page dropdown
-    };
+    }
 
     var handleDateTimePickers = function () {
 
@@ -1967,7 +1967,7 @@ var App = function () {
             showMeridian: false
         });
 
-    };
+    }
 
     var handleColorPicker = function () {
         if (!jQuery().colorpicker) {
@@ -1977,11 +1977,11 @@ var App = function () {
             format: 'hex'
         });
         $('.colorpicker-rgba').colorpicker();
-    };
+    }
 
     var handleAccordions = function () {
         $(".accordion").collapse().height('auto');
-    };
+    }
 
     var handleScrollers = function () {
         if (!jQuery().slimScroll) {
@@ -1997,7 +1997,7 @@ var App = function () {
                 disableFadeOut: true
             });
         });
-    };
+    }
 
     var handleFormWizards = function () {
         if (!jQuery().bootstrapWizard) {
@@ -2115,7 +2115,7 @@ var App = function () {
         $('#form_wizard_1 .button-submit').click(function () {
             alert('Finished!');
         }).hide();
-    };
+    }
 
     var handleTagsInput = function () {
         if (!jQuery().tagsInput) {
@@ -2127,7 +2127,7 @@ var App = function () {
         $('#tags_2').tagsInput({
             width: 240
         });
-    };
+    }
 
     var handleGoTop = function () {
         /* set variables locally for increased performance */
@@ -2135,7 +2135,7 @@ var App = function () {
             App.scrollTo();
         });
 
-    };
+    }
 
     // this is optional to use if you want animated show/hide. But plot charts can make the animation slow.
     var handleSidebarTogglerAnimated = function () {
@@ -2168,7 +2168,7 @@ var App = function () {
                 });
             }
         })
-    };
+    }
 
     // by default used simple show/hide without animation due to the issue with handleSidebarTogglerAnimated.
     var handleSidebarToggler = function () {
@@ -2194,7 +2194,7 @@ var App = function () {
                 $("#container").removeClass("sidebar-closed");
             }
         })
-    };
+    }
 
     return {
 
@@ -2226,7 +2226,7 @@ var App = function () {
             handleScrollers(); // handles slim scrolling contents
             handleUniform(); // handles uniform elements
             handleClockfaceTimePickers(); //handles form clockface timepickers
-            handleTagsInput(); // handles tag input elements
+            handleTagsInput() // handles tag input elements
             handleTables(); // handles data tables
             handleCharts(); // handles plot charts
             handleWidgetTools(); // handles portlet action bar functionality(refresh, configure, toggle, remove)

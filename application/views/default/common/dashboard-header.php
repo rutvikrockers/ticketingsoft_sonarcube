@@ -77,7 +77,7 @@ if($sales){
                 $address=$address.','.$event_venue['venue_add2'];
             }else
             {
-                $address=$event_venue['venue_add1'];
+                $address=$event_venue['venue_add2'];
             }
         }
         if($event_venue['venue_city']!='')
@@ -126,16 +126,16 @@ if($sales){
         <div class="clearfix">
 
             <div class="dashHeaderLeft">
-                   <h3 id="event_title_h3" ><?php if( $event_title!=''){echo SecureShowData($event_title);}else{echo UNTITLE_EVENT; };?></h3>
+                   <h3 id="event_title_h3" ><?php if( $event_title!=''){echo SecureShowData($event_title);}else{echo UNTITLE_EVENT; } ?></h3>
                     <span class="badge">
                     <?php $status = $event_data['active']; 
                          if($status==0){
                                 echo DRAFT;
-                            }if($status==1){
+                            } elseif($status==1){
                                 echo LIVE;
-                            }if($status==2){
+                            } elseif($status==2){
                                 echo COMPLETED;
-                            }if($status==3){
+                            } elseif($status==3){
                                 echo CANCELLED;
                             }
                     
@@ -153,10 +153,6 @@ if($sales){
 							 else if($this->uri->segment('2')=="theme"){$style = "style='display:none;'";}	 ?>
             <div class="dashHeaderRight" <?php echo $style; ?>>
             <form class="event-title" name="attendee_search" method="get" action="<?php echo site_url('attendees/all_attendees/'.$id);?>">
-                       <!-- <div class="attendeesSearch">
-                           <input type="text" placeholder="<?php echo SEARCH_ATTENDEES;?>" name="search" id="search" class="form-control">
-                           <button type="submit" class="btn-search" value="<?php echo SEARCH;?>"><i class="glyphicon glyphicon-search"></i></button>
-                       </div>  -->
                         <ul class="dashRightLinks">
                         <?php if(!($rights===true || $rights1===true)){
                             $copy_url = base_url().'/images/copy-event.png';
@@ -165,27 +161,27 @@ if($sales){
                             ?>
                         	<li>                            
                             	<a href="<?php echo site_url('event/copy_event/'.$id);?>" class="mfPopup">
-                                    <img data-placement="bottom" data-toggle="tooltip" title="Copy Event" class="header-icon" src="<?php echo $copy_url; ?>" >
+                                    <img data-placement="bottom" data-toggle="tooltip" title="Copy Event" class="header-icon" src="<?php echo $copy_url; ?>" alt="copy-event">
                                 </a>
                             </li>
                             <?php if($status==1){?>
                             <li>                            
                                 <a href="javascript://" onclick="cancel_event_dash()">
-                                    <img data-placement="bottom" data-toggle="tooltip" title="Cancel Event" class="header-icon" src="<?php echo $cancel_url; ?>" >
+                                    <img data-placement="bottom" data-toggle="tooltip" title="Cancel Event" class="header-icon" src="<?php echo $cancel_url; ?>" alt="cancel-event">
                                 </a>
                             </li>
                             <?php }?>
                             <?php if($is_delete){ ?>
                             <li>                            
                             	<a href="javascript://" onclick="delete_event_dash()">
-                                <img data-placement="bottom" data-toggle="tooltip" title="Delete Event" class="header-icon" src="<?php echo $cancel_url; ?>" >
+                                <img data-placement="bottom" data-toggle="tooltip" title="Delete Event" class="header-icon" src="<?php echo $cancel_url; ?>" alt="cancel-event">
                                 </a>
                             </li>    
                             <?php }?>
                              <?php }?>
                             <li>                            
                             	<a href="<?php echo site_url('event/view/'.$event_data['event_url_link']);?>" target="_blank">
-                                <img data-placement="bottom" data-toggle="tooltip" title="View Event" class="header-icon" src="<?php echo $view_url; ?>" >
+                                <img data-placement="bottom" data-toggle="tooltip" title="View Event" class="header-icon" src="<?php echo $view_url; ?>" alt="view-event">
                                 </a>
                             </li>
                         </ul>

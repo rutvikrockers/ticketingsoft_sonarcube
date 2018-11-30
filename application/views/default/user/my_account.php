@@ -87,67 +87,6 @@
   
   <script>
   	$( document ).ready(function() {
-		$("#change_email_form").hide();
-		
-		$( "#change_email_btn").click(function() {
-  			$("#change_email_form").show();
-  			$("#change_email_btn").hide();
-		});
-		
-		$( "#change_email_cancel").click(function() {
-  			$("#change_email_form").hide();
-  			$("#change_email_btn").show();
-  			$("#email").val('');
-  			$("#password").val('');
-		});
-		
-		$( "#change_email").click(function() {
-			
-			var email = $("#email").val();
-			var password = $("#password").val();
-			if(email==''){
-				
-				$('#email').closest('.form-group').addClass('has-error');
- 				$('#email').closest('label').addClass('control-label');
- 				$('#email').addClass('form-control');
-				return false;	
-			}
-			if(password==''){
-				
-				$('#password').closest('.form-group').addClass('has-error');
- 				$('#password').closest('label').addClass('control-label');
- 				$('#password').addClass('form-control');
-				return false;	
-			}
-			
-  			$("#change_email_form").submit();
-		});
-				
-			if ((pic = jQuery('#change_email_form')).length )
-				
-			pic.ajaxForm({
-				dataType: 'json',
-				beforeSend:function (){
-					
-				},
-				success: function(data){
-				  	 
-				  	 if(data.error){
-				  	 	$("#jsonsuccess").hide();
-				  	 	$("#jsonerror").show();
-				  	 	$("#jsonerror").html(data.error);
-				  	 }
-				  	 if(data.msg){
-				  	 	$("#jsonsuccess").show();
-				  	 	$("#jsonerror").hide();
-				  	 	$("#jsonsuccess").html(data.msg);
-				  	 }
-				},
-				error: onError,
-				complete: function(){
-		 		
-		 		},
-			});
 			
 			/**************home ******************/
 		$('#home_country').change(function(){
@@ -300,16 +239,18 @@
 	
   </script>
    <script type="text/javascript">
-        var specialKeys = [];
+        var specialKeys = new Array();
         specialKeys.push(8); //Backspace
         function IsNumeric(e) {
-            var keyCode = e.which ? e.which : e.keyCode;
+            var keyCode = e.which ? e.which : e.keyCode
             var ret = ((keyCode >= 48 && keyCode <= 57) || specialKeys.indexOf(keyCode) != -1);            
             return ret;
         }
     </script>
   <?php 
-  if($birth_date=='0000-00-00') $birth_date='';
+  if($birth_date=='0000-00-00') { 
+    $birth_date='';
+  }
   ?>
   
   <section class="eventDash-head">
@@ -325,8 +266,6 @@
              <p><?php echo SecureShowData($site_setting['site_name']); ?> <?php echo ACCOUNT_SINCE; ?> <span><?php echo datetimeformat($user_info[0]['created_at']);?> <?php echo timeFormat($user_info[0]['created_at']); ?></span></p>
             <?php 
 
-            // echo "<pre>";
-            // print_r($user_info);die;
             if($user_info[0]['ref_id']){
             	$admin=getRecordById('users','id',$user_info[0]['ref_id']);
 
@@ -384,52 +323,15 @@
                 <div class="col-sm-12 clearfix mb ">
                     <div class="event-detail event-detail2 pt pb40">
                     
-                    <div class="col-sm-6 url center-sm">
-                    	<p class="p0"><?php echo $user_info[0]['email'];?></p>
-                    </div>
-                         
-                    
-                    <div class="col-sm-6 ">
-                    	<div class="change center-sm">
-                           <?php /*?> <a href="javascript://" class="btn-event" id="change_email_btn"><?php echo CHANGE; ?></a><?php */?>
+                        <div class="col-sm-6 url center-sm">
+                        	<p class="p0"><?php echo $user_info[0]['email'];?></p>
                         </div>
-                    </div>
-                    <form class="event-title" id="change_email_form"  name="change_email_form" method="post" action="<?php echo site_url('user/change_email');?>">
-                                
-                                 <div class="form-group clearfix pt mt">
-                                 
-                                    <div class="col-sm-3 col-xs-12 lable-rite">
-                                        <label class=""><?php echo EMAIL;?></label>
-                                    </div>
-                                    <div class="col-sm-8 col-xs-12">
-                                        <input type="text" placeholder="Enter your Email ID" name="email" id="email" value="<?php //echo $email;?>" class="">
-                                    </div>
-                                
-                        		</div>
-                                
-                                <div class="form-group clearfix pt">
-                                 
-                                    <div class="col-sm-3 col-xs-12 lable-rite">
-                                        <label><?php echo CURRENT_PASSWORD;?></label>
-                                    </div>
-                                    <div class="col-sm-8 col-xs-12">
-                                        <input type="password" placeholder="Enter your Password" name="password" id="password">
-                                    </div>
-                                
-                        		</div>
-                        		<input type="hidden" placeholder="Enter your Email ID" name="cemail" id="cemail" value="<?php echo $user_info[0]['email'];?>" class="">
-                                
-                                <div class="form-group clearfix text-right">
-	                                <div class="col-sm-11 browse pb">
-                                	<input type="button" name="submit" value="<?php echo 'Confirm';?>" id="change_email" class="btn-event">
-                                	<a href="javascript://" class="btn-event" id="change_email_cancel"><?php echo CANCEL;?></a>
-    	                            </div>
-                                </div>
-                                
-                                
-                                </form>
-                    
-                    	
+                             
+                        
+                        <div class="col-sm-6 ">
+                        	<div class="change center-sm">
+                            </div>
+                        </div>
                  	 </div><!-- end event-detail -->
                </div>      
                 
@@ -562,8 +464,8 @@
                             	</div>
                             	<div class="col-sm-8 col-xs-12">
                             		<select class="select-pad" name="gender" id="gender">
-                                    	<option value="Female" <?php if($gender=='Female') echo 'selected' ?> >Female</option>
-                                        <option value="Male" <?php if($gender=='Male') echo 'selected' ?> >Male</option>
+                                    	<option value="Female" <?php if($gender=='Female') { echo 'selected'; } ?> >Female</option>
+                                        <option value="Male" <?php if($gender=='Male') { echo 'selected'; } ?> >Male</option>
                                     </select>
                             	</div>
                         </div>
@@ -871,10 +773,10 @@
                                         </div>
                                         <div class="col-sm-8 col-xs-12" >
                                             <script type="text/javascript">
-        var specialKeys = [];
+        var specialKeys = new Array();
         specialKeys.push(8); //Backspace
         function IsNumeric(e) {
-            var keyCode = e.which ? e.which : e.keyCode;
+            var keyCode = e.which ? e.which : e.keyCode
             var ret = ((keyCode >= 48 && keyCode <= 57) || specialKeys.indexOf(keyCode) != -1);            
             return ret;
         }

@@ -363,8 +363,8 @@
                               </div>
                               <div class="col-sm-8 col-xs-12">
                                 <select class="select-pad" name="gender" id="gender">
-                                      <option value="Female" <?php if($gender=='Female') echo 'selected' ?> >Female</option>
-                                        <option value="Male" <?php if($gender=='Male') echo 'selected' ?> >Male</option>
+                                      <option value="Female" <?php if($gender=='Female') { echo 'selected'; } ?> >Female</option>
+                                        <option value="Male" <?php if($gender=='Male') { echo 'selected'; } ?> >Male</option>
                                     </select>
                               </div>
                         </div>

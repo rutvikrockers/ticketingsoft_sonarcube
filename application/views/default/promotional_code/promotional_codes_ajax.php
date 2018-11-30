@@ -74,7 +74,8 @@
                                     <?php }else{ ?>
                                         <?php if ($end_day){ ?>
                                             <?php echo SecureShowData($end_day); ?> <?php echo DAYS ?>
-                                        <?php } if ($end_hour){ ?>
+                                        <?php } 
+                                        if ($end_hour){ ?>
                                             <?php echo $end_hour; ?> <?php echo HOURS ?>
                                         <?php } ?>
                                         
@@ -126,12 +127,5 @@
                             <div class="pagi_block pagi_marB0">
                             <?php echo $page_link; ?>
                             </div>
-                            <!--<ul class="pagination paging">
-                                  <li><a href="#">&laquo;</a></li>
-                                  <li><a href="#"  class="active">1</a></li>
-                                  <li><a href="#">2</a></li>
-                                  <li><a href="#">3</a></li>
-                                  <li><a href="#">&raquo;</a></li>
-                                </ul>-->
                                 <div class="clear"></div>
                         </div>

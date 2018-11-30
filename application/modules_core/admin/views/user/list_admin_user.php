@@ -85,17 +85,6 @@
 							<strong><?php echo SUCCESS; ?>!</strong> <?php echo RECORD_HAS_BEEN_SUCCESSFULLY_DELETED;?>
                             </div>
 			<?php } ?>
-			
-               <?php /*?><?php 
-				if($msg){
-				?>
-				<div class="alert alert-success">
-						<button class="close" data-dismiss="alert">x</button>
-						<strong><?php echo SUCCESS; ?>!</strong> <?php echo $msg; ?>.
-				</div> 
-				<?php
-				}
-				?><?php */?>
             
             <div class="row">
             	<div class="col-lg-12 clearfix">
@@ -115,7 +104,6 @@
                                             <th><?php echo LAST_LOGIN; ?></th>
                                             <th><?php echo STATUS; ?></th>
                                             <th class="sorting_disabled"><?php echo RIGHTS; ?></th>
-                                            <!--<th>Login Count</th>-->
                                             <th class="sorting_disabled"><?php echo ACTION; ?></th>
                                         </tr>
                                     </thead>
@@ -154,22 +142,19 @@
 												 ?>
                                             </td>
                                             <?php 
-											//$admin_id = check_admin_authentication();
-											if($admin_type==1){
-												
-													if($row['id']==$admin_id ||true){ ?>
+											if($admin_type==1){ ?>
 														<td><?php echo anchor('admin/admin_user/list_rights/'.$row['id'].'/',RIGHTS); ?></td>
-													<?php }else{?>
-														<td><a href="javascript://" class="disabled"><?php echo RIGHTS;?></a></td>
 													
 												
-											<?php } }else { ?>
+											<?php }else { ?>
 													<td><?php echo anchor('admin/admin_user/list_rights/'.$row['id'].'/',RIGHTS); ?></td>
 											<?php }?>
                                             
                                             
-                                            <td><?php echo anchor('admin/admin_user/edit_admin_user/'.$row['id'].'/',EDIT); ?>  <?php if(DEMO_MODE=="0"){ ?>
-                                            <?php if($row['admin_type'] == 0) {?> / <a href="#" onclick="delete_rec('<?php echo $row['id']; ?>')"><?php echo DELETE; ?></a> <?php }} ?>
+                                            <td><?php echo anchor('admin/admin_user/edit_admin_user/'.$row['id'].'/',EDIT); ?>  
+                                            <?php if(DEMO_MODE=="0"){ ?>
+                                            <?php if($row['admin_type'] == 0) {?> / <a href="#" onclick="delete_rec('<?php echo $row['id']; ?>')"><?php echo DELETE; ?></a> <?php }
+                                            } ?>
                                             </td>
                                         </tr>
                                         <?php 
@@ -202,8 +187,8 @@
 
 	$(document).ready(function(){
     	$('#dataTables-example4').dataTable({
-        overflow-x;:hidden
-    })
-    });
+        overflow-x:hidden
+      });
+	});
 </script>
 </html>

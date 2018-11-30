@@ -273,7 +273,7 @@ $(document).ready(function() {
                                     if($event_title){ ?>
                                      <div class="radio">
                                       <label>
-                                        <input type="radio" name="all_event" value="selected_events" id="selected_events" <?php if($event_data!='all') echo "checked"; ?> >
+                                        <input type="radio" name="all_event" value="selected_events" id="selected_events" <?php if($event_data!='all') { echo "checked"; } ?> >
                                         <?php echo SELECTED_EVENTS_ONLY;?>
                                       </label>
                                     </div>
@@ -297,7 +297,7 @@ $(document).ready(function() {
                                       ?>
                                       <div class="checkbox"  style="margin-left:20px;">
                                           <label>
-                                            <input type="checkbox" value="<?php echo $event_id; ?>" name="chk[]" class="checkbox1" <?php if($event_data!='all'){ if(in_array($event_id,$event_explode)) { ?> checked="checked" <?php } }?> >
+                                            <input type="checkbox" value="<?php echo $event_id; ?>" name="chk[]" class="checkbox1" <?php if($event_data!='all' && in_array($event_id,$event_explode)) { ?> checked="checked" <?php }?> >
                                             <?php echo SecureShowData($event_title1); ?>
                                           </label>
                                       </div>
@@ -329,7 +329,7 @@ $(document).ready(function() {
                                     
                                     <div class="radio">
                                       <label>
-                                        <input type="radio" name="all_action" id="selected_action" value="selected_action" <?php if($event_action!='all') echo "checked";?>>
+                                        <input type="radio" name="all_action" id="selected_action" value="selected_action" <?php if($event_action!='all') { echo "checked"; } ?>>
                                          <?php echo SELECTED_ACTIONS?>
                                       </label>
                                     </div>
@@ -343,28 +343,28 @@ $(document).ready(function() {
                                       </ul>
                                      <div class="checkbox" style="margin-left:20px;">
                                           <label>
-                                            <input type="checkbox" name="create_event[]" id="optionsRadios2" value="create_event" <?php  if($event_action!='all'){ if(in_array('create_event',$event_action_ex)) { ?> checked="checked" <?php } }?> class="checkbox2">
+                                            <input type="checkbox" name="create_event[]" id="optionsRadios2" value="create_event" <?php  if($event_action!='all' && in_array('create_event',$event_action_ex)) { ?> checked="checked" <?php } ?> class="checkbox2">
                                             <?php echo CREATE_NEW_EVENTS;?>
                                           </label>
                                      </div>
                                      
                                      <div class="checkbox" style="margin-left:20px;">
                                           <label>
-                                            <input type="checkbox" name="create_event[]" id="optionsRadios2" value="edit_event" class="checkbox2 checkbox3" <?php  if($event_action!='all'){if(in_array('edit_event',$event_action_ex)) { ?> checked="checked" <?php } }?>>
+                                            <input type="checkbox" name="create_event[]" id="optionsRadios2" value="edit_event" class="checkbox2 checkbox3" <?php  if($event_action!='all' && in_array('edit_event',$event_action_ex)) { ?> checked="checked" <?php } ?>>
                                             <?php echo  EDIT_EVENT_NOT_INCLUDING_PAYMENT_OPTIONS;?> 
                                           </label>
                                      </div>
                                      
                                       <div class="checkbox" style="margin-left:40px;">
                                           <label>
-                                            <input type="checkbox" name="create_event[]" id="optionsRadios" value="edit_ticket" class="checkbox2 child_checked" <?php  if($event_action!='all'){if(in_array('edit_ticket',$event_action_ex)) { ?> checked="checked" <?php } }?>>
+                                            <input type="checkbox" name="create_event[]" id="optionsRadios" value="edit_ticket" class="checkbox2 child_checked" <?php  if($event_action!='all' && in_array('edit_ticket',$event_action_ex)) { ?> checked="checked" <?php } ?>>
                                            <?php echo EDIT_TICKET_TYPES; ?> 
                                           </label>
                                         </div>
                                         
                                         <div class="checkbox" style="margin-left:40px;">
                                           <label>
-                                            <input type="checkbox" name="create_event[]" id="optionsRadios" value="order_customize" class="checkbox2 child_checked" <?php  if($event_action!='all'){if(in_array('order_customize',$event_action_ex)) { ?> checked="checked" <?php } }?>>
+                                            <input type="checkbox" name="create_event[]" id="optionsRadios" value="order_customize" class="checkbox2 child_checked" <?php  if($event_action!='all' && in_array('order_customize',$event_action_ex)) { ?> checked="checked" <?php } ?>>
                                              <?php echo CUSTOMIZE_REGISTRATION_PAGE;?>
                                           </label>
                                         </div>
@@ -372,62 +372,62 @@ $(document).ready(function() {
                                        
                                       <div class="checkbox" style="margin-left:20px;">
                                           <label>
-                                            <input type="checkbox" name="create_event[]" id="optionsRadios2" value="orders" class="checkbox2 checkbox4" <?php  if($event_action!='all'){if(in_array('orders',$event_action_ex)) { ?> checked="checked" <?php } }?>>
+                                            <input type="checkbox" name="create_event[]" id="optionsRadios2" value="orders" class="checkbox2 checkbox4" <?php  if($event_action!='all' && in_array('orders',$event_action_ex)) { ?> checked="checked" <?php } ?>>
                                              <?php echo VIEW_ORDER_ATTENDEE_REPORTS; ?>
                                           </label>
                                       </div>
                                       
                                           <div class="checkbox" style="margin-left:40px;">
                                               <label>
-                                                <input type="checkbox" name="create_event[]" id="optionsRadios2" value="manage_orders" class="checkbox2 oreder_check" <?php  if($event_action!='all'){if(in_array('manage_orders',$event_action_ex)) { ?> checked="checked" <?php } }?>>
+                                                <input type="checkbox" name="create_event[]" id="optionsRadios2" value="manage_orders" class="checkbox2 oreder_check" <?php  if($event_action!='all' && in_array('manage_orders',$event_action_ex)) { ?> checked="checked" <?php } ?>>
                                                  <?php echo MANAGE_ORDERS_AND_ATTENDEES; ?>
                                               </label>
                                           </div>
                                      
                                       <div class="checkbox" style="margin-left:20px;">
                                           <label>
-                                            <input type="checkbox" name="create_event[]" id="optionsRadios2" value="promotional_codes" class="checkbox2" <?php  if($event_action!='all'){if(in_array('promotional_codes',$event_action_ex)) { ?> checked="checked" <?php } }?>>
+                                            <input type="checkbox" name="create_event[]" id="optionsRadios2" value="promotional_codes" class="checkbox2" <?php  if($event_action!='all' && in_array('promotional_codes',$event_action_ex)) { ?> checked="checked" <?php } ?>>
                                              <?php echo MANAGE_DISCOUNT_CODES;?>
                                           </label>
                                       </div> 
                                       
                                       <div class="checkbox" style="margin-left:20px;">
                                           <label>
-                                            <input type="checkbox" name="create_event[]" id="optionsRadios2" value="all_affiliate" class="checkbox2" <?php  if($event_action!='all'){if(in_array('all_affiliate',$event_action_ex)) { ?> checked="checked" <?php } }?>>
+                                            <input type="checkbox" name="create_event[]" id="optionsRadios2" value="all_affiliate" class="checkbox2" <?php  if($event_action!='all' && in_array('all_affiliate',$event_action_ex)) { ?> checked="checked" <?php } ?>>
                                             <?php echo MANAGE_AFFILIATE_LINKS; ?>
                                           </label>
                                       </div>
                                       
                                       <div class="checkbox" style="margin-left:20px;">
                                           <label>
-                                            <input type="checkbox" name="create_event[]" id="optionsRadios2" value="index" class="checkbox2" <?php  if($event_action!='all'){if(in_array('index',$event_action_ex)) { ?> checked="checked" <?php } }?>>
+                                            <input type="checkbox" name="create_event[]" id="optionsRadios2" value="index" class="checkbox2" <?php  if($event_action!='all' && in_array('index',$event_action_ex)) { ?> checked="checked" <?php } ?>>
                                             <?php echo SEND_INVITES_MANAGE_CONTACTS_EMAIL_ATTENDEES;?>
                                           </label>
                                       </div>  
                                       
                                       <div class="checkbox" style="margin-left:20px;">
                                           <label>
-                                            <input type="checkbox" name="create_event[]" id="optionsRadios2" value="view_fees" class="checkbox2" <?php  if($event_action!='all'){if(in_array('view_fees',$event_action_ex)) { ?> checked="checked" <?php } }?>>
+                                            <input type="checkbox" name="create_event[]" id="optionsRadios2" value="view_fees" class="checkbox2" <?php  if($event_action!='all' && in_array('view_fees',$event_action_ex)) { ?> checked="checked" <?php } ?>>
                                            <?php echo VIEW_FESS_AND_INVOICES; ?>
                                           </label>
                                       </div>
                                       
                                       <div class="checkbox" style="margin-left:20px;">
                                           <label>
-                                            <input type="checkbox" name="create_event[]" id="optionsRadios2" value="create_organizer" class="checkbox2" <?php  if($event_action!='all'){if(in_array('create_organizer',$event_action_ex)) { ?> checked="checked" <?php } }?>>
+                                            <input type="checkbox" name="create_event[]" id="optionsRadios2" value="create_organizer" class="checkbox2" <?php  if($event_action!='all' && in_array('create_organizer',$event_action_ex)) { ?> checked="checked" <?php } ?>>
                                             <?php echo ACCESS_ADD_EDIT_ORGANIZER_PROFILE;?>
                                           </label>
                                       </div> 
                                        <div class="checkbox" style="margin-left:20px;">
                                           <label>
-                                            <input type="checkbox" name="create_event[]" id="optionsRadios2" value="all_widget" class="checkbox2" <?php  if($event_action!='all'){if(in_array('all_widget',$event_action_ex)) { ?> checked="checked" <?php } }?>>
+                                            <input type="checkbox" name="create_event[]" id="optionsRadios2" value="all_widget" class="checkbox2" <?php  if($event_action!='all' && in_array('all_widget',$event_action_ex)) { ?> checked="checked" <?php } ?>>
                                             <?php echo ACCESS_EDIT_ALL_WIDGET;?>
                                           </label>
                                       </div> 
 
                                          <div class="checkbox" style="margin-left:20px;">
                                           <label>
-                                            <input type="checkbox" name="create_event[]" id="optionsRadios2" value="edit_payment_account" class="checkbox2" <?php  if($event_action!='all'){if(in_array('edit_payment_account',$event_action_ex)) { ?> checked="checked" <?php } }?>>
+                                            <input type="checkbox" name="create_event[]" id="optionsRadios2" value="edit_payment_account" class="checkbox2" <?php  if($event_action!='all' && in_array('edit_payment_account',$event_action_ex)) { ?> checked="checked" <?php } ?>>
                                             <?php echo EDIT_PAYMENT_OPTIONS; ?>
                                           </label>
                                          </div>
@@ -462,7 +462,7 @@ $(document).ready(function() {
                                     
                                     <div class="radio">
                                       <label>
-                                        <input type="radio" name="email" id="selected_email" value="selected_email" <?php if($event_email!='all' && $event_email!='no') echo "checked";?>>
+                                        <input type="radio" name="email" id="selected_email" value="selected_email" <?php if($event_email!='all' && $event_email!='no') { echo "checked"; } ?>>
                                         <?php echo SELECTED_EMAILS_ONLY; ?>
                                       </label>
                                     </div>
@@ -471,14 +471,14 @@ $(document).ready(function() {
                                             <div id="chekboxinfo2" class="successbox"></div>
                                                <div class="checkbox" style="margin-left:20px;">
                                                   <label>
-                                                    <input type="checkbox" name="order_confirm[]" id="optionsRadios2" value="order_confirm" <?php  if($event_email!='all' && $event_email!='no'){if(in_array('order_confirm',$event_email_ex)) { ?> checked="checked" <?php } }?>>
+                                                    <input type="checkbox" name="order_confirm[]" id="optionsRadios2" value="order_confirm" <?php  if($event_email!='all' && $event_email!='no' && in_array('order_confirm',$event_email_ex)) { ?> checked="checked" <?php } ?>>
                                                     <?php echo ORDER_CONFIRMATION;?>
                                                   </label>
                                               </div>
                               
                                               <div class="checkbox" style="margin-left:20px;">
                                                   <label>
-                                                    <input type="checkbox" name="order_confirm[]" id="optionsRadios2" value="contact_org" <?php  if($event_email!='all' && $event_email!='no'){if(in_array('contact_org',$event_email_ex)) { ?> checked="checked" <?php } }?>>
+                                                    <input type="checkbox" name="order_confirm[]" id="optionsRadios2" value="contact_org" <?php  if($event_email!='all' && $event_email!='no' && in_array('contact_org',$event_email_ex)) { ?> checked="checked" <?php } ?>>
                                                    <?php echo CONTACT_ORGANIZER;?>
                                                   </label>
                                               </div>
@@ -486,7 +486,7 @@ $(document).ready(function() {
                                     
                                     <div class="radio">
                                       <label>
-                                        <input type="radio" name="email" id="no_email" value="no" <?php if($event_email=='no') echo "checked"; ?>>
+                                        <input type="radio" name="email" id="no_email" value="no" <?php if($event_email=='no') { echo "checked"; } ?>>
                                        <?php echo NO_EMAILS;?>
                                       </label>
                                     </div>                                
@@ -642,9 +642,9 @@ $(document).ready(function() {
     
     function hideshow(which){
       if (!document.getElementById)
-        return;
+        return
       if (which.style.display=="block")  
-        which.style.display="none";
+        which.style.display="none"      
       else
         which.style.display="block"    
     }

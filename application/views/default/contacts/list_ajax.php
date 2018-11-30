@@ -75,7 +75,8 @@
                 </td>
             </tr>
 
-  <?php } }else{ ?>                 
+  <?php }
+  }else{ ?>
                              
             <tr>
                 	<td colspan="6" style="text-align:center"> 

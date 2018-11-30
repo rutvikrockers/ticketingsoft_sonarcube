@@ -17,7 +17,8 @@
                             <button class="close" data-dismiss="alert">x</button>
                             <strong><?php echo ERRORS; ?>!</strong> <?php echo $error;?>
                             </div> 
-                <?php } if($success)
+                <?php } 
+                if($success)
                 { ?>
                             <div class="alert alert-success message" role="alert">
                             <button class="close" data-dismiss="alert">x</button>
@@ -53,11 +54,16 @@
                      <h3><?php echo ABOUT_GOOGLE_ANALYTICS; ?></h3>
                      <?php if($active==0) {?>
                      <h6><?php echo "Draft Event" ?></h6>
-                     <?php } if($active==3){?>
+                     <?php } 
+                     if($active==3){?>
                      <h6><?php echo "Cancelled Event" ?></h6>   
-                     <?php  }if($active==1 || $active==2) {
-                        if($event_url_link) $event_url = $event_url_link;
-                        else $event_url = $id;
+                     <?php  }
+                     if($active==1 || $active==2) {
+                        if($event_url_link) {
+                            $event_url = $event_url_link;
+                        } else {
+                         $event_url = $id;
+                        }
                         ?>  
                      <h6><strong><?php echo EVENT_LINK;?></strong> <a href="<?php echo site_url('event/view/'.$event_url);?>"><?php echo site_url('event/view/'.$event_url);?></a></h6>
                      <?php } ?>

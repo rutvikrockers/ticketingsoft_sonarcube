@@ -56,24 +56,6 @@
                     <td><?php if($event_capacity==''){ echo N_A; }else{echo $used.'/'.$event_capacity;}  ?></td>
                     <td>
                      <ul class="nav navbar-nav edit-delt text-center">
-                     
-                    	<!-- <li class="del-icon">
-                        <a href="<?php echo site_url('event/event_dashboard/1/'.$event_id);?>"><i class="glyphicon glyphicon-cog edit" data-toggle="tooltip" data-placement="bottom" title="Manage"></i></a>
-                        </li>
-                        
-                    	<li class="icon7">
-                        <a href="<?php echo site_url('event/edit_event/'.$event_id);?>" data-toggle="tooltip" data-placement="bottom" title="Edit" class="edit"></a>
-                        </li>
-                        
-                    	<li class="mes icon8">
-                        <a href="<?php echo site_url('event/view/'.$event_url_link);?>" data-toggle="tooltip" data-placement="bottom" title="View" class="edit"></a>
-                        </li>
-                        
-                        <li class="mes icon9">
-                        <a href="" data-toggle="tooltip" data-placement="bottom" title="invite" class="edit"></a>
-                        </li> -->
-                        
-
                         <li> <a href="<?php echo site_url('event/event_dashboard/1/'.$event_id);?>" data-toggle="tooltip" data-placement="bottom" title="Manage"><i class="fa fa-cog" aria-hidden="true"></i></a> </li>
                         
                         <li> <a href="<?php echo site_url('event/edit_event/'.$event_id);?>" data-toggle="tooltip" data-placement="bottom" title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> </li>

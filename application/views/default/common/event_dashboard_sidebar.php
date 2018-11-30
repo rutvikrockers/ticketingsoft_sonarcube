@@ -30,9 +30,9 @@
                        	<div class="panel-body">
                         <ul class="inner-list">
                        <?php if(!$customize_order){ ?>
-                          <li><a href="<?php echo site_url('event/order_customize/'.$events_id);?>"><?php echo CUSTOMIZE_ORDER_FORM;?> </a></li><?php }?>
+                          <li><a href="<?php echo site_url('event/order_customize/'.$events_id);?>"><?php echo CUSTOMIZE_ORDER_FORM;?> </a></li>
+                       <?php }?>
                           <li><a href="<?php echo site_url('event/email_confirmation/'.$events_id);?>"><?php echo EDIT_ORDER_CONFIRMATIONS;?></a></li>
-                          <!-- <li><a href="<?php echo site_url('event/event_language/'.$events_id);?>"><?php echo EVENT_TYPE_LANGUAGE;?></a></li> -->
                           <li><a href="<?php echo site_url('event/event_update/'.$events_id);?>"><?php echo ADD_NEWS_AND_UPDATES;?></a></li>
                         </ul>
                        	</div>

@@ -35,8 +35,6 @@
                                     <?php 
 										if($result)
 										{
-                                         // echo "<pre>";
-                                         // print_r($result);die;
 											foreach($result as $affiliate)
 												{
 												

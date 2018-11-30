@@ -1,6 +1,3 @@
- <!-- 
-<link href="<?php // echo base_url();?>css/popup.css" rel="stylesheet" />
- <script src="<?php // echo base_url();?>js/jquery.magnific-popup.js"></script> -->
 <script type="text/javascript">
 	       
 
@@ -154,7 +151,7 @@
 				            
 			               	for (i=0; i < obj.length; i++) {
 							  // or if (Object.prototype.hasOwnProperty.call(obj,prop)) for safety...
-							    prop = obj[i];
+							    prop = obj[i]
 							    if(prop["first_name"]=='null' || prop["first_name"]=='' || prop["first_name"]==null)
 							    {
 							    	var first_name = 'N/A';

@@ -50,8 +50,9 @@
                                          $c_id = $row['id'];
                                         $country_name = $row['country_name'];
                                         $selected='';
-                                        if($country_id==$row['id'])
+                                        if($country_id==$row['id']) {
                                         	$selected='selected="selected"';
+                                        }
                                     ?>
                                     <option value="<?php echo $c_id;?>" <?php echo $selected; ?> ><?php echo SecureShowData($country_name);?></option>
                                     <?php endforeach;?>
@@ -79,8 +80,8 @@
                                     </div>
                                     <div class="col-sm-4">
                                     	<select class="form-control" name="country_status">
-                                                <option value="1" <?php if($active=='1') echo "selected"; ?> ><?php echo ACTIVE; ?></option>
-                                            	<option value="0" <?php if($active=='0') echo "selected"; ?> ><?php echo INACTIVE; ?></option>
+                                                <option value="1" <?php if($active=='1') { echo "selected"; } ?> ><?php echo ACTIVE; ?></option>
+                                            	<option value="0" <?php if($active=='0') { echo "selected"; } ?> ><?php echo INACTIVE; ?></option>
                                         </select>
                                     </div>
                                 </div>

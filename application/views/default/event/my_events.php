@@ -1,6 +1,5 @@
 <script src="<?php echo base_url()?>js/jquery.form.js"></script>
 <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<!-- <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"> -->
 
 <script type="text/javascript">
   $(document).ready(function() {
@@ -33,46 +32,86 @@
     }
 </script>
 <script>
+    function get_completed() {
+        var getStatusUrl= '<?php echo site_url('event/complete_event/'.$org_id)?>';
+        $.ajax({
+            url: getStatusUrl,
+            dataType: 'text',
+            type: 'POST',
+            timeout: 99999,
+            global: false,
+            data: '[]',
+            success: function(data)
+            {
+                $('#complete').html(data);
+                 dataTableInitNew('completed_event_table');
+            },      
+            error: function(XMLHttpRequest, textStatus, errorThrown)
+            {
+            
+            }
+        });
+    }
+    function get_cancelled() {
+        var getStatusUrl= '<?php echo site_url('event/cancel_event/'.$org_id)?>';
+        $.ajax({
+            url: getStatusUrl,
+            dataType: 'text',
+            type: 'POST',
+            timeout: 99999,
+            global: false,
+            data: '[]',
+            
+            success: function(data)
+            { 
+                $('#cancel').html(data);
+                dataTableInitNew('cancel_event_table')
+            },      
+            error: function(XMLHttpRequest, textStatus, errorThrown)
+            {
+            
+            }
+        });
+    }
+    function get_drafted() {
+        var getStatusUrl= '<?php echo site_url('event/draft_event/'.$org_id)?>';
+        $.ajax({
+            url: getStatusUrl,
+            dataType: 'text',
+            type: 'POST',
+            timeout: 99999,
+            global: false,
+            data: '[]',
+            success: function(data)
+            { 
+                var $response = $(data);
+                var r = $response.find('.reg1').val();
+                
+                if(r==""){
+                  var s = 'Draft(0)';  
+                }
+                else{
+                  var s = 'Draft('+r+')';
+                }
+                $('#drafted').html(s);
+
+                $('#draft').html(data);
+                 dataTableInitNew('event_draft_table');
+                hide_loader();
+            },      
+            error: function(XMLHttpRequest, textStatus, errorThrown)
+            {
+            
+            }
+        });
+
+    }
     $(document).ready(function(){
         
         
         $('#org_list').change(function(){
             var temp = $("#org_list").val();
             document.location.href = "<?php echo site_url('event/index')?>/"+temp;
-        });
-        
-        $('#drafted').click(function(){
-
-            var getStatusUrl= '<?php echo site_url('event/draft_event/'.$org_id)?>';
-            $.ajax({
-                url: getStatusUrl,
-                dataType: 'text',
-                type: 'POST',
-                timeout: 99999,
-                global: false,
-                data: '[]',
-                success: function(data)
-                { 
-                    var $response = $(data);
-                    var r = $response.find('.reg1').val();
-                    
-                    if(r==""){
-                      var s = 'Draft(0)';  
-                    }
-                    else{
-                      var s = 'Draft('+r+')';
-                    }
-                    $('#drafted').html(s);
-
-                    $('#draft').html(data);
-                     dataTableInitNew('event_draft_table');
-                    hide_loader();
-                },      
-                error: function(XMLHttpRequest, textStatus, errorThrown)
-                {
-                
-                }
-            });
         });
         $('#drafted_responsive').click(function(){
 
@@ -89,7 +128,7 @@
                     var $response = $(data);
                     var r = $response.find('.reg1').val();
                     
-                    var s = 'Draft('+r+')';
+                    var s = 'Draft('+r+')'
                     $('#drafted_responsive').html(s);
                     $('#draft').html(data);
                      dataTableInitNew('event_draft_table');
@@ -100,77 +139,6 @@
                 
                 }
             });
-        });
-        $('#completed').click(function(){
-            
-            
-
-            var getStatusUrl= '<?php echo site_url('event/complete_event/'.$org_id)?>';
-            $.ajax({
-                url: getStatusUrl,
-                dataType: 'text',
-                type: 'POST',
-                timeout: 99999,
-                global: false,
-                data: '[]',
-                success: function(data)
-                {
-                    $('#complete').html(data);
-                     dataTableInitNew('completed_event_table');
-                },      
-                error: function(XMLHttpRequest, textStatus, errorThrown)
-                {
-                
-                }
-            });
-            
-        });
-          $('#completed_responsive').click(function(){
-            
-            
-
-            var getStatusUrl= '<?php echo site_url('event/complete_event/'.$org_id)?>';
-            $.ajax({
-                url: getStatusUrl,
-                dataType: 'text',
-                type: 'POST',
-                timeout: 99999,
-                global: false,
-                data: '[]',
-                success: function(data)
-                {
-                    $('#complete').html(data);
-                     dataTableInitNew('completed_event_table');
-                },      
-                error: function(XMLHttpRequest, textStatus, errorThrown)
-                {
-                
-                }
-            });
-            
-        });
-        $('#cancelled').click(function(){
-
-            var getStatusUrl= '<?php echo site_url('event/cancel_event/'.$org_id)?>';
-            $.ajax({
-                url: getStatusUrl,
-                dataType: 'text',
-                type: 'POST',
-                timeout: 99999,
-                global: false,
-                data: '[]',
-                
-                success: function(data)
-                { 
-                    $('#cancel').html(data);
-                    dataTableInitNew('cancel_event_table')
-                },      
-                error: function(XMLHttpRequest, textStatus, errorThrown)
-                {
-                
-                }
-            });
-            
         });
 
         $('#cancelled_responsive').click(function(){
@@ -272,9 +240,9 @@
           <div class="tab my-event mb">
             <ul class="nav nav-tabs responsive hidden-xs hidden-sm" id="myTab">
               <li class="active"><a href="#all" data-toggle="tab" id="all_e"><?php echo ACTIVE;?>(<?php echo $total_events_active;?>)</a></li>
-              <li><a href="#draft" data-toggle="tab" id="drafted"><?php echo DRAFT;?>(<?php echo $total_events_draft;?>)</a></li>
-              <li><a href="#complete" data-toggle="tab" id="completed"><?php echo COMPLETED;?>(<?php echo $total_events_complete;?>)</a></li>
-              <li><a href="#cancel" data-toggle="tab" id="cancelled"><?php echo CANCELLED;?>(<?php echo $total_events_cancel;?>)</a></li>
+              <li><a href="#draft" data-toggle="tab" id="drafted" onclick="get_drafted();"><?php echo DRAFT;?>(<?php echo $total_events_draft;?>)</a></li>
+              <li><a href="#complete" data-toggle="tab" id="completed" onclick="get_completed();"><?php echo COMPLETED;?>(<?php echo $total_events_complete;?>)</a></li>
+              <li><a href="#cancel" data-toggle="tab" id="cancelled" onclick="get_cancelled();"><?php echo CANCELLED;?>(<?php echo $total_events_cancel;?>)</a></li>
             </ul>
             <div class="tab-content responsive hidden-sm hidden-xs">
               <div class="tab-pane fade in active event-info" id="all">
@@ -395,7 +363,7 @@
                                 $id = $organizer['id'];
                                 $page_url = $organizer['page_url'];
                                 ?>
-                    <option value="<?php echo $id;?>" <?php if($id==$org_id) echo 'selected';?>><?php echo SecureShowData($name);?></option>
+                    <option value="<?php echo $id;?>" <?php if($id==$org_id) { echo 'selected'; } ?>><?php echo SecureShowData($name);?></option>
                     <?php 
                           }
                       }

@@ -80,9 +80,9 @@ StringBuilder.prototype.Append = function( value )
 {
     if ( value )
         this._Strings.push( value ) ;
-};
+}
 
 StringBuilder.prototype.ToString = function()
 {
     return this._Strings.join( '' ) ;
-};
+}

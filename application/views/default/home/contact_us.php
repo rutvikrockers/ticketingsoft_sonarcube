@@ -51,9 +51,9 @@
 
                               <select class="select-pad" name="i_am" id="i_am">
                                <option value="" >- - Select One - -</option>
-                                        <option value="I am an Event organizer" <?php if($i_am=='I am an Event organizer') echo 'selected';?>  >I am an Event organizer</option>   
-                                        <option value="I am an Event Attendee" <?php if($i_am=='I am an Event Attendee') echo 'selected';?> >I am an Event Attendee</option>
-                                        <option value="other" <?php if($i_am=='other') echo 'selected';?>  >Other</option>
+                                        <option value="I am an Event organizer" <?php if($i_am=='I am an Event organizer') { echo 'selected'; } ?>  >I am an Event organizer</option>   
+                                        <option value="I am an Event Attendee" <?php if($i_am=='I am an Event Attendee') { echo 'selected'; } ?> >I am an Event Attendee</option>
+                                        <option value="other" <?php if($i_am=='other') { echo 'selected'; } ?>  >Other</option>
                                         </select>
                               </div>
                         </div>
@@ -64,15 +64,15 @@
                               <div class="col-sm-8 col-xs-12">
                               <select class="select-pad" name="category" id="category">
                                     <option value="">- - Select One - -</option>
-                                     <option value="Login and password" <?php if($category=='Login and password') echo 'selected';?> >Login and password</option>
-                                    <option value="Event page design" <?php if($category=='Event page design') echo 'selected';?>>Event page design</option>
-                                    <option value="Fees, payments and invoices" <?php if($category=='Fees, payments and invoices') echo 'selected';?> >Fees, payments and invoices</option>
-                                    <option value="Collecting and viewing attendee info" <?php if($category=='Collecting and viewing attendee info') echo 'selected';?>>Collecting and viewing attendee info</option>
-                                    <option value="Promoting an event" <?php if($category=='Promoting an event') echo 'selected';?>>Promoting an event</option>
-                                    <option value="Management tools" <?php if($category=='Management tools') echo 'selected';?>>Management tools</option>
-                                    <option value="Sales - I am organizing a large event" <?php if($category=='Sales - I am organizing a large event') echo 'selected';?>>Sales - I am organizing a large event</option>
-                                    <option value="Unsubscribe" <?php if($category=='Unsubscribe') echo 'selected';?>>Unsubscribe</option>
-                                    <option value="Other" <?php if($category=='Other') echo 'selected';?>>Other</option>
+                                     <option value="Login and password" <?php if($category=='Login and password') { echo 'selected'; } ?> >Login and password</option>
+                                    <option value="Event page design" <?php if($category=='Event page design') { echo 'selected'; } ?>>Event page design</option>
+                                    <option value="Fees, payments and invoices" <?php if($category=='Fees, payments and invoices') { echo 'selected'; } ?> >Fees, payments and invoices</option>
+                                    <option value="Collecting and viewing attendee info" <?php if($category=='Collecting and viewing attendee info') { echo 'selected'; } ?>>Collecting and viewing attendee info</option>
+                                    <option value="Promoting an event" <?php if($category=='Promoting an event') { echo 'selected'; } ?>>Promoting an event</option>
+                                    <option value="Management tools" <?php if($category=='Management tools') { echo 'selected'; } ?>>Management tools</option>
+                                    <option value="Sales - I am organizing a large event" <?php if($category=='Sales - I am organizing a large event') { echo 'selected'; } ?>>Sales - I am organizing a large event</option>
+                                    <option value="Unsubscribe" <?php if($category=='Unsubscribe') { echo 'selected'; } ?>>Unsubscribe</option>
+                                    <option value="Other" <?php if($category=='Other') { echo 'selected'; } ?>>Other</option>
                                         </select>
                               </div>
                         </div>

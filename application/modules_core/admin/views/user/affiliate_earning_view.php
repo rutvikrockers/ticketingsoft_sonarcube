@@ -31,13 +31,11 @@
                                     <thead>
                                         <tr>
                                         	
-                                     <!--  <th>&nbsp;</th> -->
+                                     
                                       <th>Event Name</th>
                                       <th>Amount</th>
                                      
                                       <th>Date</th>
-                                   <!--  <th>Status</th>
-                                    <th>Action</th> -->
                                             
                                         </tr>
                                     </thead>
@@ -45,26 +43,18 @@
                                     <?php 
 										if($result)
 										{
-                                         // echo "<pre>";
-                                         // print_r($result);die;
 											
 											 foreach($result as $aearn){
                                       
                         $id = $aearn['id'];
                         $event_title = $aearn['event_title'];
                                                  $event_id = $aearn['id'];//code add by darshan 
-                        //$credit = $aearn['credit'];
+                        
                                                                                                
-                                               // $debit = $aearn['debit'];
 
                                                 $credit = $aearn['credit'];
                                                                                                
                                                   $debit = $aearn['wcredit'];
-                                                // if($credit>0){
-                                                //    $amount = set_event_currency($credit,$aearn['currency_code_id']).' cr';
-                                                // }else{
-                                                //    $amount = set_event_currency($debit,$earn['currency_code_id']).' dr'; 
-                                                // }
                                                 $amount = set_event_currency($debit,$event_id) .' dr'; //code add by darshan 
                                                 $paid = $aearn['paid'];
                                                 $due = $aearn['due'];
@@ -75,8 +65,6 @@
                                 
                                   <td><?php echo SecureShowData($event_title); ?></td>
                                     <td><?php echo $amount; ?></td> 
-                                <!--    <td><?php echo $paid; ?></td>
-                                    <td><?php echo $due; ?></td> -->
                                     <td><?php echo $created_at; ?></td>
                                     </tr>
                                     <?php 

@@ -283,7 +283,8 @@
                               	</div>
                               </div>
                               	
-                              <?php } if($code_type =='disc'){ ?>
+                              <?php } 
+                              if($code_type =='disc'){ ?>
                               
                               	
                                 <div class="form-group clearfix" id="dic_amount">
@@ -294,7 +295,7 @@
                                 
                                 <div class="col-xs-4 pright0 width-xs">
 	                                <div class="discount-dollar">
-	                                  <label><?php echo getCurrencySymbol($id);//$site_setting['currency_symbol'];?></label>
+	                                  <label><?php echo getCurrencySymbol($id); ?></label>
 	                                  </div>
 	                                <div class="col-sm-9 col-xs-9 pright0">
 	                                  	<input type="text" name="disc_amount" id="disc_amount" value="<?php echo $disc_amt;?>">
@@ -327,11 +328,12 @@
                                  <div class="col-sm-8 col-xs-9 width-xs">
                                 <div class="checkbox checkbox2">
                                           <label>
-                                            <input type="checkbox" id="selectall" name="all" value="1"<?php echo ($all_tickets == 1 ? 'checked' : '');?> >
+                                            <input type="checkbox" id="selectall" name="all" value="1"<?php echo $all_tickets == 1 ? 'checked' : ''; ?> >
                                             <strong><?php echo ALL_TICKET_TYPES; ?></strong>
                                             <?php if($code_type=='disc'){?>
                          					<span id="discount_codes"><?php echo DISCOUNT_CODES_CAN_ONLY_BE_APPLIED_TO_PAID_TICKETS_ON_SALE; ?></span>
-                         					<?php } if($code_type=='access'){?>
+                         					<?php } 
+                                            if($code_type=='access'){?>
                          					<span id="access_codes"><?php echo ACCESS_CODES_CAN_ONLY_BE_APPLIED_TO_HIDDEN_FIELDS; ?></span>
                          					<?php } ?>
                                           </label>
@@ -348,7 +350,7 @@
 												
 												
 												$edit_tickets = explode(',',$tickets);
-												//print_r($edit_tickets);die;
+												
 												$check='';
 												
 												foreach($edit_tickets as $checked_ticket)
@@ -434,7 +436,8 @@
                                    			
 											}
                                    			?>
-                                    <?php } }?>
+                                    <?php } 
+                                    } ?>
                                     
                                   </div>
                                  </div>
@@ -504,7 +507,7 @@
                                   <label><?php echo SELECT_DATE; ?></label>
                                 </div>
                               <div class="col-sm-7 col-xs-7 pleft0">
-                                  <input type="text" name="start_date_time" id="start_date_time" value="<?php echo $start_date_time;?>">
+                                  <input type="text" name="start_date_time" id="start_date_time" value="<?php echo ($start_date_time) ?  date('Y-m-d', strtotime($start_date_time)) : ''; ?>">
                               </div>
                                </div>
                                </div>
@@ -575,11 +578,10 @@
                                   <label><?php echo SELECT_DATE; ?></label>
                                 </div>
                               <div class="col-sm-7 col-xs-7 pleft0">
-                                  <input type="text" name="end_date_time" id="end_date_time" value="<?php echo $end_date_time;?>">
+                                  <input type="text" name="end_date_time" id="end_date_time" value="<?php echo ($end_date_time) ? date('Y-m-d', strtotime($end_date_time)) : ''; ?>">
                               </div>
                                </div>
                                </div>
-                               
                                <div class="col-sm-12 col-xs-12 pleft0 pright0 pt10">
                                 <div class="discount-dollar p0">
                                   <div class="radio">
@@ -628,7 +630,7 @@
                 <div class="fr pb">
                     <ul class="save-preview3 clearfix">
                         <li><input type="submit" value="<?php echo SAVE;?>" class="btn-event2"/></li>
-                        <li><a href="<?php echo site_url('event/promotional_codes/'.$id);?>" class="btn-eventgrey"><?php echo CANCEL; ?></a></li>
+                        <li><a href="<?php echo site_url('event/promotional_codes/1/'.$id);?>" class="btn-eventgrey"><?php echo CANCEL; ?></a></li>
                     </ul>
                 </div>
                 
@@ -712,18 +714,49 @@
 
         
 <script type="text/javascript">
+		function set_paid_ticket_info(id,disp){
+
+        		if(disp=='show'){
+        			var vis = $('#'+id).toggle().is(":visible");	
+        		}
+
+        		if(disp=='hide'){
+
+        			var chks_start = new Date($('#'+id+' [name="paid_start_sale_date[]"]').val()+' '+$('#'+id+' [name="paid_start_sale_time[]"]').val());
+
+        			var chks_end =   new Date($('#'+id+' [name="paid_end_sale_date[]"]').val()+' '+$('#'+id+' [name="paid_end_sale_time[]"]').val());
+        			var event_end_date_time =  new Date($("#event_end_date").val()+' '+$("#event_end_time").val());
+        			
+        			ticket_req_fields = $('#'+id+' .chks_start_chks_end');
+        			ticket_req_fields.text('');
+        			
+        			if(chks_start > chks_end) {      
+        				$('#'+id+' [name="paid_start_sale_date[]"]').focus();
+        				ticket_req_fields.text("<?php echo Ticket_start_sale_date_should_not_be_greater_than_end_sale_date; ?>");	
+        		    }
+        		    
+        			else if(chks_end > event_end_date_time) {  
+        				$('#'+id+' [name="paid_end_sale_date[]"]').focus();    
+        				ticket_req_fields.text("<?php echo Ticket_end_sale_date_should_not_be_greater_than_event_end_date;?>");
+        		    }
+        		    
+        		    else{
+        				$('#'+id).hide();
+        			}
+        		}	
+        	}
+
             // When the document is ready
             $(document).ready(function () {
-                
-                $('#end_date_time').datepicker({
-                    format: "yyyy-mm-dd",
-					orientation: 'top'
-                });
-                
-                $('#start_date_time').datepicker({
-                    format: "yyyy-mm-dd",
-					orientation: 'top'
-                });
+						
+							var today = "<?php echo $today ?>"
+							var event_end_date = "<?php echo $event_end_date ?>"
+						
+
+							$('#start_date_time').datepicker({format: "yyyy-mm-dd",orientation: 'top', startDate : today, endDate : event_end_date });
+
+							$('#end_date_time').datepicker({format: "yyyy-mm-dd",	orientation: 'top' , startDate : today, endDate : event_end_date });
+							
 				
             });
 			

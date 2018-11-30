@@ -21,7 +21,8 @@
                 
                  <?php if($msg!=''){ ?>
                        <div class="alert alert-success mar10 sucerrcmn"><?php echo $msg; ?></div>
-               <?php  }if($error!=''){ ?>
+               <?php  }
+               if($error!=''){ ?>
                        <div class="alert alert-danger mar10 sucerrcmn"><?php echo $error; ?></div>
                <?php  } ?>
                      

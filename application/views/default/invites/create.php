@@ -3,49 +3,53 @@
 <!-- Start of Darshan Code -->
 <?php 
 $address='';
-// print_r($event_venue);die();
+
 if($event_detail['id']!=''){
-	
-		if($event_venue['venue_add1']!='')
+        $venue_add1 = $event_venue['venue_add1'];
+        $venue_add2 = $event_venue['venue_add2'];
+        $venue_city = $event_venue['venue_city'];
+        $venue_state = $event_venue['venue_state'];
+        $venue_country = $event_venue['venue_country'];
+		if($venue_add1!='')
 		{	
 
-			$address=$event_venue['venue_add1'];
+			$address=$venue_add1;
 		}
-		if($event_venue['venue_add2']!='')
+		if($venue_add2!='')
 		{
 			if($address!=''){
-			$address=$address.', '.$event_venue['venue_add2'];
+			$address=$address.', '.$venue_add2;
 				}else
 				{
-					$address=$event_venue['venue_add1'];
+					$address=$venue_add2;
 				}
 		}
-		if($event_venue['venue_city']!='')
+		if($venue_city!='')
 		{
 			if($address!=''){
-			$address=$address.', '.$event_venue['venue_city'];
+			$address=$address.', '.$venue_city;
 				}else
 				{
-					$address=$event_venue['venue_city'];
+					$address=$venue_city;
 				}
 		}
-		if($event_venue['venue_state']!='')
+		if($venue_state!='')
 		{
 			if($address!=''){
-			$address=$address.', '.$event_venue['venue_state'];
+			$address=$address.', '.$venue_state;
 				}else
 				{
-					$address=$event_venue['venue_state'];
+					$address=$venue_state;
 				}
 		}
-		if($event_venue['venue_country']!='')
+		if($venue_country!='')
 		{
 			if($address!='')
 			{
-				$address=$address.', '.$event_venue['venue_country'];
+				$address=$address.', '.$venue_country;
 				}else
 				{
-					$address=$event_venue['venue_country'];
+					$address=$venue_country;
 				}
 		}
 	}
@@ -109,9 +113,6 @@ if($event_detail['id']!=''){
     <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/bootstrap-datetimepicker.css" />
 
 <?php 
-//echo "<pre>";
-//print_r($event_detail);
-//die;
 $event_id = $event_detail['id'];
 $event_title = $event_detail['event_title'];
 $event_start_date_time = $event_detail['event_start_date_time'];
@@ -119,13 +120,14 @@ $event_end_date_time = $event_detail['event_end_date_time'];
 
 $event_images=getAllRecordById('event_images','event_id',$event_id);
 
-if(isset($event_images[0]))$event_logo_image = $event_images[0]['image_name'];
-else $event_logo_image ="";
+if(isset($event_images[0])) {
+    $event_logo_image = $event_images[0]['image_name'];
+} else {
+    $event_logo_image ="";
+}
 $event_url_link = $event_detail['event_url_link'];
 $online_event_option = $event_detail['online_event_option'];
-//$vanue_name = $event_detail['vanue_name'];
 $vanue_name = $event_venue['name'];
-//$street_address = $event_detail['street_address'];
 $street_address = $address;
 $password_protect = $event_detail['password_protect'];
 $password_value=$event_detail['password_value'];
@@ -180,7 +182,6 @@ if($sub_row['id']!= $invite_id )
 	  }
   }
 
- // print_r($all_inv_sub);
 ?>
 <?php if($success_msg){
 			        ?>
@@ -594,7 +595,7 @@ function remove_selected(){
 			            var obj = data.guests;
 		               	for (i=0; i < obj.length; i++) {
 						  // or if (Object.prototype.hasOwnProperty.call(obj,prop)) for safety...
-						    prop = obj[i];
+						    prop = obj[i]
 						    if(prop["first_name"]=='null' || prop["first_name"]=='' || prop["first_name"]==null)
 						    {
 						    	var first_name = 'N/A';
@@ -728,7 +729,7 @@ $(document).ready(function() {
                 <div class="email_time clearfix pb pt">
                 
                 <div class="col-sm-4 col-xs-4 width-xs event-img2" id="event_image" style="display: <?php if ($inv_image==1 ) {?> block; <?php }else{ ?> none; <?php } ?>">
-                <img src="<?php echo $event_image;?>">
+                <img src="<?php echo $event_image;?>" alt="event_image">
                 </div>
                 <div class="col-sm-8 col-xs-8 width-xs mt20-xs0">
                 <p class="p0"><?php echo EVENT_TO_BE_HELD_AT_THE_FOLLOWING_TIME_DATE_AND_LOCATION; ?>:</p>
@@ -958,9 +959,6 @@ $(document).ready(function() {
                              <div class="form-group clearfix " >
                              <div class="col-sm-12 col-xs-12 text-editor pt">
                                <textarea name="invite_message" id="invite_message" ><?php echo SecureShowData($inv_message);?> </textarea>
-                             <!--<script type="text/javascript">
-                                CKEDITOR.replace( 'invite_message' );
-                        </script> --> 
                              </div>
                              </div>
                              
@@ -1067,7 +1065,7 @@ $(document).ready(function() {
                     <div class="col-sm-4 col-xs-12 fr">
                 
                 	 <?php $display='visibility:hidden'; if($guests){ $display='visibility:visible'; }?>
-                <a style="<?php echo $display; ?>;cursor: pointer;" onclick="remove_selected();" id="remove_contact_option" class="btn-event2 marL10 invitation-btn2" style="display: <?php if (count($guests) > 0) { ?> block; <?php }else{ ?> none; <?php } ?>"><?php echo REMOVE_SELECTED; ?></a>
+                <a style="<?php echo $display; ?>;cursor: pointer;" onclick="javascript: remove_selected();" id="remove_contact_option" class="btn-event2 marL10 invitation-btn2" style="display: <?php if (count($guests) > 0) { ?> block; <?php }else{ ?> none; <?php } ?>"><?php echo REMOVE_SELECTED; ?></a>
               	
                 </div>
                
@@ -1098,7 +1096,6 @@ $(document).ready(function() {
                  		 <div class="radio">
                       <label>        	
                       <input type="radio" name="optionsRadios" id="RadioGroup1_0" value="0"  <?php if ($invite_immediately==0) {?> checked="true" <?php }else{?> checked="checked"<?php } ?> />
-                      <!--<input type="radio" name="optionsRadios" id="RadioGroup1_0" value="0"  <?php //if ($invite_immediately==1) {?> checked="true" <?php //} ?>>-->
                        <?php echo IMMEDIATELY; ?>
                       </label>
                   </div>
@@ -1151,10 +1148,6 @@ $(document).ready(function() {
                                   <div class="col-sm-6 col-xs-6 width-xs2 pleft0">
                                   <input type="number" min="0" placeholder="Minutes" name="minutes" id="minutes" value="<?php echo $invite_minutes;?>">
                                   	
-                                  <!--<select class="select-pad" placeholder="11:00 PM" name="time" id="time" >
-                                   <option>12:00 PM</option>
-                                   <option>13:00 PM</option>
-                                  </select>-->
                                   </div>
                                   <div class="max-time2">
                                   <label><?php echo BEFORE_MY_EVENT; ?></label>

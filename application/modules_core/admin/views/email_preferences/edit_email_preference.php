@@ -63,30 +63,6 @@
                                     </div>
                                 </div>
                                 
-                             <!-- <div class="form-group clearfix">
-                                	<div class="col-sm-3">
-                                    	<label><?php echo ATTENDEE_PICKS; ?></label>
-                                    </div>
-                                    <div class="col-sm-2">
-                                    	<select class="form-control" name="attendee_picks">
-                                                 <option value="1" <?php if($attendee_picks == 1) { echo "selected";} ?>><?php echo YES; ?></option>
-                                            	<option value="0" <?php if($attendee_picks == 0) { echo "selected";} ?>><?php echo NO; ?></option>
-                                        </select>
-                                    </div>
-                                </div>
-                             
-                             <div class="form-group clearfix">
-                                	<div class="col-sm-3">
-                                    	<label><?php echo ATTENDEE_BUY_TICKET; ?></label>
-                                    </div>
-                                    <div class="col-sm-2">
-                                    	<select class="form-control" name="attendee_buy_ticket">
-                                                <option value="1" <?php if($attendee_buy_ticket == 1) { echo "selected";} ?>><?php echo YES; ?></option>
-                                            	<option value="0" <?php if($attendee_buy_ticket == 0) { echo "selected";} ?>><?php echo NO; ?></option>
-                                        </select>
-                                    </div>
-                                </div> -->
-                                
                              <div class="form-group clearfix">
                                 	<div class="col-sm-3">
                                     	<label><?php echo ORG_UPDATE; ?></label>
@@ -98,44 +74,6 @@
                                         </select>
                                     </div>
                                 </div>
-                                
-                             <!-- <div class="form-group clearfix">
-                                	<div class="col-sm-3">
-                                    	<label><?php echo ORG_PICKS; ?></label>
-                                    </div>
-                                    <div class="col-sm-2">
-                                    	<select class="form-control" name="org_picks">
-                                                 <option value="1" <?php if($org_picks == 1) { echo "selected";} ?>><?php echo YES; ?></option>
-                                            	<option value="0" <?php if($org_picks == 0) { echo "selected";} ?>><?php echo NO; ?></option>
-                                        </select>
-                                    </div>
-                                </div>
-                                
-                             <div class="form-group clearfix">
-                                	<div class="col-sm-3">
-                                    	<label><?php echo ORG_NEXT_EVENT; ?></label>
-                                    </div>
-                                    <div class="col-sm-2">
-                                    	<select class="form-control" name="org_next_event">
-                                                 <option value="1" <?php if($org_next_event == 1) { echo "selected";} ?>><?php echo YES; ?></option>
-                                            	<option value="0" <?php if($org_next_event == 0) { echo "selected";} ?>><?php echo NO; ?></option>
-                                        </select>
-                                    </div>
-                                </div>
-                                
-                             <div class="form-group clearfix">
-                                	<div class="col-sm-3">
-                                    	<label><?php echo ORG_ORDER_CONFIRM; ?></label>
-                                    </div>
-                                    <div class="col-sm-2">
-                                    	<select class="form-control" name="org_order_confirm">
-                                                 <option value="1" <?php if($org_order_confirm == 1) { echo "selected";} ?>><?php echo YES; ?></option>
-                                            	<option value="0" <?php if($org_order_confirm == 0) { echo "selected";} ?>><?php echo NO; ?></option>
-                                        </select>
-                                    </div>
-                                </div>  -->  
-                                
-                                
                         </div>
                  </div>
                 </div><!-- col-lg-12  -->

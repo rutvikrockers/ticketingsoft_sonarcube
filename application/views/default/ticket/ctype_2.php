@@ -1,4 +1,5 @@
 								  <?php 
+                                  $tickets = $order['tickets'];
 			                      if($order['ctype']==2){ 
 									  
 			                      		//=== Free ticket stat===//
@@ -11,7 +12,7 @@
 			                      				
 			                      				$free_tick_count = 0;
 			                      				
-												$ticket_array = explode(',',$order['tickets']);
+												$ticket_array = explode(',',$tickets);
 												
 			                      				foreach($ticket_array as $key=>$val){
 			                      					$arr[$val] = $val;
@@ -24,7 +25,6 @@
 			                      					while($free_tick_count < $ticket_qty[$free['id']]){
 			                      						
 			                      						echo '<div class="panel-heading brtl"><h3 class="panel-title">'.Ticket.' #'.$tick_count.' '.$free['ticket_name'].'</h3></div><br />';
-				                      				 		//$data['order'] = $order;
 			                      						$data['tick_count'] = $tick_count;
 			                      						$data['free'] = $free;
 			                      						$data['ticket_type'] = 0;
@@ -53,7 +53,7 @@
 				                      					
 				                      					$paid_tick_count = 0;
 				                      					
-				                      					$ticket_array = explode(',',$order['tickets']);
+				                      					$ticket_array = explode(',',$tickets);
 													  	
 				                      					foreach($ticket_array as $key=>$val){
 				                      						$arr[$val] = $val;
@@ -66,7 +66,7 @@
 				                      						while($paid_tick_count < $ticket_qty[$paid['id']]){
 				                      							
 				                      							echo '<div class="panel-heading brtl"><h3 class="panel-title">'.Ticket.' #'.$tick_count.' '.$paid['ticket_name'].'</h3></div><br />';
-				                      				 		//$data['order'] = $order;
+				                      				 		
 				                      							$data['tick_count'] = $tick_count;
 				                      							$data['free'] = $paid;
 				                      							$data['ticket_type'] = 2;
@@ -93,14 +93,12 @@
 				                      				if($ticket_qty[$donation['id']] && $ticket_qty[$donation['id']]!='0' && $ticket_qty[$donation['id']]!=''){
 														
 														$don_tick_count = 0;							
-														$ticket_array = explode(',',$order['tickets']);
+														$ticket_array = explode(',',$tickets);
 													  
 				                      					foreach($ticket_array as $key=>$val){
 				                      						$arr[$val] = $val;
 														  }
 														
-														  //=== array_key_exists() start===// 
-				                      					// if(array_key_exists($donation['id'],$arr))  {
 															$x=1;				  
 															
 															echo '<div class="panel-heading brtl"><h3 class="panel-title">'.Ticket.' #'.$tick_count.' '.SecureShowData($donation['ticket_name']).'</h3></div><br />';		                      				 		
@@ -114,7 +112,7 @@
 															$don_tick_count++;
 															
 															$tick_count++; 
-														// }
+														
 				                      					
 				                      				}
 				                      				

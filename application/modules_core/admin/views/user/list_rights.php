@@ -86,22 +86,15 @@ function setaction(elename, actionval, actionmsg, formname) {
                                     <?php 
                                         if($result)
                                             {
-                                                // echo '<pre>';
-                                                // print_r($result);
-                                                // print_r($rights);
-                                                // die;
                                             
                                             foreach($result as $row) 
                                                 {
                                                     $check = '';
                                                     foreach($rights as $right)
                                                     {
-                                                        if($row['rights_id']==$right['rights_id'])
+                                                        if($row['rights_id']==$right['rights_id'] && $right['rights_set']==1)
                                                         {
-                                                            if($right['rights_set']==1)
-                                                            { 
-                                                                $check = 'checked="checked"';
-                                                            }
+                                                            $check = 'checked="checked"';
                                                         }
                                                     }
                                                      
@@ -165,7 +158,7 @@ function setaction(elename, actionval, actionmsg, formname) {
 
 <script type="text/javascript">
                       function check_all_rights() {
-                        no_uncheck = $("input.admin_right:checkbox:not(:checked)").length;
+                        no_uncheck = $("input.admin_right:checkbox:not(:checked)").length
                         if(no_uncheck == 0) {
                           $('#selecctall').prop('checked', 'checked');
                         } else {

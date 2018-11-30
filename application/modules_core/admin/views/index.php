@@ -4,7 +4,6 @@
 
 <?php 
     $check = json_encode($user_status);
-    //echo "<PRE>"; print_r($check); die();
 ?>
 
 <script type="text/javascript">
@@ -96,7 +95,7 @@ $currency_code_id = $currency_id['id'];
 
 $withdrawals = get_withdrawals_by_currency($currency_code_id);
 
-//$total_withdrawals = get_currency($withdrawals['amount']);
+
 
 
 
@@ -105,20 +104,17 @@ $currency_label = getCurrenctCodeSymbolById($currency_code_id);
 $total_withdrawals = $currency_label.' '.$withdrawals['amount'];
 
 $pending_withdrawals = get_pending_withdrawals($currency_code_id);
-//$total_pending_withdrawals = get_currency($pending_withdrawals['pending_amount']);
+
 $total_pending_withdrawals = $currency_label.' '.$pending_withdrawals['pending_amount'];
 
 $confirm_withdrawals = get_confirm_withdrawals($currency_code_id);
-//$total_confirm_withdrawals = get_currency($confirm_withdrawals['confirm_amount']);
 $total_confirm_withdrawals = $currency_label.' '.$confirm_withdrawals['confirm_amount'];
 
 //sales report...
 $total_sales = get_total_sales($currency_code_id);
-//$total_sales_report = get_currency($total_sales['total']);
 $total_sales_report = $currency_label.' '.$total_sales['total'];
 
 $total_earnings = get_total_earnings($currency_code_id);
-//$total_sales_earnings = get_currency($total_earnings['total_fees']);
 $total_sales_earnings = $currency_label.' '.$total_earnings['total_fees'];
 
 
@@ -309,7 +305,6 @@ $(this).parent().find("fa-arrow-up").removeClass("fa-arrow-up").addClass("fa-arr
                         <?php echo SELECT_CURRENCY; ?>
                         </div>
                         <div class="panel-body">
-                            <!--<select name="currency_id" id="currency_id" onchange="updatePrices(this.value);">-->
                             <select name="currency_id" id="currency_id" onchange="updatePrices(this.value);">
                             <?php 
                                 foreach($multi_currency as $mc){

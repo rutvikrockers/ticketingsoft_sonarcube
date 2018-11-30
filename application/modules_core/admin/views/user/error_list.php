@@ -48,8 +48,6 @@
                                          {
                                                                       # code...
                                                                                        
-                                            // echo "<pre>";
-                                            // print_r($result);die;
                                             $file_array=explode('application', $row['file']);
                                             $file=$file_array[1];
 

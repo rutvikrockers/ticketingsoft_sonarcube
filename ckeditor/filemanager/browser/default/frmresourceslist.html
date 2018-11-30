@@ -29,7 +29,7 @@
 	<script type="text/javascript" src="js/common.js"></script>
 	<script type="text/javascript">
 
-var oListManager = {} ;
+var oListManager = new Object() ;
 
 //**** Patch to integrate FCK FileManager with CKEDITOR ******
 
@@ -48,7 +48,7 @@ function GetUrlParam( paramName )
 oListManager.Clear = function()
 {
 	document.body.innerHTML = '' ;
-};
+}
 
 function ProtectPath(path)
 {
@@ -71,7 +71,7 @@ oListManager.GetFolderRowHtml = function( folderName, folderPath )
 				folderName +
 				'<\/a>' +
 		'<\/td><\/tr>' ;
-};
+}
 
 oListManager.GetFileRowHtml = function( fileName, fileUrl, fileSize )
 {
@@ -93,7 +93,7 @@ oListManager.GetFileRowHtml = function( fileName, fileUrl, fileSize )
 				fileSize +
 				' KB' +
 		'<\/td><\/tr>' ;
-};
+}
 
 function OpenFolder( folderPath )
 {

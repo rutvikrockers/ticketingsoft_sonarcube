@@ -180,11 +180,11 @@ if($que_type=='waiver'){
                                  </div>
                                  <div class="col-sm-4 col-xs-5 width-xs">
                                   <select class="select-pad" placeholder="11:00 PM" name="question_type" id="question_type">
-                                      <option value="para" <?php if($que_type=='para') echo 'selected=selected';?>><?php echo PARAGRAPH_TEXT; ?></option>
-                                    <option value="check" <?php if($que_type=='check') echo 'selected=selected';?>><?php echo CHECKBOXES; ?></option>
-                                    <option value="radio" <?php if($que_type=='radio') echo 'selected=selected';?>><?php echo RADIO_BUTTONS;?></option>
-                                    <option value="select" <?php if($que_type=='select') echo 'selected=selected';?>><?php echo DROPDOWN; ?></option>
-                                    <option value="waiver" <?php if($que_type=='waiver') echo 'selected=selected';?>><?php echo WAIVER;?></option>
+                                      <option value="para" <?php if($que_type=='para') { echo 'selected=selected'; } ?>><?php echo PARAGRAPH_TEXT; ?></option>
+                                    <option value="check" <?php if($que_type=='check') { echo 'selected=selected'; } ?>><?php echo CHECKBOXES; ?></option>
+                                    <option value="radio" <?php if($que_type=='radio') { echo 'selected=selected'; } ?>><?php echo RADIO_BUTTONS;?></option>
+                                    <option value="select" <?php if($que_type=='select') { echo 'selected=selected'; } ?>><?php echo DROPDOWN; ?></option>
+                                    <option value="waiver" <?php if($que_type=='waiver') { echo 'selected=selected'; } ?>><?php echo WAIVER;?></option>
                                   </select>
                                  </div>
                                 
@@ -205,7 +205,7 @@ if($que_type=='waiver'){
                                                foreach ($question_data as $question){ ?>
                                                    <div class="col-sm-12 col-xs-12 pleft0 pright0 marB5">
                                                     <div class="col-sm-10 col-xs-10 pleft0">
-                                                    <input type="text" placeholder="Quantity" name="quantity[]" value="<?php if($show_val=='not_waiver') echo SecureShowData($question['value']);?>">
+                                                    <input type="text" placeholder="Quantity" name="quantity[]" value="<?php if($show_val=='not_waiver') { echo SecureShowData($question['value']); } ?>">
 
                                                     </div>
                                                     
@@ -247,7 +247,7 @@ if($que_type=='waiver'){
                                    		<label class="mt0-xs1"></label>
                                 	 </div>
 	                                 <div class="col-sm-4 col-xs-5 width-xs">
-	                                  <textarea name="value" id="value"><?php if($show_val=='waiver') echo $question['value'];?> </textarea>
+	                                  <textarea name="value" id="value"><?php if($show_val=='waiver') { echo $question['value']; } ?> </textarea>
 	                                 </div>
                                 </div>
                         
@@ -260,7 +260,7 @@ if($que_type=='waiver'){
                                     
                                     <div class="checkbox pt10">
                                           <label>
-                                            <input type="checkbox" value="1" id="show_attendee" name="show_attendee" <?php if($show_attendee) echo 'checked';?>>
+                                            <input type="checkbox" value="1" id="show_attendee" name="show_attendee" <?php if($show_attendee) { echo 'checked'; } ?>>
                                             <?php echo SHOW_THE_ATTENDEE_ANSWER_TO_THIS_QUESTION_ON_THE_ORDER_CONFIRMATION; ?>
                                           </label>
                                     </div>

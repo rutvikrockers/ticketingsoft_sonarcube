@@ -133,12 +133,11 @@ $linkdin_setting=getAllData('linkdin_setting'); ?>
             			<div class="panel panel-default">
                               <div class="panel-heading">
                                 <h3 class="panel-title"><?php echo SIGN_UP; ?></h3>
-                                <p><?php echo HAVE_AN_ACCOUNT;?>  <strong><a href="<?php echo site_url('user/login/'.$page);//$reg_url;?>"><?php echo LOGIN; ?></a></strong></p>
+                                <p><?php echo HAVE_AN_ACCOUNT;?>  <strong><a href="<?php echo site_url('user/login/'.$page); ?>"><?php echo LOGIN; ?></a></strong></p>
                               </div>
                               <div class="panel-body">
                                 <?php 
 								
-								//var_dump($error_signup);
 								   
 								if($error_signup!=''){
                         			?>
@@ -174,7 +173,7 @@ $linkdin_setting=getAllData('linkdin_setting'); ?>
                                   <a href="<?php echo site_url('pages').'/'.$pages_data['slug'];?>"><?php echo TERMS_OF_SERVICE;?></a> and 
                                   <?php $pages_data = getRecordById('pages','pages_title',PRIVACY_POLICY); ?>  
                                   <a href="<?php echo site_url('pages').'/'.$pages_data['slug'];?>"><?php echo PRIVACY_POLICY;?></a> 
-                                  <?php //echo ATTENDING_EVENT_CLICK_HERE;?> <!-- <a href=""><?php echo ACCESS_YOUR_ORDER;?></a> --></p>
+                                  </p>
                                 </div>
                                 
                                 </form>

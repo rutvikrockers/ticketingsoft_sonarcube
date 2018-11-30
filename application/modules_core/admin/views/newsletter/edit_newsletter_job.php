@@ -42,7 +42,7 @@
 												{
 													$t_id= $template['id'];
 													$select='';
-													if($newsletter_id == $t_id) $select="selected=selected";
+													if($newsletter_id == $t_id) { $select="selected=selected"; }
 										?>
                                                 <option value="<?php echo $t_id;?>" <?php echo $select; ?>><?php echo SecureShowData($template['subject']);?></option>
                                           <?php } ?>  	
@@ -80,7 +80,7 @@
                                     	<label><?php echo 'Updates about new '.SecureShowData($site_setting['site_name']).' features and announcements'; ?></label>
                                     </div>
                                     <div class="col-sm-4">
-                                        <input class="" type="checkbox" name="attending_new" id="attending_new" value="1" <?php if($attending_new) echo 'checked';?>>
+                                        <input class="" type="checkbox" name="attending_new" id="attending_new" value="1" <?php if($attending_new) { echo 'checked'; }?>>
                                     </div>
                                 </div>
                             <div class="form-group clearfix">
@@ -88,7 +88,7 @@
                                     	<label><?php echo 'A digest of personalized event recommendations('.SecureShowData($site_setting['site_name']).' Picks)'; ?></label>
                                     </div>
                                     <div class="col-sm-4">
-                                    	<input class="" type="checkbox" name="attending_recommend" id="attending_recommend" value="1" <?php if($attending_recommend) echo 'checked';?>>
+                                    	<input class="" type="checkbox" name="attending_recommend" id="attending_recommend" value="1" <?php if($attending_recommend) { echo 'checked'; } ?>>
                                     </div>
                                 </div>
                              </div>
@@ -99,7 +99,7 @@
                                     	<label><?php echo 'Updates about new '.SecureShowData($site_setting['site_name']).' features and announcements'; ?></label>
                                     </div>
                                     <div class="col-sm-4">
-                                    	<input class="" type="checkbox" name="organizing_new" id="organizing_new" value="1" <?php if($organizing_new) echo 'checked';?>>
+                                    	<input class="" type="checkbox" name="organizing_new" id="organizing_new" value="1" <?php if($organizing_new) { echo 'checked'; } ?>>
                                     </div>
                                 </div>
                             <div class="form-group clearfix">
@@ -107,7 +107,7 @@
                                     	<label><?php echo 'A digest of personalized event recommendations('.$site_setting['site_name'].' Picks)'; ?></label>
                                     </div>
                                     <div class="col-sm-4">
-                                    	<input class="" type="checkbox" name="organizing_recommend" id="organizing_recommend" value="1" <?php if($organizing_recommend) echo 'checked';?>>
+                                    	<input class="" type="checkbox" name="organizing_recommend" id="organizing_recommend" value="1" <?php if($organizing_recommend) { echo 'checked'; } ?>>
                                     </div>
                                 </div>
                              </div>

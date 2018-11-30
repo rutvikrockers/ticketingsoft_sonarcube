@@ -36,14 +36,11 @@
                 
           foreach($earning as $earn){
               
-              // $id = $earn['id'];
               $donor_email = $earn['email'];
                 $created_at = $earn['created_at'];
               if($donor_email=='' || $donor_email=='0'){
-                //$donor_email = 'Anonymous';
                 $donor_email = $this->session->userdata('email');
               }
-                // $event_id = $earn['event_id'];
                 $amount = set_event_currency($earn['purchases_total'], $event_id);
                 if($earn['purchases_total'] == 0) {
                     $due = "<i class='glyphicon glyphicon-minus'></i>";
@@ -75,7 +72,8 @@
          <td><?php echo datetimeformat($created_at); ?> <?php echo timeFormat($created_at); ?></td>
           
         </tr>
-    <?php } }else{
+    <?php } 
+    }else{
                echo '<tr><td colspan="7">'.NO_RECORDS.'</td></tr>';
            } ?>
       </tbody>

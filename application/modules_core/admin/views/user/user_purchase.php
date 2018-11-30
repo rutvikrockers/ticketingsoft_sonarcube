@@ -54,7 +54,8 @@
                                             <td><?php echo $total; ?></td>
                                         </tr>
                                        <?php 
-									   }}
+									   }
+                                    }
 									   ?> 
                                     </tbody>
                                 </table>

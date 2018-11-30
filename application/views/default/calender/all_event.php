@@ -14,11 +14,8 @@
 <link href="<?php echo base_url('fullcalender/fullcalendar.print.css');?>" rel='stylesheet' media='print' />
 <script src="<?php echo base_url('fullcalender/lib/moment.min.js');?>"></script>
 <script src="<?php echo base_url('fullcalender/lib/jquery-ui.custom.min.js');?>"></script>
-<!-- <script src='<?php // echo base_url('fullcalender/lib/jquery.min.js');?>'></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/gcal.js"></script>
-<!-- <link href="<?php echo base_url();?>css/bootstrap.css" rel="stylesheet">
-<script src="<?php echo base_url();?>js/bootstrap.js"></script> -->
 <script src="<?php echo base_url();?>js/ics.deps.min.js"></script>
 
 <script>
@@ -201,7 +198,6 @@
 	<p id="vresult" style="text-align: center;font-size: larger;color: red;"></p>
 	<div class="marTB20">
 		<a class="btn btn-primary" id="exporet" href="<?php echo base_url();?>calender/export_data_event"><i class="glyphicon glyphicon-download-alt"></i> <?php echo EXPORT_TO_CSV_REPORT?></a>	
-		<!-- <a class="btn btn-primary" id="download_ical" href="javascript:cal.download('Event List');"><i class="glyphicon glyphicon-download-alt"></i> Export iCal Report</a>	 -->
 	</div>
 <div class="row">
     <?php
@@ -220,15 +216,16 @@
 		</li>
 		<?php if($event_type_data){
 			foreach ($event_type_data as $value) {
+            $status_id = $value['status_id'];
 			$event_count = "";
-			if($value['status_id']=="0"){ $event_count = $event_draft_count; }
-			if($value['status_id']=="1"){ $event_count = $event_live_count; }
-			if($value['status_id']=="2"){ $event_count = $event_completed_count; }
-			if($value['status_id']=="3"){ $event_count = $event_cancel_count; }
+			if($status_id=="0"){ $event_count = $event_draft_count; }
+			if($status_id=="1"){ $event_count = $event_live_count; }
+			if($status_id=="2"){ $event_count = $event_completed_count; }
+			if($status_id=="3"){ $event_count = $event_cancel_count; }
 		?>
 	       		<li>
 		       		<label>
-		       			<input class="eventStatus" type="checkbox" name="event_search" value="<?php echo $value['status_id']; ?>" onclick="getSelectedValue(this);" <?php echo (in_array($value['status_id'], $calender_search_type) || in_array("all", $calender_search_type)) ? "checked='checked'" : ''; ?>> <i></i>  
+		       			<input class="eventStatus" type="checkbox" name="event_search" value="<?php echo $status_id; ?>" onclick="getSelectedValue(this);" <?php echo (in_array($status_id, $calender_search_type) || in_array("all", $calender_search_type)) ? "checked='checked'" : ''; ?>> <i></i>  
 		       			<span style="background-color:<?php echo $value['event_bg_color']; ?>;"></span>
 		       			
 		       				<?php echo SecureShowData($value['name']).' ('.$event_count.')';?> 
@@ -250,15 +247,6 @@
 				});
 			});
 		</script>
-		<!-- <div class="col-lg-2 marTB50">
-		<label style="margin-left: 38px;color: #e0336b;font-size: larger;">Event Status</label>
-		<ul class="event-lable" style="margin-top: 12px;">
-	       <li><label>Active Event :</label> <label style="color: #e0336b;"><?php // echo $event_live_count; ?></label></li>
-	       <li><label>Draft Event :</label> <label style="color: #e0336b;"><?php // echo $event_draft_count; ?></label></li>
-	       <li><label>Completed Event :</label> <label style="color: #e0336b;"><?php // echo $event_completed_count; ?></label></li>
-	       <li><label>Cancel Event :</label> <label style="color: #e0336b;"><?php // echo $event_cancel_count; ?></label></li>
-	    </ul>
-		</div> -->
 		
 	</form>
 	<div class="col-md-10 col-md-pull-2">

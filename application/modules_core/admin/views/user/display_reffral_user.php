@@ -56,28 +56,29 @@
                                                            if(is_array($vall))
                                                            {
                                                             
-                                                            if( $sales=='') $sales= $vall['currency_symbol'].$vall['sales'];
-                                                            else $sales.=",".$vall['currency_symbol'].$vall['sales'];
+                                                            if( $sales=='') {
+                                                                $sales= $vall['currency_symbol'].$vall['sales'];
+                                                            } else {
+                                                                $sales.=",".$vall['currency_symbol'].$vall['sales'];
+                                                            }
                                                           }
                                                            if(is_array($vall))
                                                            {
-                                                            if( $shares=='') $shares= $vall['currency_symbol'].$vall['shares'];
-                                                            else $shares.=",".$vall['currency_symbol'].$vall['shares'];
+                                                            if( $shares=='') {
+                                                                $shares= $vall['currency_symbol'].$vall['shares'];
+                                                            } else {
+                                                                $shares.=",".$vall['currency_symbol'].$vall['shares'];
+                                                            }
                                                            }
 
                                                          }
                                                         } 
 
-                                                       if( $sales!='')
+                                                       if( !$sales)
                                                         {
-                                                      
+                                                            $sales ='0.00';
                                                          } 
-                                                      else{ $sales ='0.00';} 
-                                                      if($shares !='')
-                                                      {
-
-                                                      }
-                                                      else
+                                                      if(!$shares)
                                                       {
                                                         $shares = '0.00';
                                                       }

@@ -15,11 +15,12 @@ class ControllerModuleSeat_arrangment extends Controller {
 		$results = $this->model_design_banner->getBanner($setting['banner_id']);
 
 		foreach ($results as $result) {
-			if (is_file(DIR_IMAGE . $result['image'])) {
+            $image = $result['image'];
+			if (is_file(DIR_IMAGE . $image)) {
 				$data['banners'][] = array(
 					'title' => $result['title'],
 					'link'  => $result['link'],
-					'image' => $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height'])
+					'image' => $this->model_tool_image->resize($image, $setting['width'], $setting['height'])
 				);
 			}
 		}

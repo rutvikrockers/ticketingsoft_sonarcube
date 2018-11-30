@@ -27,7 +27,7 @@
 	 * This function must check the user session to be sure that he/she is
 	 * authorized to upload and access files in the File Browser.
 	 */
-	private; bool; CheckAuthentication();
+	private bool CheckAuthentication()
 	{
 		// WARNING : DO NOT simply return "true". By doing so, you are allowing
 		// "anyone" to upload and list the files in your server. You must implement
@@ -41,7 +41,7 @@
 		return false;
 	}
 
-	public; override; void SetConfig();
+	public override void SetConfig()
 	{
 		// SECURITY: You must explicitly enable this "connector". (Set it to "true").
 		Enabled = CheckAuthentication();
@@ -60,42 +60,38 @@
 		ForceSingleExtension = true;
 
 		// Allowed Resource Types
-		AllowedTypes = new string[]; { "File", "Image", "Flash", "Media" }
+		AllowedTypes = new string[] { "File", "Image", "Flash", "Media" };
 
 		// For security, HTML is allowed in the first Kb of data for files having the
 		// following extensions only.
-		HtmlExtensions = new string[]; { "html", "htm", "xml", "xsd", "txt", "js" }
+		HtmlExtensions = new string[] { "html", "htm", "xml", "xsd", "txt", "js" };
 
 		// WARNING: It is recommended to remove swf extension from the list of allowed extensions.
 		// SWF files can be used to perform XSS attack.
 
-
-		TypeConfig[ "File" ].AllowedExtensions			= new string[]; { "7z", "aiff", "asf", "avi", "bmp", "csv", "doc", "fla", "flv", "gif", "gz", "gzip", "jpeg", "jpg", "mid", "mov", "mp3", "mp4", "mpc", "mpeg", "mpg", "ods", "odt", "pdf", "png", "ppt", "pxd", "qt", "ram", "rar", "rm", "rmi", "rmvb", "rtf", "sdc", "sitd", "swf", "sxc", "sxw", "tar", "tgz", "tif", "tiff", "txt", "vsd", "wav", "wma", "wmv", "xls", "xml", "zip" }
-		TypeConfig[ "File" ].DeniedExtensions			= new string[]; { }
+		TypeConfig[ "File" ].AllowedExtensions			= new string[] { "7z", "aiff", "asf", "avi", "bmp", "csv", "doc", "fla", "flv", "gif", "gz", "gzip", "jpeg", "jpg", "mid", "mov", "mp3", "mp4", "mpc", "mpeg", "mpg", "ods", "odt", "pdf", "png", "ppt", "pxd", "qt", "ram", "rar", "rm", "rmi", "rmvb", "rtf", "sdc", "sitd", "swf", "sxc", "sxw", "tar", "tgz", "tif", "tiff", "txt", "vsd", "wav", "wma", "wmv", "xls", "xml", "zip" };
+		TypeConfig[ "File" ].DeniedExtensions			= new string[] { };
 		TypeConfig[ "File" ].FilesPath					= "%UserFilesPath%file/";
 		TypeConfig[ "File" ].FilesAbsolutePath			= ( UserFilesAbsolutePath == "" ? "" : "%UserFilesAbsolutePath%file/" );
 		TypeConfig[ "File" ].QuickUploadPath			= "%UserFilesPath%";
 		TypeConfig[ "File" ].QuickUploadAbsolutePath	= ( UserFilesAbsolutePath == "" ? "" : "%UserFilesAbsolutePath%" );
 
-
-		TypeConfig[ "Image" ].AllowedExtensions			= new string[]; { "bmp", "gif", "jpeg", "jpg", "png" }
-		TypeConfig[ "Image" ].DeniedExtensions			= new string[]; { }
+		TypeConfig[ "Image" ].AllowedExtensions			= new string[] { "bmp", "gif", "jpeg", "jpg", "png" };
+		TypeConfig[ "Image" ].DeniedExtensions			= new string[] { };
 		TypeConfig[ "Image" ].FilesPath					= "%UserFilesPath%image/";
 		TypeConfig[ "Image" ].FilesAbsolutePath			= ( UserFilesAbsolutePath == "" ? "" : "%UserFilesAbsolutePath%image/" );
 		TypeConfig[ "Image" ].QuickUploadPath			= "%UserFilesPath%";
 		TypeConfig[ "Image" ].QuickUploadAbsolutePath	= ( UserFilesAbsolutePath == "" ? "" : "%UserFilesAbsolutePath%" );
 
-
-		TypeConfig[ "Flash" ].AllowedExtensions			= new string[]; { "swf", "flv" }
-		TypeConfig[ "Flash" ].DeniedExtensions			= new string[]; { }
+		TypeConfig[ "Flash" ].AllowedExtensions			= new string[] { "swf", "flv" };
+		TypeConfig[ "Flash" ].DeniedExtensions			= new string[] { };
 		TypeConfig[ "Flash" ].FilesPath					= "%UserFilesPath%flash/";
 		TypeConfig[ "Flash" ].FilesAbsolutePath			= ( UserFilesAbsolutePath == "" ? "" : "%UserFilesAbsolutePath%flash/" );
 		TypeConfig[ "Flash" ].QuickUploadPath			= "%UserFilesPath%";
 		TypeConfig[ "Flash" ].QuickUploadAbsolutePath	= ( UserFilesAbsolutePath == "" ? "" : "%UserFilesAbsolutePath%" );
 
-
-		TypeConfig[ "Media" ].AllowedExtensions			= new string[]; { "aiff", "asf", "avi", "bmp", "fla", "flv", "gif", "jpeg", "jpg", "mid", "mov", "mp3", "mp4", "mpc", "mpeg", "mpg", "png", "qt", "ram", "rm", "rmi", "rmvb", "swf", "tif", "tiff", "wav", "wma", "wmv" }
-		TypeConfig[ "Media" ].DeniedExtensions			= new string[]; { }
+		TypeConfig[ "Media" ].AllowedExtensions			= new string[] { "aiff", "asf", "avi", "bmp", "fla", "flv", "gif", "jpeg", "jpg", "mid", "mov", "mp3", "mp4", "mpc", "mpeg", "mpg", "png", "qt", "ram", "rm", "rmi", "rmvb", "swf", "tif", "tiff", "wav", "wma", "wmv" };
+		TypeConfig[ "Media" ].DeniedExtensions			= new string[] { };
 		TypeConfig[ "Media" ].FilesPath					= "%UserFilesPath%media/";
 		TypeConfig[ "Media" ].FilesAbsolutePath			= ( UserFilesAbsolutePath == "" ? "" : "%UserFilesAbsolutePath%media/" );
 		TypeConfig[ "Media" ].QuickUploadPath			= "%UserFilesPath%";

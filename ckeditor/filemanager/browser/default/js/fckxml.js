@@ -26,7 +26,7 @@
  */
 
 var FCKXml = function()
-{};
+{}
 
 FCKXml.prototype.GetHttpRequest = function()
 {
@@ -43,7 +43,7 @@ FCKXml.prototype.GetHttpRequest = function()
 	catch(e) {}
 
 	return null ;
-};
+}
 
 FCKXml.prototype.LoadUrl = function( urlToCall, asyncFunctionPointer )
 {
@@ -105,7 +105,7 @@ FCKXml.prototype.LoadUrl = function( urlToCall, asyncFunctionPointer )
 			alert( 'XML request error: ' + oXmlHttp.statusText + ' (' + oXmlHttp.status + ')' ) ;
 		}
 	}
-};
+}
 
 FCKXml.prototype.SelectNodes = function( xpath )
 {
@@ -113,7 +113,7 @@ FCKXml.prototype.SelectNodes = function( xpath )
 		return this.DOMDocument.selectNodes( xpath ) ;
 	else					// Gecko
 	{
-		var aNodeArray = [];
+		var aNodeArray = new Array();
 
 		var xPathResult = this.DOMDocument.evaluate( xpath, this.DOMDocument,
 				this.DOMDocument.createNSResolver(this.DOMDocument.documentElement), XPathResult.ORDERED_NODE_ITERATOR_TYPE, null) ;
@@ -128,7 +128,7 @@ FCKXml.prototype.SelectNodes = function( xpath )
 		}
 		return aNodeArray ;
 	}
-};
+}
 
 FCKXml.prototype.SelectSingleNode = function( xpath )
 {
@@ -144,4 +144,4 @@ FCKXml.prototype.SelectSingleNode = function( xpath )
 		else
 			return null ;
 	}
-};
+}

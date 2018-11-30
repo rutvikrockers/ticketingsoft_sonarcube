@@ -108,14 +108,6 @@ function setaction(elename, actionval, actionmsg, formname) {
             <div class="row">
             	<div class="col-lg-12 clearfix">
                 	<div class="panel panel-default">
-                   <!--  <div class="panel-heading">
-                                    <h4 class="panel-title text-right">
-                                        <button type="button" class="btn btn-success" onclick="setaction('chk[]','active', '<?php echo ARE_YOU_SURE_YOU_WANT_TO_ACTIVE_SELECTED_COUNTRY;?>', 'frm_listpage')"><?php echo ACTIVE; ?></button>
-                                        
-                                    	<button type="button" class="btn btn-warning" onclick="setaction('chk[]','deactive', '<?php echo ARE_YOU_SURE_YOU_WANT_TO_DEACTIVE_SELECTED_COUNTRY;?>', 'frm_listpage')"><?php echo DEACTIVE; ?></button>
-                                        
-                                    </h4>
-                        </div> -->
                     	<div id="collapseOne" class="panel-collapse collapse in">
                             <div class="panel-body">
                             <div id="dataTables-example_wrapper" class="dataTables_wrapper form-inline" role="grid">
@@ -125,7 +117,6 @@ function setaction(elename, actionval, actionmsg, formname) {
                                   <table class="table table-striped table-bordered table-hover" id="sample_1">
                                     <thead>
                                         <tr>
-                                        	<!-- <th class="sorting_disabled"><input type="checkbox" id="selecctall"></th> -->
                                             <th><?php echo APP_ID; ?></th>
                                            <th><?php echo APP_SECRET; ?></th>
                                             <th><?php echo TAB_URL; ?></th>
@@ -156,7 +147,6 @@ function setaction(elename, actionval, actionmsg, formname) {
 													
 									?>
                                         <tr class="odd gradeX">
-                                        	<!-- <td><input type="checkbox" class="checkbox1" name="chk[]" value="<?php echo $id;?>" ></td> -->
                                            	<td><?php echo $app_id; ?></td>
                                             <td><?php echo $app_secret; ?></td>
                                             <td><?php echo $event_tab_url; ?></td>

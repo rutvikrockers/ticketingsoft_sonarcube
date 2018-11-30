@@ -60,7 +60,6 @@
                           <div class="form-group clearfix">
                         <div class="text-center">
                             <input type="submit" value="<?php echo CREATE_YOUR_EVENT;?>" class="btn-event2">
-                            <!-- <input type="button" value="Cancel" onclick="goBack()" class="btn-eventgrey marL10"> -->
                         </div>
                         </div>
                     </div>

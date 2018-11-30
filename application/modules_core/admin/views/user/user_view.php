@@ -1,7 +1,5 @@
  <?php 
  
- 	//user_details
-	//echo '<pre>'; print_r($row); die();
  	$prefix = $row['prefix'];
 	$f_name=$row['first_name'];
 	$l_name=$row['last_name'];
@@ -18,7 +16,6 @@
 	$home_city=$row['home_city'];
 	$home_state=$row['home_state'];
 	$home_zip=$row['home_zip'];
-	//$home_country=$row['home_country'];
   $home_country = getCountryNamebyId($row['home_country']);
 	
 	//billing_address
@@ -28,7 +25,6 @@
 	$bill_city=$row['bill_city'];
 	$bill_state=$row['bill_state'];
 	$bill_zip=$row['bill_zip'];
-	//$bill_country=$row['bill_country'];
   $bill_country = getCountryNamebyId($row['bill_country']);
 	
 	//shipping_address
@@ -38,7 +34,6 @@
 	$ship_city=$row['ship_city'];
 	$ship_state=$row['ship_state'];
 	$ship_zip=$row['ship_zip'];
-	//$ship_country=$row['ship_country'];
   $ship_country = getCountryNamebyId($row['ship_country']);
 	
 	//working_address

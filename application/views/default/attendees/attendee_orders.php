@@ -1,8 +1,9 @@
 <?php 
     $default_time_zone_id = ($events['event_time_zone']) ? $events['event_time_zone'] : $site_setting['site_timezone'];
     $time_zone = getRecordById('timezones','id',$default_time_zone_id); 
-    if($time_zone)
+    if($time_zone) {
         date_default_timezone_set($time_zone['tz']);
+    }
 ?>
 <script>
  
@@ -155,11 +156,11 @@ $(document).ready(function(){
                  </div>
                  <div class="col-sm-7 col-xs-8 width-xs">
                     <select class="select-pad" placeholder="11:00 PM" name="date_range" id="date_range">
-                    <option value="start" <?php if($date_range=='start') echo 'selected';?>><?php echo SINCE_SALES_STARTED;?></option>
-                    <option value="week" <?php if($date_range=='week') echo 'selected';?>><?php echo THIS_WEEK;?></option>
-                    <option value="month" <?php if($date_range=='month') echo 'selected';?>><?php echo THIS_MONTH;?></option>
-                    <option value="year" <?php if($date_range=='year') echo 'selected';?>><?php echo THIS_YEAR; ?></option>
-                    <option value="custom" <?php if($date_range=='custom') echo 'selected';?>><?php echo CUSTOM_DATE_RANGE;?></option>
+                    <option value="start" <?php if($date_range=='start') { echo 'selected'; } ?>><?php echo SINCE_SALES_STARTED;?></option>
+                    <option value="week" <?php if($date_range=='week') { echo 'selected'; } ?>><?php echo THIS_WEEK;?></option>
+                    <option value="month" <?php if($date_range=='month') { echo 'selected'; } ?>><?php echo THIS_MONTH;?></option>
+                    <option value="year" <?php if($date_range=='year') { echo 'selected'; } ?>><?php echo THIS_YEAR; ?></option>
+                    <option value="custom" <?php if($date_range=='custom') { echo 'selected'; } ?>><?php echo CUSTOM_DATE_RANGE;?></option>
                   </select>
                  </div>
                  </div>
@@ -175,38 +176,6 @@ $(document).ready(function(){
                   <input type="text" placeholder="Ex." name="end_date" id="end_date" class="date_pick" value="<?php echo $end_date;?>">
                  </div>
                  </div>
-                 
-               
-                 <!-- <div class="form-group clearfix">
-                 <div class="col-sm-4 col-xs-3 width-xs lable-rite">
-                   <label class="mt0-xs1"><?php // echo SORT_BY;?></label>
-                 </div>
-                 <div class="col-sm-7 col-xs-8 width-xs">
-                  <select class="select-pad" placeholder="11:00 PM" name="sort_by" id="sort_by">
-                    <option value="date_desc" <?php // if($sort_by=='date_desc') echo 'selected';?>><?php // echo DATE_DESCENDING;?></option>
-                    <option value="date_asc" <?php // if($sort_by=='date_asc') echo 'selected';?>><?php // echo DATE_ASCENDING;?></option>
-                    <option value="email_asc" <?php // if($sort_by=='email_asc') echo 'selected';?>><?php // echo EMAIL_ASCENDING;?></option>
-                    <option value="email_desc" <?php // if($sort_by=='email_desc') echo 'selected';?>><?php // echo EMAIL_DESCENDING;?></option>
-                    <option value="amt_asc" <?php // if($sort_by=='amt_asc') echo 'selected';?>><?php // echo AMOUNT_ASCENDING;?></option>
-                    <option value="amt_desc" <?php // if($sort_by=='amt_desc') echo 'selected';?>><?php // echo AMOUNT_DESCENDING;?></option>
-                  </select>
-                 </div>
-                 </div> -->
-                 
-                 <!-- <div class="form-group clearfix">
-                 <div class="col-sm-4 col-xs-3 width-xs lable-rite">
-                   <label class="mt0-xs1">Per Page</label>
-                 </div>
-                 <div class="col-sm-7 col-xs-8 width-xs">
-                  <select class="select-pad" placeholder="11:00 PM" name="limit_search" id="limit">
-                    <option value="20" <?php // if($limit_search=='20') echo 'selected';?>>20</option>
-                    <option value="50" <?php // if($limit_search=='50') echo 'selected';?>>50</option>
-                    <option value="100" <?php // if($limit_search=='100') echo 'selected';?>>100</option>
-                    <option value="200" <?php // if($limit_search=='200') echo 'selected';?>>200</option>
-                    <option value="500" <?php // if($limit_search=='500') echo 'selected';?>>500</option>
-                  </select>
-                 </div>
-                 </div> -->
                  
                  <div class="form-group clearfix">
                  <div class="col-sm-4 col-xs-3 width-xs lable-rite">
@@ -272,14 +241,11 @@ $(document).ready(function(){
                         }
                         
                         $cancel_order = getRecordById('cancel_orders','transaction_key',$pid);
-                        //$div_class="";                        
-                        //if(is_array($cancel_order)){ $div_class='style="pointer-events: none;"';}
                         $cancel_available = cancel_available($pid);
                         ?>
 
                         <div class="col-sm-12">
                             <div class="event-detail clearfix">
-                             <a name="<?php echo 'orders_'.$pid; ?>"></a>
                             <form class="event-title">
                                          
                              <div class="form-group pt clearfix">

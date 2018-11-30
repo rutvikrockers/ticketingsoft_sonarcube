@@ -12,70 +12,60 @@ $(document).ready(function () {
 	});
 });
 </script>
-<html>
-<head>
-<script type ="text/javascript">
- $(document).ready(function(){
-// $('#seat_s1').click(function(){
-
-//   $('#free_t1').hide();
-//   $('#paid_t1').hide();
-//   $('#donat_t1').hide();
-//   $('#ticket_temp').val('0');
-
-//  });
-});
-</script>
-</head>
-</html>
 <?php 
-$address='';
 
+$address='';
+$min_purchase_allowed = $site_setting['min_purchase_allowed'];
+$max_purchase_allowed = $site_setting['max_purchase_allowed'];
 $show_seat = true;
 if($site_setting['ticket_type']=="0"){ $show_seat = false; }
 
 if($event_id!=''){
-	
-		if($event_venue['venue_add1']!='')
+        $venue_add1 = $event_venue['venue_add1'];
+        $venue_add2 = $event_venue['venue_add2'];
+        $venue_city = $event_venue['venue_city'];
+        $venue_state = $event_venue['venue_state'];
+        $venue_country = $event_venue['venue_country'];
+		if($venue_add1!='')
 		{	
 
-			$address=$event_venue['venue_add1'];
+			$address=$venue_add1;
 		}
-		if($event_venue['venue_add2']!='')
+		if($venue_add2!='')
 		{
 			if($address!=''){
-			$address=$address.','.$event_venue['venue_add2'];
+			$address=$address.','.$venue_add2;
 				}else
 				{
-					$address=$event_venue['venue_add1'];
+					$address=$venue_add2;
 				}
 		}
-		if($event_venue['venue_city']!='')
+		if($venue_city!='')
 		{
 			if($address!=''){
-			$address=$address.','.$event_venue['venue_city'];
+			$address=$address.','.$venue_city;
 				}else
 				{
-					$address=$event_venue['venue_city'];
+					$address=$venue_city;
 				}
 		}
-		if($event_venue['venue_state']!='')
+		if($venue_state!='')
 		{
 			if($address!=''){
-			$address=$address.','.$event_venue['venue_state'];
+			$address=$address.','.$venue_state;
 				}else
 				{
-					$address=$event_venue['venue_state'];
+					$address=$venue_state;
 				}
 		}
-		if($event_venue['venue_country']!='')
+		if($venue_country!='')
 		{
 			if($address!='')
 			{
-				$address=$address.','.$event_venue['venue_country'];
+				$address=$address.','.$venue_country;
 				}else
 				{
-					$address=$event_venue['venue_country'];
+					$address=$venue_country;
 				}
 		}
 	}
@@ -130,7 +120,7 @@ if($event_id!=''){
     }
 ?>
         
-<?php if($this->uri->segment('3')=='' && $this->uri->segment('2')=='create_event'){ }else{$this->load->view('default/common/dashboard-header'); }?>  
+<?php $this->load->view('default/common/dashboard-header'); ?>  
 <?php
    		if($error!=''){ ?>
 		 	<div class="alert alert-danger message"><?php echo $error; ?></div>
@@ -233,51 +223,51 @@ if($event_id!=''){
 											$address='';
 											$event_venue=$user_venue;
 
-											if($event_venue['venue_add1']!='')
+											if($venue_add1!='')
 											{   
 
-											    $address=$event_venue['venue_add1'];
+											    $address=$venue_add1;
 											}
-											if($event_venue['venue_add2']!='')
+											if($venue_add2!='')
 											{
 											    if($address!=''){
-											    $address=$address.','.$event_venue['venue_add2'];
+											    $address=$address.','.$venue_add2;
 											        }else
 											        {
-											            $address=$event_venue['venue_add1'];
+											            $address=$venue_add1;
 											        }
 											}
-											if($event_venue['venue_city']!='')
+											if($venue_city!='')
 											{
 											    if($address!=''){
-											    $address=$address.','.$event_venue['venue_city'];
+											    $address=$address.','.$venue_city;
 											        }else
 											        {
-											            $address=$event_venue['venue_city'];
+											            $address=$venue_city;
 											        }
 											}
-											if($event_venue['venue_state']!='')
+											if($venue_state!='')
 											{
 											    if($address!=''){
-											    $address=$address.','.$event_venue['venue_state'];
+											    $address=$address.','.$venue_state;
 											        }else
 											        {
-											            $address=$event_venue['venue_state'];
+											            $address=$venue_state;
 											        }
 											}
-											if($event_venue['venue_country']!='')
+											if($venue_country!='')
 											{
 											    if($address!='')
 											    {
-											        $address=$address.','.$event_venue['venue_country'];
+											        $address=$address.','.$venue_country;
 											        }else
 											        {
-											            $address=$event_venue['venue_country'];
+											            $address=$venue_country;
 											        }
 
 											}
 	                            		?>	
-	                            			<option value="<?=$user_venue['id']?>" <?php if($venue_id==$user_venue['id']) echo "selected='selected'";?>><?=SecureShowData($user_venue['name']).', '.SecureShowData($address)?></option>
+	                            			<option value="<?=$user_venue['id']?>" <?php if($venue_id==$user_venue['id']) { echo "selected='selected'"; } ?>><?=SecureShowData($user_venue['name']).', '.SecureShowData($address)?></option>
 	                            			<?php
 
 	                            			}?>	
@@ -326,14 +316,14 @@ if($event_id!=''){
                         	<label><?php echo Address; ?></label>
                         </div>
                            <div class="col-sm-8 col-xs-12">
-                        	<input type="text" onkeypress="set_address_value()" onfocus="set_address_value()" placeholder="<?php echo Address_Line; ?> 1" id="sublocality_level_2" name="venue_add1" value='<?php if($event_id) echo SecureShowData($event_venue['venue_add1']);?>'>
+                        	<input type="text" onkeypress="set_address_value()" onfocus="set_address_value()" placeholder="<?php echo Address_Line; ?> 1" id="sublocality_level_2" name="venue_add1" value='<?php if($event_id) { echo SecureShowData($venue_add1); } ?>'>
                         	<span class="comment" id="address1errInfo"></span><br /><br />
-                        	<input type="text" onkeypress="set_address_value()" onfocus="set_address_value()" placeholder="<?php echo Address_Line; ?> 2" id="sublocality_level_1" name="venue_add2" value='<?php if($event_id) echo SecureShowData($event_venue['venue_add2']);?>'><br /><br />
-                        	<input type="text" onkeypress="set_address_value()" onfocus="set_address_value()" onkeyup="set_address_value()" placeholder="<?php echo City; ?> " id="locality" name="venue_city" value='<?php if($event_id) echo SecureShowData($event_venue['venue_city']);?>' ><br /><br />
-                        	<input type="text" onkeypress="set_address_value()" onfocus="set_address_value()" placeholder="<?php echo 'State'; ?>" id="administrative_area_level_1" name="venue_state" value='<?php if($event_id) echo SecureShowData($event_venue['venue_state']);?>'  style="width:38%;">
-                        	<input type="text" onkeypress="set_address_value()" onfocus="set_address_value()" placeholder="<?php echo "Country"; ?>" id="country" name="venue_country" style="width:38%;" value='<?php if($event_id) echo SecureShowData($event_venue['venue_country']);?>'>
+                        	<input type="text" onkeypress="set_address_value()" onfocus="set_address_value()" placeholder="<?php echo Address_Line; ?> 2" id="sublocality_level_1" name="venue_add2" value='<?php if($event_id) { echo SecureShowData($venue_add2); } ?>'><br /><br />
+                        	<input type="text" onkeypress="set_address_value()" onfocus="set_address_value()" onkeyup="set_address_value()" placeholder="<?php echo City; ?> " id="locality" name="venue_city" value='<?php if($event_id) { echo SecureShowData($venue_city); } ?>' ><br /><br />
+                        	<input type="text" onkeypress="set_address_value()" onfocus="set_address_value()" placeholder="<?php echo 'State'; ?>" id="administrative_area_level_1" name="venue_state" value='<?php if($event_id) { echo SecureShowData($venue_state); } ?>'  style="width:38%;">
+                        	<input type="text" onkeypress="set_address_value()" onfocus="set_address_value()" placeholder="<?php echo "Country"; ?>" id="country" name="venue_country" style="width:38%;" value='<?php if($event_id) { echo SecureShowData($venue_country); } ?>'>
                         	<br /><br />
-                        	<input type="text" onkeypress="set_address_value()" onfocus="set_address_value()" placeholder="<?php echo Zip_Code; ?>" id="postal_code" name="venue_zip" style="width:60%;" value='<?php if($event_id) echo SecureShowData($event_venue['venue_zip']);?>'>
+                        	<input type="text" onkeypress="set_address_value()" onfocus="set_address_value()" placeholder="<?php echo Zip_Code; ?>" id="postal_code" name="venue_zip" style="width:60%;" value='<?php if($event_id) { echo SecureShowData($event_venue['venue_zip']); } ?>'>
                         	<span id="addresszipInfo" class="comment" style="margin-left: 41%;"></span>
                         	<p class="comment">  <b><a onclick="show_div('location','venue_address_div','');" href="javascript://"><?php echo 'Reset Address'; ?> </a></b> ? </p>
                         </div>
@@ -503,8 +493,6 @@ if($event_id!=''){
                             	<div id="cust_date_div" style="display:none;" class="radio"><?php echo Custom_dates_and_times_are_set_for_this_event;?></div>
                             	
                             	<div class="col-sm-8 col-sm-offset-3">
-                            		<!-- <p class="fromText"><a class="mfPopupIn" href="#timezone_box" id="time_zone_event"><?php // echo TIMEZONE_DATE_SETTINGS; ?> (<?php // if($event_time_zone != '' && $event_time_zone != 0){ // echo $gettimezoneArray[$event_time_zone];} else { // echo $gettimezoneArray[$site_setting['site_timezone']];}?>)</a></p> -->
-
 	                                <div class="radio padL0" style="display: none;">
 	                                  <label>
 	                                    <input <?php if($event_repeat != '' && $event_repeat != 0){  echo 'checked="checked"'; }?> type="checkbox" name="event_repeat_set" id="event_repeat_set" value="1" onclick="show_repeat_div('event_repeat_set','repeat_div');">
@@ -514,31 +502,6 @@ if($event_id!=''){
 	                            </div>
                         	</div>
                         	
-							
-							
-							<div class="form-group clearfix" style="display:<?php if($event_repeat != '' && $event_repeat != 0){ echo 'none'; } else { echo 'none'; }?> ;" id="repeat_div">
-							
-								<div class="col-sm-3 col-xs-12 lable-rite">
-									<label><?php echo Event_Repeats; ?><span>&#42;</span></label>
-								</div>
-								
-								<div class="col-sm-8 col-xs-12">
-									<select class="select-pad" onkeyup="set_new_repeat(this.value);" onchange="set_new_repeat(this.value);" name="event_repeat1" id="event_repeat1">
-										<?php
-										foreach($EVENT_REPEATS as $key=>$val){
-											
-											$select='';
-											if($event_repeat_type == $key){ $select = 'selected="selected"'; } 
-											echo '<option value="'.$key.'" '.$select.' >'.SecureShowData($val).'</option>';	
-										}
-										?>
-									</select>
-									<div id="show_repeat_info"><?php if($event_repeat_text != ''){ echo $event_repeat_text; } ?></div>
-								</div>
-								
-								<a class="mfPopupIn" href="javascript://" id="repeat_anchor_tag" style="display:none;"></a>
-                            	
-							</div>
 							
 							<div style="display: none ;">
 								<input id="event_repeat_text" type="hidden" name="event_repeat_text" value="<?php echo $event_repeat_text; ?>'>
@@ -692,26 +655,6 @@ if($event_id!=''){
                                 <div class="col-sm-9 col-xs-12" id="audio_div">
                                 <?php if($audio){ ?>
 									<audio loop controls><source src="<?php echo  base_url('upload/event/audio');?>/<?php echo SecureShowData($audio['audio_name']);?>" type="audio/mpeg"></audio>
-									<!-- <object type='application/x-shockwave-flash' data='<?php // echo base_url('js/dewplayer.swf');?>' width='200' height='20'>
-									<param name='movie' value='<?php // echo base_url('js/dewplayer.swf');?>'>
-									<param name='quality' value='high'>
-									<param name='bgcolor' value='#ffffff'>
-									<param name='play' value='true'>
-									<param name='loop' value='true'>
-									<param name='wmode' value='transparent'>
-									<param name='scale' value='showall'>
-									<param name='menu' value='true'>
-
-									<param name='devicefont' value='false'>
-									<param name='salign' value=''>
-									<param name='allowScriptAccess' value='sameDomain'>
-									<param name='flashvars' value="mp3=<?php // echo  base_url('upload/event/audio');?>/<?php // echo $audio['audio_name'];?>&amp;autostart=<?php // echo $audio['is_autoplay'];?>&amp;autoreplay=0&amp;showtime=1">
-									</object> -->
-								<!-- <audio controls <?php // if($audio['is_autoplay']) echo "autoplay";?>>
-								  <source src="<?php // echo  base_url('upload/event/audio');?>/<?php // echo $audio['audio_name'];?>" type="audio/mp3">
-								
-								  Your browser does not support the audio tag.
-								</audio> -->
 								  <a href="javascript:"  onclick="remove_audio();" style=" text-decoration: underline;"> <?php echo REMOVE;?> </a>
 								  <?php } ?>
                                 </div>
@@ -782,9 +725,9 @@ if($event_id!=''){
                            ?>
 		                            <ul>
 		                            	<a href="" class="mfPopup" id="organizer_edit_anchor_tag"></a>
-		                                <li><a href="javascript:" onClick="show_organization('organization_div','organization_unnamed','org','edit')"><?php echo Edit.' '.Organizer; ?></a></li>
+		                                <li><a href="javascript:;" onClick="show_organization('organization_div','organization_unnamed','org','edit')"><?php echo Edit.' '.Organizer; ?></a></li>
                                         <li>|</li>
-		                            	<li><a href="javascript:" onClick="show_organization('organization_div','organization_unnamed','0','add')"> + <?php echo Add_New; ?></a></li>
+		                            	<li><a href="javascript:;" onClick="show_organization('organization_div','organization_unnamed','0','add')"> + <?php echo Add_New; ?></a></li>
 		                                
 		                            </ul>
                                                                              <?php 
@@ -919,9 +862,7 @@ if($event_id!=''){
 			
                 <div class="col-lg-12 clearfix mb">
                     
-                    <?php 
-                      if($this->uri->segment(2)=='edit_event')
-                    if($rights){ ?>
+                    <?php if($rights && $this->uri->segment(2)=='edit_event'){ ?>
                         
                    
                     <div style="position:relative;"> 
@@ -946,10 +887,8 @@ if($event_id!=''){
                                 	<ul class="free-tckt col-sm-9 col-xs-12 mt10">
 
                                 		<!-- Seat module -->
-                                		<?php //getTicketViewFromModule('seat_arrangment'); ?>
                             		<?php 
 							  	 		$extension->load_view('seat_arrangment', $module_data);		
-							  	 		// var_dump($extension->load_view('seat_arrangment', $module_data))
                             		 ?>
                               
 	                                    <!-- end of seat module -->
@@ -986,7 +925,7 @@ if($event_id!=''){
                         			$('#error_save').show(); return false;
                         		}else{
                         		var currency_code_id = $('#event_currency').val();
-                        		var event_id = $('#event_id').val();
+                        		var event_id = $('#event_id').val()
 
                         		$.ajax({
 							        type: "POST",
@@ -1132,8 +1071,7 @@ if($event_id!=''){
                  </div>
              </div>
                     <?php 
-                      if($this->uri->segment(2)=='edit_event')
-                    if($rights){ ?>
+                    if($this->uri->segment(2)=='edit_event' && $rights){ ?>
                         
                    
                     </div>
@@ -1230,7 +1168,7 @@ if($event_id!=''){
 	                            	</div>
 	                        	</div>
 	                            <script type="text/javascript">
-	                            <?php if($subcategory=='' or $subcategory=='0'){?>
+	                            <?php if($subcategory=='' || $subcategory=='0'){?>
 	                            	$(document).ready(function(){
 	                            		$('#event_topic_div').hide();
 	                            	});
@@ -1425,7 +1363,7 @@ if($event_id!=''){
                  </div>
               </div><!-- End row-->
               <!-- End 3rd part-->
-				<?php if($site_setting['is_wallet'] == 2 && $site_setting['is_wallet'] == 2 && $event_details['is_wallet'] == 2 && $event_details['is_wallet'] == 2) { ?>
+				<?php if($site_setting['is_wallet'] == 2 && $event_details['is_wallet'] == 2 && $event_details['is_wallet'] == 2) { ?>
 					<?php $this->load->view("default/event/payout"); ?>
 				<?php } ?>
              
@@ -1860,8 +1798,7 @@ if($event_id!=''){
     </section>
  
 <?php 
-if(isset($map_address)) {
-} else {
+if(!isset($map_address)) {
 	$map_address= getip2location(getRealIP());
 }
 ?>
@@ -2361,13 +2298,13 @@ function  empty_field()
           <td class="clearfix">
 										          
 	          <div class="col-sm-11 col-xs-11 pr pleft0">
-                      <input type="text" class="paid_price_place" onkeyup="set_fee_and_total('1',this);" autocomplete="off" id="paid_price_1" name="paid_price[]" class="paid_price_place" style="text-align:right;" placeholder="<?php echo getCurrencySymbol($event_id);//echo $site_setting['currency_symbol']; ?>">
+                      <input type="text" class="paid_price_place" onkeyup="set_fee_and_total('1',this);" autocomplete="off" id="paid_price_1" name="paid_price[]" class="paid_price_place" style="text-align:right;" placeholder="<?php echo getCurrencySymbol($event_id); ?>">
 	          </div> 
           
 	          <div class="col-sm-1 col-xs-1 tool pre">
 	              <div class="tool-hover">
 		              <img width=" " height=" " class="" alt=" " src="<?php echo base_url();?>images/i.png">
-		              <div class="docs-tooltip" id="docs_tooltip_1"><div class="clearfix"><?php echo Ticket_Price;?> <span> <?php echo set_event_currency('0.00',$event_id);//echo $site_setting['currency_symbol']; ?>0.00</span></div><div class="clearfix"><?php echo Fee;?>  <span><?php echo set_event_currency('0.00',$currency_code_id);//echo $site_setting['currency_symbol']; ?>0.00 </span></div><div class="botm-bodr clearfix"> <?php echo Buyer_Total;?> <span> <?php echo set_event_currency('0.00',$currency_code_id);//echo $site_setting['currency_symbol']; ?>0.00</span></div></div>
+		              <div class="docs-tooltip" id="docs_tooltip_1"><div class="clearfix"><?php echo Ticket_Price;?> <span> <?php echo set_event_currency('0.00',$event_id); ?>0.00</span></div><div class="clearfix"><?php echo Fee;?>  <span><?php echo set_event_currency('0.00',$currency_code_id); ?>0.00 </span></div><div class="botm-bodr clearfix"> <?php echo Buyer_Total;?> <span> <?php echo set_event_currency('0.00',$currency_code_id); ?>0.00</span></div></div>
 	              </div>
               </div>
                                           
@@ -2495,14 +2432,6 @@ function  empty_field()
 				        <h5><?php echo Service_Fees;?> </h5>
 				        <p>~<?php echo $site_setting['paid_ticket_fee']; ?>% + <?php echo $site_setting['paid_ticket_flat_fee']; ?></p>
 				    </li>
-				   
-				    <!-- <li class="no-brdr">
-				        +
-				    </li>
-				    <li> 
-				        <h5>Flat Fee </h5>
-				        <p><?php // echo $site_setting['paid_ticket_flat_fee']; ?></p>
-				    </li> -->
 				   
 				    <li class="no-brdr">
 				        +
@@ -2982,18 +2911,6 @@ function  empty_field()
 					
 
 		        }
-		  
-		      /*  if($('#event_logo_name').val()==''){
-            		$('#event_logo_name').addClass('form-control-error');
-					$('#client_error').css('display', 'block');
-            		var error = '<?php // echo Event_Logo_is_required; ?>";
-            		$('.error_span').text(error);
-            		
-            		$('html, body').animate({
-		               scrollTop: $("#client_error").offset().top
-		            }, 200);
-            		return false;
-            	}*/
             	 if($('#flyer_images').val()==''){
             		$('#flyer_images_text').addClass('form-control-error');
 					$('#client_error').css('display', 'block');
@@ -3071,21 +2988,6 @@ function  empty_field()
             		}
 
             	/*Event Capacity Field is required*/
-            	/*
-            	if(type=='live'){
-	            	if($('#event_capacity').val()=='' || $('#event_capacity').val()=='0'){
-	            		$('#client_error').css('display', 'block');
-	            		$('#event_capacity').addClass('form-control-error');
-	            		var error = '<?php // echo Atleast_one_ticket; ?>';
-	            		$('.error_span').text(error);
-	            		location.hash = '#client_error';
-	            		$('html, body').animate({
-		               scrollTop: $("#client_error").offset().top
-		            }, 200);
-	            		return false;
-	            	}
-	            }
-	            */
             	/*End of event capacity */
 
             	/*Event Customize Web Address is required*/
@@ -3195,7 +3097,7 @@ function  empty_field()
 							// console.log('in');
 							if(result.redirect) {
 								if(!is_redirect){
-								window.location.href = "<?php echo site_url();?>seat_plan/seat/<?php echo $event_id;?> ?step=step1&plan_id=<?php echo $event_id;?>";
+								window.location.href = "<?php echo site_url();?>seat_plan/seat/<?php echo $event_id;?> ?step=step1&plan_id=<?php echo $event_id;?>"
 								hide_loader();
 								return false;
 								
@@ -3215,7 +3117,7 @@ function  empty_field()
 						} else {
 							// console.log('out');
 							if(!is_redirect){
-								window.location.href = "<?php echo site_url();?>seat_plan/seat/<?php echo $event_id;?> ?step=step1&plan_id=<?php echo $event_id;?>";
+								window.location.href = "<?php echo site_url();?>seat_plan/seat/<?php echo $event_id;?> ?step=step1&plan_id=<?php echo $event_id;?>"
 								hide_loader();
 								return false;
 								
@@ -3312,7 +3214,6 @@ function  empty_field()
             	
             	var tzval = $("#event_time_zone").val();
             	$("#event_event_time_zone").val(tzval);
-            	// $("#time_zone_event").text('<?php // echo TIMEZONE_DATE_SETTINGS; ?> '+$("#event_time_zone option:selected").text());
             	var magnificPopup = $.magnificPopup.instance; 
 				magnificPopup.close(); 
             	
@@ -4359,13 +4260,13 @@ function  empty_field()
                 
         		if(testPattern.test(min.value) == true && min.value !='')
         		{
-        			if(min.value >= parseInt(<?php echo $site_setting['min_purchase_allowed'];?>) && min.value <= parseInt(<?php echo $site_setting['max_purchase_allowed'];?>)){
+        			if(min.value >= parseInt(<?php echo $min_purchase_allowed;?>) && min.value <= parseInt(<?php echo $max_purchase_allowed;?>)){
         				return true;
         			}else{
-        				if(min.value < parseInt(<?php echo $site_setting['min_purchase_allowed'];?>)){
-        					min.value = <?php echo $site_setting['min_purchase_allowed'];?>;
+        				if(min.value < parseInt(<?php echo $min_purchase_allowed;?>)){
+        					min.value = <?php echo $min_purchase_allowed;?>;
         				}else{
-        					min.value = <?php echo $site_setting['max_purchase_allowed'];?>;
+        					min.value = <?php echo $max_purchase_allowed;?>;
         				}	
         				return true;
         			}
@@ -4430,14 +4331,14 @@ function  empty_field()
         		var testPattern=/^[0-9]+$/;
         		 if(testPattern.test(max.value)==true && max.value !='')
         		 {
-        				if(max.value < parseInt(<?php echo $site_setting['min_purchase_allowed'];?>)){
-        					max.value = <?php echo $site_setting['min_purchase_allowed'];?>;
+        				if(max.value < parseInt(<?php echo $min_purchase_allowed;?>)){
+        					max.value = <?php echo $min_purchase_allowed;?>;
         					return true;
-        				}else if(max.value <= parseInt(<?php echo $site_setting['max_purchase_allowed'];?>)){
+        				}else if(max.value <= parseInt(<?php echo $max_purchase_allowed;?>)){
         					return true;
         				
         				}else{
-        					max.value = <?php echo $site_setting['max_purchase_allowed'];?>;
+        					max.value = <?php echo $max_purchase_allowed;?>;
         					return true;
         				}
         		}else{
@@ -4884,8 +4785,8 @@ function  empty_field()
 			$('input[name="paid_price[]"]').each(function(){
 				calculate_ticket_fee_structure(this);
 			});
-        }
-            function calculate_ticket_fee_structure(me) {
+		};
+		function calculate_ticket_fee_structure(me) {
 			// console.log("calculate_ticket_fee_structure");
 			tbody = $(me).closest('tbody');
 			price = tbody.find('input[name="paid_price[]"]');
@@ -4913,9 +4814,6 @@ function  empty_field()
 					paid_fee_span = tbody.find('.paid_fee_span');
 					paid_total_span = tbody.find('.paid_total_span');
 
-					// paid_ticket_fee = <?php // echo $site_setting['paid_ticket_fee']; ?>;
-					// payment_gateway_fee = <?php // echo $currency['payment_gateway_fee']; ?>;
-					// paid_ticket_flat_fee = <?php // echo $currency['paid_ticket_flat_fee']; ?>;
 					event_pass_fees = $('input[name="event_pass_fees"]:checked').val();
 					if(event_pass_fees == 3) {
 						// console.log($(paidServiceFees).val());
@@ -5015,21 +4913,21 @@ function  empty_field()
 						gatewayLabel = "<span><?php echo N_A; ?> </span>";
     					$(paid_fee_span).html('<label class="cur_symbol">'+cur_symbol+'</label>0.00');
 					}
-					var datatoltip = '<div class="clearfix">';
-					datatoltip += "<?php echo Ticket_Price;?>";
-					datatoltip += '<span>';
-					datatoltip += '<label class="cur_symbol">'+cur_symbol+'</label>'+paidPrice+'</span>';
-					datatoltip += '</div>';
-					datatoltip += '<div class="clearfix">';
-					datatoltip += "<?php echo Fee;?>"+FeeLabel+'</div>';
-					datatoltip += '<div class="clearfix">';
-					datatoltip += "<?php echo Flat_Fee;?>"+flatFeeLabel+'</div>';
-					datatoltip += '<div class="clearfix">';
-					datatoltip += "<?php echo "Gateway Fee";?>"+gatewayLabel+'</div>';
-					datatoltip += '<div class="botm-bodr clearfix">';
-					datatoltip += "<?php echo Buyer_Total;?>";
-					datatoltip += '<span>'+$(paid_total_span).html()+'</span>';
-					datatoltip += '</div>';
+					var datatoltip = '<div class="clearfix">'
+					datatoltip += "<?php echo Ticket_Price;?>"
+					datatoltip += '<span>'
+					datatoltip += '<label class="cur_symbol">'+cur_symbol+'</label>'+paidPrice+'</span>'
+					datatoltip += '</div>'
+					datatoltip += '<div class="clearfix">'
+					datatoltip += "<?php echo Fee;?>"+FeeLabel+'</div>'
+					datatoltip += '<div class="clearfix">'
+					datatoltip += "<?php echo Flat_Fee;?>"+flatFeeLabel+'</div>'
+					datatoltip += '<div class="clearfix">'
+					datatoltip += "<?php echo "Gateway Fee";?>"+gatewayLabel+'</div>'
+					datatoltip += '<div class="botm-bodr clearfix">'
+					datatoltip += "<?php echo Buyer_Total;?>"
+					datatoltip += '<span>'+$(paid_total_span).html()+'</span>'
+					datatoltip += '</div>'
 					$(docs_tooltip).html(datatoltip);
 				}
 			}

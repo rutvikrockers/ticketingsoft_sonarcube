@@ -42,7 +42,7 @@
 	            data: {id: id, first_name: first_name, last_name: last_name, email:email}, 
 	            url: page_path,
 	            success: function(data) {
-	               name = first_name+" "+last_name;
+	               name = first_name+" "+last_name
 	               parent.$("#name").html(name);
 	               parent.$("#email").html(email);
 				   parent.location.reload();

@@ -75,7 +75,6 @@
 
 			{
 
-			// $user_data=UserData($receiver_id);		
 			 $user_data=getRecordById('users','id',$receiver_id);	
 
 
@@ -134,22 +133,9 @@
 
 			
 
-		//	$is_read_message=$this->inbox_model->get_read_message($message_id);
+		
 
 			
-			//echo "string".$is_read_message;
-			// echo "<pre>";
-			// print_r($is_read_message);die();
-			// if($is_read_message==0)
-
-			// {
-				
-			// 	$is_read_test = $is_read_message['is_read'];
-
-				
-
-			// }
-
 
 			?>
 
@@ -184,7 +170,7 @@
 
 					
 
-								<img src="<?php echo base_url();?>images/no_img.jpg" class="img-circle"  />
+								<img src="<?php echo base_url();?>images/no_img.jpg" class="img-circle" alt='noimage' />
 
 					
 
@@ -192,17 +178,18 @@
 
 					
 
-						<?php } } else { ?>
+						<?php } 
+                        } else { ?>
 
 					
 
-								<img src="<?php echo base_url();?>images/no_img.jpg" lt="noimage" class="img-circle" />
+								<img src="<?php echo base_url();?>images/no_img.jpg" alt="noimage" class="img-circle" />
 
 					
 
 						<?php }?>
 	                   </div>
-	                   <div class="indox-content <?php if($unreadMsg_text!='') echo 'in-active'; ?>">
+	                   <div class="indox-content <?php if($unreadMsg_text!='') { echo 'in-active'; } ?>">
 	                    <?php 
 	                    	$username = $email; 
 
@@ -242,65 +229,6 @@
 
 			?>
 		</ul>
-          <!--   <div class="row">    
-                        
-            <div class="event-webpage col-xs-12 col-sm-12">
-                <div class="red-event width100 "><h4>Contact Information</h4></div>
-                <div class="clear"></div>
-            </div><!-- End event-webpage 
-            
-        
-            <div class="col-sm-12 clearfix mb">
-                <div class="event-detail event-detail2">
-                 
-                 <ul class="list-unstyled inbox">	
-                  
-                    <li class="clearfix">
-	                   <a href="javascript:void(0);">
-
-	                   <div class="inbox-img">
-                           <img src="<?php echo base_url();?>images/no_img.jpg" class="img-circle"  />
-	                   </div>
-	                   <div class="indox-content">
-	                    
-	                          <h3>frfdfdfdfdf <em> at 07:53 AM, 11th  March 2015 </em></h3>
-	                          <p>ddasdfrrbg</p>
-                          
-	                   </div>	
-	                  </a>
-                    </li>
-                    <li class="clearfix">
-	                   <a href="javascript:void(0);">
-
-	                   <div class="inbox-img">
-                           <img src="<?php echo base_url();?>images/no_img.jpg" class="img-circle"  />
-	                   </div>
-	                   <div class="indox-content in-active">
-	                    
-	                          <h3>frfdfdfdfdf <em> at 07:53 AM, 11th  March 2015 </em></h3>
-	                          <p>ddasdfrrbg</p>
-                          
-	                   </div>	
-	                  </a>
-                    </li>
-                    <li class="clearfix">
-	                   <a href="javascript:void(0);">
-
-	                   <div class="inbox-img">
-                           <img src="<?php echo base_url();?>images/no_img.jpg" class="img-circle"  />
-	                   </div>
-	                   <div class="indox-content">
-	                    
-	                          <h3>frfdfdfdfdf <em> at 07:53 AM, 11th  March 2015 </em></h3>
-	                          <p>ddasdfrrbg</p>
-                          
-	                   </div>	
-	                  </a>
-                    </li>
-
-                  </ul>
-                 </div><!-- end event-detail 
-           	</div>   -->    
                 
               </div>
 

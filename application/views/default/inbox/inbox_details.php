@@ -165,9 +165,10 @@ function check_comment_len(){
                                 ?>
                                         <img src="<?php echo base_url();?>upload/profile/small/<?php echo $sender_info['image'];?>" alt="noimage" class="img-circle"  />
                                         <?php } else { ?>
-                                       <img src="<?php echo base_url();?>images/no_img.jpg" class="img-circle"  />
-                                        <?php }}else { ?>
-                                       <img src="<?php echo base_url();?>images/no_img.jpg" lt="noimage" class="img-circle" />
+                                       <img src="<?php echo base_url();?>images/no_img.jpg" class="img-circle" alt="noimage"  />
+                                        <?php }
+                                        }else { ?>
+                                       <img src="<?php echo base_url();?>images/no_img.jpg" alt="noimage" class="img-circle" />
                                 <?php }?>
                        </div>
                        <?php if($sender_id == $this->session->userdata('user_id')) { ?>

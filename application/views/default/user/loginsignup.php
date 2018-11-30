@@ -158,7 +158,7 @@ $site_setting = site_setting();
                         	<div class="panel panel-default">
                               <div class="panel-heading">
                                 <h3 class="panel-title"><?php echo LOGIN;?></h3>
-                                <p>New to <?php echo SecureShowData($site_setting['site_name']); ?>? <strong><a href="<?php echo site_url('user/signup/'.$redirect_url);//$reg_url;?>"><?php echo SIGNUP; ?>!</a></strong></p>
+                                <p>New to <?php echo SecureShowData($site_setting['site_name']); ?>? <strong><a href="<?php echo site_url('user/signup/'.$redirect_url); ?>"><?php echo SIGNUP; ?>!</a></strong></p>
                               </div>
                                
                               <div class="panel-body">

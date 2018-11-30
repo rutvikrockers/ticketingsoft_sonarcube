@@ -8,26 +8,19 @@ if($tickets){
 		$event_url_link = $ticket['event_url_link'];
 		$event_logo = $ticket['event_logo'];
 		$created_at = datetimeformat($ticket['created_at']);
-		//$event_url_link = $ticket['event_url_link'];
 		$purchase_id = $ticket['id'];
 
 		if($event_logo && file_exists('upload/event/thumb/'.$event_logo)){
 			$event_image = base_url().'upload/event/thumb/'.$event_logo;
 		}else{
-			$event_image = base_url().'upload/event/thumb/no_img.jpeg';
+			$event_image = base_url()."upload/event/thumb/no_img.jpeg";
 		}
 		?>
 								<li>
                                      <div class="josef">
                                         <div class="imgLeft">
-                                        	<!-- <img src="<?php echo $event_image;?>" alt=" " height=" " width=" " >
-                                        	 -->
                                         	   <div class="flexslider">
                                                         <ul class="slides">
-                                                         <!--  <li>
-                                                             
-                                                          <img src="<?php echo $event_img; ?>" alt=" "  height="110px" width="110px"  > 
-                                                          </li> -->
                                                           <?php  
                                                             $event_images=getAllRecordById('event_images','event_id',$ticket['eid']);
 
@@ -39,10 +32,7 @@ if($tickets){
                                                            <?php 
                                                                     $image = base_url().'upload/event_default/no_img.jpg';
                                                                     $image_slide =  $image_data['image_name'];
-                                                                    if($image_slide != '' && file_exists(base_path().'upload/event/orig/'.$image_slide)){ 
-                                                                        $image = base_url().'upload/event/thumb/'.$image_slide;
-                                                                    }
-                                                                    elseif($image_slide != '' && file_exists(base_path().'upload/event/thumb/'.$image_slide)){ 
+                                                                    if($image_slide != '' && file_exists(base_path().'upload/event/thumb/'.$image_slide)){ 
                                                                         $image = base_url().'upload/event/thumb/'.$image_slide;
                                                                     }
                                                                 ?>
@@ -57,7 +47,6 @@ if($tickets){
                                                 </div>
                                         </div>
                                         <div class="tour">
-                                            <!--<h2><a href="<?php echo site_url('ticket/ticket_detail/'.$purchase_id);?>"><?php echo SecureShowData($event_title);?></a></h2>-->
                                             <h2><a href="<?php echo site_url('event/view/'.$event_url_link);?>"><?php echo SecureShowData($event_title);?></a></h2>
                                             <p><?php echo TOTAL_QUANTITY.' : '.$ticket_quantity; ?></p>
                                             <p><?php echo $created_at;?> <?php echo timeFormat($ticket['created_at']); ?></p>

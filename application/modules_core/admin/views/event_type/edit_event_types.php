@@ -68,9 +68,9 @@
                                         <?php 
 										if(file_exists('upload/event_type_default/'.$event_type_image))
 										 { ?>
-                                        <img src="<?php echo base_url();?>upload/event_type_default/<?php echo SecureShowData($event_type_image); ?>" height="100" width="100"/>
+                                        <img src="<?php echo base_url();?>upload/event_type_default/<?php echo SecureShowData($event_type_image); ?>" height="100" width="100" type="type" />
                                         <?php }else { ?>
-                                        <img src="<?php echo base_url(); ?>upload/event_type_default/no_img.jpg" alt=" " height="100" width="100" >
+                                        <img src="<?php echo base_url(); ?>upload/event_type_default/no_img.jpg" alt="type" height="100" width="100" >
                                         <?php } ?>
                                     </div>
                                     <input type="hidden" name="event_type_image" value="<?php echo SecureShowData($event_type_image);?>" />

@@ -89,7 +89,7 @@
                   <a href="#" class="tooltip">
                     <?php echo SecureShowData($site_name); ?> — Maintenance mode
                     <span>
-                        <img class="callout" src="<?php echo base_url(); ?>images/callout_black.gif" />
+                        <img class="callout" src="<?php echo base_url(); ?>images/callout_black.gif" alt="callout" />
                         <p class='text-left text-nowrap'><strong>Your Site is in maintenance.</strong></p><p class='text-left'>Your visitors and customers cannot access your site while in maintenance mode.<br /> To manage the maintenance settings, go to Preferences > Maintenance.</p>
                     </span>
                  </a>
@@ -106,125 +106,6 @@
                      $no_of_versions = count($ver_check); 
                 ?>
 
-<!--                 <li class="dropdown" id="header_inbox_bar">
-
-                            <a href="#"  class="dropdown-toggle" data-placement="bottom" data-toggle="dropdown" href="#" data-original-title="Version Updates">
-
-                            <?php if($no_of_versions>0) { ?><span class="badge badge-important"><?php echo $no_of_versions; ?></span><?php } ?>
-                                <i class="fa fa-bell"></i><b class="caret"></b>
-                            </a>
-
-                            <ul class="dropdown-menu alert-dropdown">
-
-                            
-
-                                <?php if(!empty($ver_check)){ ?>
-                                
-                                <li>
-
-                                    <p><?php echo sprintf(YOU_HAVE_1_NEW_NOTIFICATION,$no_of_versions); ?></p>
-
-                                       </li>
-                                       
-                                <?php foreach ($ver_check as $new_version) { ?>
-
-                                       
-
-                                       <li id="modal_ajax">
-
-                                    <a href="<?php echo site_url('admin/update/my_version'); ?>">
-
-                                       <span class="label label-important"><i class="icon-bolt"></i></span>
-
-                                       <?php  echo  $new_version; ?>
-
-                                       </a>
-
-                                       </li>
-
-                               <?php } } else { ?>
-                                        <li>
-
-                                    <p><?php echo YOU_DONT_HAVE_ANY_NEW_NOTIFICATION; ?></p>
-
-                                       </li>
-                                       <?php } ?>
-
-                            
-
-
-                                <?php 
-
-                                if($version_data)
-
-                                {
-
-                                    $cnt = 0;
-
-                                    foreach($version_data as $ver)
-
-                                    {
-
-                                        $version = $ver['version'];
-
-                                        $description = $ver['description'];
-
-                                        $date = $ver['date'];
-
-                                        $date_con = date('d M', strtotime($date));
-
-                                        if($cnt == 0)  $var = LAST_UPDATE_VERSION.' ' .$version. UPDATED_ON.' ' .$date_con; 
-
-                                        else  $var = VERSION.' '.$version.' '. UPDATED_ON.' ' .$date_con; 
-
-                                        
-
-                                ?>
-
-                                <li>
-
-                                    <a href="<?php echo site_url("admin/admin/versions");?>">
-
-                                        <span class="photo"><img src="<?php echo base_url();?>upload/user/user_small_image/no_man.jpg" alt="avatar"></span>
-
-                                    <span class="subject">
-
-                                    <span class="from"><?php echo ADMIN; ?></span>
-
-                                    <span class="time"></span>
-
-                                    </span>
-
-                                    <span class="message">                                      
-
-                                       <?php echo $var;  ?>
-
-                                    </span>
-
-                                    </a>
-
-                                </li>
-
-                               <?php 
-
-                               $cnt++;
-
-                                    }
-
-                                }
-
-                                ?>
-
-                                <li>
-
-                                    <a href="<?php echo site_url("admin/update/versions");?>" class="adminLogout"><?php echo SEE_ALL_UPDATES; ?></a>
-
-                                </li>
-
-                            </ul>
-
-                        </li> -->
-
               <li class="dropdown">
                  <a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php if($username !="") {?> <?php echo $username; ?> <?php } else { ?> <?php echo $email; ?> <?php }?><b class="caret"></b></a>
                     <ul class="dropdown-menu" style="width: 260px;">
@@ -239,5 +120,4 @@
             
             <!-- /.navbar-static-side -->
         </nav>
-        <?php $this->load->view('common/sidebar');
-            //require('include/sidebar.php'); ?>
+        <?php $this->load->view('common/sidebar'); ?>

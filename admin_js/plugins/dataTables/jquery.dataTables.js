@@ -41,7 +41,7 @@
 	{
 		factory( jQuery );
 	}
-};
+}
 (/** @lends <global> */function( $ ) {
 	"use strict";
 
@@ -14008,6 +14008,6 @@
 	 *  @param {int} column Column index
 	 *  @param {bool} vis `false` if column now hidden, or `true` if visible
 	 */
-});
-)
+}));
+
 }(window, document, jQuery));

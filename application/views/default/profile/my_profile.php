@@ -87,10 +87,6 @@
 			                                     	<div class="josef">
 			                                        	<div class="flexslider">
                                                         <ul class="slides">
-                                                         <!--  <li>
-                                                             
-                                                          <img src="<?php echo $event_img; ?>" alt=" "  height="110px" width="110px"  > 
-                                                          </li> -->
                                                           <?php  
                                                             $event_images=getAllRecordById('event_images','event_id',$event_id);
 

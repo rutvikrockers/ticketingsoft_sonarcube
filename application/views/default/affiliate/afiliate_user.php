@@ -121,11 +121,7 @@ $(document).ready(function(){
                                         <?php   }
                                                 else
                                                 {
-                                                    if($tickets_sold != '')
-                                                    {
-                                                        
-                                                    }
-                                                    else
+                                                    if(!$tickets_sold)
                                                     { ?>
                                                         <option value="delete"><?php echo DELETE_AFFILIATE;?></option>
                                               <?php }                                                               

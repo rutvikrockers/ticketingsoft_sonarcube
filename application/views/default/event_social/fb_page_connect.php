@@ -33,8 +33,6 @@ $is_delete = delete_check($event_status);
               	
               
                  <?php 
-					 // echo '<pre>';
-                   // print_r($user_pages);die;
                   if($user_pages){
                   	foreach ($user_pages as  $value) {
                   		$page_name=$value['name'];
@@ -43,7 +41,6 @@ $is_delete = delete_check($event_status);
                   		$page_access_token=$value['access_token'];
                   		?>
                   	<h2>
-                    <?php // ?>
                     
                     <a  href="<?php echo site_url('event_social/create_tabs/'.$id.'/'.$page_id.'/'.$page_access_token);?>" ><?php echo SecureShowData($page_name); ?></a>
                     </h2>

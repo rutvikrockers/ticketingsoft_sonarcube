@@ -210,12 +210,12 @@ function valid_iban()
                 </div>
                 <div class="form-group clearfix">
                 	<div class="col-lg-12">
-                		<!-- <p class="show"><?php echo USED_IN." ". $event_count ." ".EVENTS; ?> <a href="javascript:hideshow(document.getElementById('adiv'))"><?php echo SHOW; ?></a></p> -->
                 		<div id="adiv" style="display:none">
                           <ul class="show-hide list-unstyled">
                             <?php if($event_title){foreach($event_title as $row) { ?>
                             <li><i class="glyphicon glyphicon-chevron-right"></i> <a href="<?php echo site_url('event/view/'.$row['event_url_link'])?>"><?php echo SecureShowData($row['event_title']);?></a></li>
-                            <?php }} ?>
+                            <?php }
+                            } ?>
                           </ul>
                         </div>
                 	</div>
@@ -481,9 +481,9 @@ function valid_iban()
 <script type="text/javascript">
     function hideshow(which){
     if (!document.getElementById)
-    return;
+    return
     if (which.style.display=="block")
-    which.style.display="none";
+    which.style.display="none"
     else
     which.style.display="block"
     }

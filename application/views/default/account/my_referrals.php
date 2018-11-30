@@ -171,30 +171,26 @@ $(document).ready(function(){
                               
                                  if(is_array($vall))
                                  {                     
-                                    if( $sales=='') $sales= $vall['currency_symbol'].$vall['sales'];
-                                    else $sales.=",".$vall['currency_symbol'].$vall['sales'];
+                                    if( $sales=='') { $sales= $vall['currency_symbol'].$vall['sales']; }
+                                    else { $sales.=",".$vall['currency_symbol'].$vall['sales']; }
                                  }
                                  if(is_array($vall))
                                  {
-                                    if( $shares=='') $shares= $vall['currency_symbol'].$vall['shares'];
-                                    else $shares.=",".$vall['currency_symbol'].$vall['shares'];
+                                    if( $shares=='') { $shares= $vall['currency_symbol'].$vall['shares']; }
+                                    else { $shares.=",".$vall['currency_symbol'].$vall['shares']; }
                                  }
 
                               }
                             } 
 
-                          if( $sales!='')
+                          if(!$sales)
                           {
-                          
+                            $sales ='0.00';
                           } 
-                          else{ $sales ='0.00';} 
-                          if($shares !='')
-                          {
-
-                          }
-                          else
+                          if(!$shares)
                           {
                             $shares = '0.00';
+
                           }
 
                           $p_get1 = getreferral_data_status($link,0);
@@ -205,8 +201,8 @@ $(document).ready(function(){
                             {                            
                                 if(is_array($vall))
                                 {                              
-                                  if( $paid=='') $paid= $vall['currency_symbol'].$vall['shares'];
-                                  else $paid.=",".$vall['currency_symbol'].$vall['shares'];
+                                  if( $paid=='') { $paid= $vall['currency_symbol'].$vall['shares']; }
+                                  else { $paid.=",".$vall['currency_symbol'].$vall['shares']; }
                                 }
                              }
                             } 
@@ -216,8 +212,8 @@ $(document).ready(function(){
                               {                              
                                 if(is_array($vall))
                                 {                                
-                                  if( $due=='') $due= $vall['currency_symbol'].$vall['shares'];
-                                  else $due.=",".$vall['currency_symbol'].$vall['shares'];
+                                  if( $due=='') { $due= $vall['currency_symbol'].$vall['shares']; }
+                                  else { $due.=",".$vall['currency_symbol'].$vall['shares']; }
                                 }
                               }
                             } 

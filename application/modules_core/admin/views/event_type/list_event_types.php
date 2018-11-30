@@ -146,10 +146,8 @@ function setaction(elename, actionval, actionmsg, formname) {
 													$active = $row['active'];
 													$event_type_image = $row['event_type_image'];
 														
-                                                        // $events_count =get_child_event_type($id);
                                                         $events_count =get_event_type($id);
 
-                                                        // $events_count =get_child_event_type($id);
 													
 									?>
                                         <tr class="odd gradeX">
@@ -160,10 +158,10 @@ function setaction(elename, actionval, actionmsg, formname) {
                                             	<?php 
 													if($active == 1)
 														{ ?>
-                                                        <img src="<?php echo base_url(); ?>admin_images/tick1.png" /> &nbsp;
+                                                        <img src="<?php echo base_url(); ?>admin_images/tick1.png" alt="tick" /> &nbsp;
 														<?php echo ACTIVE;
 													 	} else{?>
-														<img src="<?php echo base_url(); ?>admin_images/eb_close-fc.png" />&nbsp;
+														<img src="<?php echo base_url(); ?>admin_images/eb_close-fc.png" alt="close" />&nbsp;
 														<?php echo INACTIVE;
 														}
 													?>

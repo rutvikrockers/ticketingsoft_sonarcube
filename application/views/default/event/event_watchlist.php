@@ -42,7 +42,7 @@
 
               
                setTimeout(function() { 
-                  $("#saveeventInfo").text('');
+                  $("#saveeventInfo").text('')
                   $("#saveeventInfo").removeClass('mar10 alert alert-danger');
                   $("#saveeventInfo").removeClass('mar10 alert alert-success');
                }, 1500);
@@ -73,7 +73,7 @@
                     $("#user_event_save"+id).attr("id","user_event_save"+data['id']);
               }   
                setTimeout(function() { 
-                  $("#saveeventInfo").text('');
+                  $("#saveeventInfo").text('')
                   $("#saveeventInfo").removeClass('mar10 alert alert-danger');
                   $("#saveeventInfo").removeClass('mar10 alert alert-success');
                }, 1500);

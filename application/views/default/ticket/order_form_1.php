@@ -673,7 +673,10 @@
     	</div>
     </div>
 </div>
-<?php } } } }?>
+            <?php } 
+        } 
+    } 
+} ?>
 <?php /*waivers end*/ ?>
 <input type="hidden" name="ticket_id[]" value="0" />
 <?php } ?>

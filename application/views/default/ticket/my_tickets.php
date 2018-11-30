@@ -80,10 +80,6 @@ $(document).ready(function(){
                                         <div class="imgLeft">  
                                               <div class="flexslider">
                                                         <ul class="slides">
-                                                         <!--  <li>
-                                                             
-                                                          <img src="<?php echo $event_img; ?>" alt=" "  height="110px" width="110px"  > 
-                                                          </li> -->
                                                           <?php  
                                                             $event_images=getAllRecordById('event_images','event_id',$ticket['eid']);
 
@@ -114,7 +110,6 @@ $(document).ready(function(){
                                         </div>
                                             
                                         <div class="tour">
-                                            <!--<h2><a href="<?php echo site_url('ticket/ticket_detail/'.$purchase_id);?>"><?php echo SecureShowData($event_title);?></a></h2>-->
                                             <h2><a href="<?php echo site_url('event/view/'.$event_url_link);?>"><?php echo SecureShowData($event_title);?></a></h2>
                                             <p><?php echo TOTAL_QUANTITY.' : '.$ticket_quantity; ?></p>
                                             <p><?php echo $created_at;?> <?php echo timeFormat($ticket['created_at']); ?></p>
@@ -138,12 +133,12 @@ $(document).ready(function(){
                         
                     </div>
                      <?php 
-                        if($tickets){  if(count($all_tickets)>3){
+                        if($tickets && count($all_tickets)>3){
                             ?>
                                 <div class="text-center pb mt10 comonback">
                                     <a href="javascript://" class="btn-event" id="all_order"><?php echo ALL_ORDERS; ?></a>
                                 </div>
-                            <?php } }
+                            <?php } 
                         ?>
                       
                         </div>

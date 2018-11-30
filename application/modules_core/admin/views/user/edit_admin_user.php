@@ -197,7 +197,7 @@
                var confirm_password=   $('#confirm_password').val();
                $('.has-error').removeClass('has-error');
                if(old_password.trim()==''){
-                  alert('Old password required..!');
+                  alert('Old password required..!')
                  $('#old_password').parent().addClass('has-error');
                 return false;
                }

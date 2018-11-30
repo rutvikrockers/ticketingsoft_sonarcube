@@ -69,9 +69,9 @@
                                        <?php 
                                         if(file_exists('images/'.$template_image))
                                          { ?>
-                                        <img src="<?php echo base_url();?>images/<?php echo $template_image; ?>" height="100" width="200"/></img>
+                                        <img src="<?php echo base_url();?>images/<?php echo $template_image; ?>" height="100" width="200" alt="template" /></img>
                                         <?php }else { ?>
-                                        <img src="<?php echo base_url(); ?>upload/home_banner/no_img.jpg" alt=" " height="100" width="100" >
+                                        <img src="<?php echo base_url(); ?>upload/home_banner/no_img.jpg" alt="template" height="100" width="100" >
                                         <?php } ?>
                                     </div>
                                     <input type="hidden" name="template_image" value="<?php echo $template_image;?>" />

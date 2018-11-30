@@ -8,7 +8,6 @@
         }
     }
 ?>
-<!-- <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places" type="text/javascript"></script> -->
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
 
 <link href="<?php echo base_url(); ?>css/jquery.tagit.css" rel="stylesheet" type="text/css">
@@ -239,9 +238,6 @@ if ($parent && $category!="") {
                       elseif ($location !="") {
                         $event_search_city = $location; 
                       }
-                      else {
-                        #$event_search_city = $this->input->cookie('event_city'); 
-                      }
                     ?>
               <script type="text/javascript">
                   $(document).ready(function () {
@@ -288,18 +284,11 @@ if ($parent && $category!="") {
                         <div class="panel-body">
                         <div class="event-detail1">
                             <ul class="filtersList">
-                            <!--<?php 
-                            $url_all_date = site_url('search').'?event_date=all&location='.$location.''; 
-                            if($location=='' || $location==NULL){ $url_all_date = site_url('search').'?event_date=all'; } ?>-->
                              <?php 
                             $url_all_date = site_url('search').'?event_date=&price='.$price.'&city='.$city . '&event_type=' . $event_type . '&category='.$category.'&location='.$location.''; 
                             if($location=='' || $location==NULL){ $url_all_date = site_url('search').'?event_date=&price='.$price.'&city='.$city . '&event_type=' . $event_type . '&category='.$category; } ?>
                                 <li> <a href="<?php echo $url_all_date; ?>" class="<?php
-if (isset($_GET)) {
-    if (isset($_GET['event_date'])) {
-        if ($_GET['event_date'] == 'all') echo 'active';
-    }
-} ?> datesearch"><?php
+if (isset($_GET) && isset($_GET['event_date']) && $_GET['event_date'] == 'all') { echo 'active'; } ?> datesearch"><?php
 echo ALL_DATES; ?> </a>
 
 </li><div class="clear"></div>
@@ -307,44 +296,28 @@ echo ALL_DATES; ?> </a>
                              $url_today = site_url('search').'?event_date=today&price='.$price.'&city='.$city.'&category='.$category . '&event_type=' . $event_type.'&location='.$location.''; 
                             if($location=='' || $location==NULL){ $url_today = site_url('search').'?event_date=today&price='.$price.'&city='.$city.'&category='.$category . '&event_type=' . $event_type; } ?>
                                 <li> <a href="<?php echo $url_today; ?>" class="<?php
-if (isset($_GET)) {
-    if (isset($_GET['event_date'])) {
-        if ($_GET['event_date'] == 'today') echo 'active';
-    }
-} ?> datesearch"><?php
+if (isset($_GET) && isset($_GET['event_date']) && $_GET['event_date'] == 'today') { echo 'active'; } ?> datesearch"><?php
 echo TODAY; ?>  </a></li>
 <?php 
                              $url_tomorrow = site_url('search').'?event_date=tomorrow&price='.$price.'&city='.$city.'&category='.$category . '&event_type=' . $event_type.'&location='.$location.''; 
                             if($location=='' || $location==NULL){ $url_tomorrow = site_url('search').'?event_date=tomorrow&price='.$price.'&city='.$city.'&category='.$category . '&event_type=' . $event_type; } ?>
                                <li> <a href="<?php echo $url_tomorrow; ?>" class="<?php
 
-if (isset($_GET)) {
-    if (isset($_GET['event_date'])) {
-        if ($_GET['event_date'] == 'tomorrow') echo 'active';
-    }
-} ?>  datesearch"><?php
+if (isset($_GET) && isset($_GET['event_date']) && $_GET['event_date'] == 'tomorrow') { echo 'active'; } ?>  datesearch"><?php
 echo TOMORROW; ?> </a></li>
 <?php 
                            $url_this_week = site_url('search').'?event_date=this_week&price='.$price.'&city='.$city.'&category='.$category . '&event_type=' . $event_type.'&location='.$location.''; 
                             if($location=='' || $location==NULL){ $url_this_week = site_url('search').'?event_date=this_week&price='.$price.'&city='.$city.'&category='.$category . '&event_type=' . $event_type; } ?>
                                  <li> <a href="<?php echo $url_this_week; ?>" class="<?php
 
-if (isset($_GET)) {
-    if (isset($_GET['event_date'])) {
-        if ($_GET['event_date'] == 'this_week') echo 'active';
-    }
-} ?> datesearch"><?php
+if (isset($_GET) && isset($_GET['event_date']) && $_GET['event_date'] == 'this_week') { echo 'active'; } ?> datesearch"><?php
 echo THIS_WEEK; ?> </a></li>
 <?php 
                             $url_this_weekend = site_url('search').'?event_date=this_weekend&price='.$price.'&city='.$city.'&category='.$category . '&event_type=' . $event_type.'&location='.$location.''; 
                             if($location=='' || $location==NULL){ $url_this_weekend = site_url('search').'?event_date=this_weekend&price='.$price.'&city='.$city . '&event_type=' . $event_type.'&category='.$category.''; } ?>
                                  <li> <a href="<?php echo $url_this_weekend; ?>" class="<?php
 
-if (isset($_GET)) {
-    if (isset($_GET['event_date'])) {
-        if ($_GET['event_date'] == 'this_weekend') echo 'active';
-    }
-} ?> datesearch"><?php
+if (isset($_GET) && isset($_GET['event_date']) && $_GET['event_date'] == 'this_weekend') { echo 'active'; } ?> datesearch"><?php
 echo THIS_WEEKEND; ?> </a>
 
 </li>
@@ -353,11 +326,7 @@ echo THIS_WEEKEND; ?> </a>
                             if($location=='' || $location==NULL){ $url_next_week = site_url('search').'?event_date=next_week&price='.$price.'&city='.$city.'&category='.$category . '&event_type=' . $event_type.''; } ?>
                                <li> <a href="<?php echo $url_next_week; ?>" class="<?php
 
-if (isset($_GET)) {
-    if (isset($_GET['event_date'])) {
-        if ($_GET['event_date'] == 'next_week') echo 'active';
-    }
-} ?> datesearch" ><?php
+if (isset($_GET) && isset($_GET['event_date']) && $_GET['event_date'] == 'next_week') { echo 'active'; } ?> datesearch" ><?php
 echo NEXT_WEEK; ?> </a>
 
 </li>
@@ -366,11 +335,7 @@ echo NEXT_WEEK; ?> </a>
                             if($location=='' || $location==NULL){ $url_this_month = site_url('search').'?event_date=this_month&price='.$price.'&city='.$city.'&category='.$category . '&event_type=' . $event_type.''; } ?>
                                  <li> <a href="<?php echo $url_this_month; ?>" class="<?php
 
-if (isset($_GET)) {
-    if (isset($_GET['event_date'])) {
-        if ($_GET['event_date'] == 'this_month') echo 'active';
-    }
-} ?> datesearch"><?php
+if (isset($_GET) && isset($_GET['event_date']) && $_GET['event_date'] == 'this_month') { echo 'active'; } ?> datesearch"><?php
 echo THIS_MONTH; ?> </a></li>
                           </ul>
                             </div>
@@ -420,7 +385,7 @@ if ($parent) { $show=0;
          ?>
         <?php if($count >0) {  $show++; ?>
                                     <li> <a href="<?php echo $url_cat; ?>" class="cat_class <?php
-        if ($category_id == $this->input->get('category')) echo 'active'; ?>"> <?php
+        if ($category_id == $this->input->get('category')) { echo 'active'; } ?>"> <?php
         echo $category_name; ?> (<?php echo $count; ?>)</a></li>
         <?php } ?>
                                     <?php
@@ -476,7 +441,7 @@ if ($parent) { $show=0;
                                                     }
                                                 ?>
                                                 <?php if($count >0) {  $show++; ?>
-                                                    <li> <a href="<?php echo $url_cat; ?>" class="cat_class <?php if ($eventType_id == $this->input->get('event_type')) echo 'active'; ?>">
+                                                    <li> <a href="<?php echo $url_cat; ?>" class="cat_class <?php if ($eventType_id == $this->input->get('event_type')) { echo 'active'; } ?>">
                                                     <?php echo SecureShowData($eventType_name); ?> (<?php echo $count; ?>)</a></li>
                                                 <?php }
                                             }
@@ -567,17 +532,14 @@ if ($events) {
         $event_title = $event['event_title'];
         $event_url_link = $event['event_url_link'];
        $event_end_date_time = datetimeformat($event['event_start_date_time']);
-         // $event_end_date_time = date('l, F d Y',strtotime($event['event_start_date_time']));
         $event_logo = $event['event_logo'];
         $org_name = $this->event_model->checkevent_owner($event['user_id']);
         $org_name = $org_name['first_name'];
         $event_location = $event['street_address'];
 
-        // if($event_location==''){
           $location_result = getRecordById('venues', 'id', $event['venue_id']);
           $venue_name=$location_result['name'];
           $event_location = setAddress($event['id'], $location_result);
-        // } 
 
         if($org_name ==''){
           $org_result = getOrganizers($event['user_id']);
@@ -597,26 +559,8 @@ if ($events) {
                                                     <a href="<?php
         echo site_url('event/view/' . $event_url_link); ?>">
                                                         <div class="imgLeft">
-                                                                                                          <!--   <?php
-                                                            if ($event_logo && file_exists('upload/event/thumb/' . $event_logo)) { ?>
-                                                                                                                    <img src="<?php
-                                                                echo base_url() . 'upload/event/thumb/' . $event_logo; ?>" alt=" " height="110px" width="110px" >
-                                                                                                                    <?php
-                                                            }
-                                                            else {
-                                                    ?>
-                                                                                                                    <img src="<?php
-                                                                echo base_url() . 'upload/event_default/no_img.jpg'; ?>" alt=" " height="110px" width="110px" >
-                                                                                                                    <?php
-                                                            }
-
-                                                    ?> -->
                                                      <div class="flexslider">
                                                         <ul class="slides">
-                                                         <!--  <li>
-                                                             
-                                                          <img src="<?php echo $event_img; ?>" alt=" "  height="110px" width="110px"  > 
-                                                          </li> -->
                                                           <?php  
                                                             $event_images=getAllRecordById('event_images','event_id',$event_id);
 
@@ -652,7 +596,6 @@ if ($events) {
                                                         <div class="tour">
                                                             <p><?php echo $event_end_date_time; ?> | <?php echo timeFormat($event['event_start_date_time']); ?></p>
                                                             <h2 class="marB20"><?php echo SecureShowData($event_title); ?></h2>
-                                                          <!--   <p class="orgName"><?php echo ORGANIZED_BY; ?>: <?php echo SecureShowData($org_name); ?></p> -->
                                                             <?php if(!$event['online_event_option']){?>
                                                             <p><b><?php echo SecureShowData($venue_name);?></b></p>
                                                             <p class="eventLocation"><?php echo SecureShowData($location_result['venue_city']).', '.SecureShowData($location_result['venue_state']); ?></p>

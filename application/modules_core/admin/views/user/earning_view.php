@@ -30,14 +30,12 @@
                                     <thead>
                                         <tr>
                                         	
-                                     <!--  <th>&nbsp;</th> -->
+                                     
                                       <th>Event Name</th>
                                       <th>Amount</th>
                                       <th>Paid</th>
                                       <th>Due</th>
                                       <th>Date</th>
-                                   <!--  <th>Status</th>
-                                    <th>Action</th> -->
                                             
                                         </tr>
                                     </thead>
@@ -45,23 +43,17 @@
                                     <?php 
 										if($result)
 										{
-                                         // echo "<pre>";
-                                         // print_r($result);die;
 											foreach($result as $earn)
 												{
 												
                          $id = $earn['id'];
                          $event_title = $earn['event_title'];
-//                         $credit = $earn['credit'];
                          $credit = $earn['wcredit'];
                          $event_id = $earn['event_id'];                                            
-                          //$debit = $earn['debit'];
                           $debit = $earn['wdebit'];
                           if($credit>0){
                              $amount = set_event_currency($credit,$event_id).' cr';
-                             //$amount = set_currency($credit).' cr';
                           }else{
-                             //$amount = set_currency($debit).' dr'; 
                               $amount = set_event_currency($debit,$event_id).' cr';//
                           }
                         $paid = $earn['paid'];
@@ -72,33 +64,11 @@
 											
 									?>
                                         <tr class="odd gradeX">
-                                 <!-- <td><?php if($status==1){?><input type="checkbox" class="checkbox1" name="chk[]"  value="<?php echo $id;?>" > <?php }?></td> --> 
                                     <td><?php echo SecureShowData($event_title); ?></td>
                                     <td><?php echo $amount; ?></td> 
                                     <td><?php echo set_event_currency($paid,$event_id); ?></td>
                                     <td><?php echo set_event_currency($due,$event_id); ?></td>
                                     <td><?php echo $created_at; ?></td>
-                                   <!--  <td>
-                                      <?php
-                                        if($status==1)
-                      {?>
-                        <a href="<?php echo site_url('account/withdraw_form/'.$event_id);?>" style="color: red;"><?php echo "withdraw Request";?></a>
-                      <?php }
-                      if($status==0){
-                        echo 'Pending';
-                      }
-                      if($status==2){
-                        echo "Due";
-                      }
-                      if($status==3){
-                        echo "Paid";
-                      }
-                                       ?>
-                                      
-                                    </td>
-                                    <td>
-                                    <a href="<?php echo site_url('account/view_earning/0/');?>/<?php echo $event_id;?>" data-toggle="tooltip" data-placement="bottom" title="View Detail" class="fancybox fancybox.iframe edit">View</a>
-                                    </td> -->
                                 </tr>
                                             
                                         </tr>

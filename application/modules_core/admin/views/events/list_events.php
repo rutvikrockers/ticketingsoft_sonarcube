@@ -16,7 +16,7 @@ $address='';
             $address=$address.','.$result['venue_add2'];
                 }else
                 {
-                    $address=$result['venue_add1'];
+                    $address=$result['venue_add2'];
                 }
         }
         if($result['venue_city']!='')
@@ -178,7 +178,8 @@ function set_make_feature(elename, actionval, actionmsg, formname) {
 
                             
 
-            <?php }if($msg == 'disable'){?>
+            <?php }
+            if($msg == 'disable'){?>
                 
                             <div class="alert alert-success" role="alert">
 
@@ -187,7 +188,8 @@ function set_make_feature(elename, actionval, actionmsg, formname) {
                             <strong><?php echo SUCCESS; ?>!</strong> <?php echo RECORD_HAS_BEEN_SUCCESSFULLY_DISABLE;?>
 
                             </div>
-                  <?php }if($msg == 'delete'){?>
+                  <?php }
+                  if($msg == 'delete'){?>
                 
                             <div class="alert alert-success" role="alert">
 
@@ -196,7 +198,8 @@ function set_make_feature(elename, actionval, actionmsg, formname) {
                             <strong><?php echo SUCCESS; ?>!</strong> <?php echo RECORD_HAS_BEEN_SUCCESSFULLY_DELETED?>
 
                             </div>
-             <?php }if($msg == 'success'){?>
+             <?php }
+             if($msg == 'success'){?>
                 
                             <div class="alert alert-success" role="alert">
 
@@ -241,12 +244,9 @@ function set_make_feature(elename, actionval, actionmsg, formname) {
                                             
                                             <th><?php echo EVENT_START;?>(Date/Time)</th>
                                             
-                                            <!-- <th class="sorting_disabled"><?php echo FEATURE;?></th> -->
-                                            <!-- <th class="sorting_disabled"><?php echo AFFILIATE;?> -->
                                             <th><?php echo CURRENT_STATUS;?></th>
 
                                             <th class="sorting_disabled"><?php echo TICKETS;?></th>
-                                            <!--<th><?php echo ACTION;?></th>-->
                                             <th class="sorting_disabled"><?php echo ACTION; ?></th>
                                         </tr>
                                     </thead>
@@ -278,9 +278,8 @@ function set_make_feature(elename, actionval, actionmsg, formname) {
                                             <?php 
                                             $purchase = $this->event_model->getPurchaseOrder($id,array('purchases.id'=>'DESC'),0,'100','','','');
                                         
-                                        if($purchase){
+                                        if(!$purchase){
                                         
-                                        }else{ 
                                              ?>
                                                 <?php if($current_status == 1||$current_status == 4) { ?><input type="checkbox" class="checkbox1" name="chk[]" value="<?php echo $id;?>"/> <?php } ?>
                                             <?php } ?>                                                
@@ -288,17 +287,6 @@ function set_make_feature(elename, actionval, actionmsg, formname) {
                                             <td><?php echo SecureShowData($event_title); ?></td>
                                             <td><?php echo SecureShowData($event_venue); ?></td>
                                             <td><?php echo SecureShowData($start_date); ?></td>
-                                            
-                                           <!--  <td>
-                                            <?php if($feature == 0) {?>	
-                                            	<img src="<?php echo base_url();?>admin_images/eb_close-fc.png" alt=" " height=" " width=" "  />
-                                            <?php }else {?>
-                                            	<img src="<?php echo base_url();?>admin_images/tick1.png" alt=" " height=" " width=" " />
-                                            <?php } ?>    
-                                            </td> -->
-
-                                           <!--  <td>
-                                            <a href="<?php echo site_url('admin/events/affiliate/'.$id);?>"><?php echo VIEW;?></a></td> -->
                                             <td>
 											<?php if($current_status == 0) { 
 														echo DRAFT;
@@ -323,17 +311,20 @@ function set_make_feature(elename, actionval, actionmsg, formname) {
 
                                             <?php if($current_status == 0) { ?>
                                                 <a href="#" class="disabled"><?php echo VIEW;?></a>       
-                                            <?php }if($current_status == 1 ||$current_status == 4){?>
+                                            <?php }
+                                            if($current_status == 1 ||$current_status == 4){?>
                                                 
                                             <a href="<?php echo site_url('event/view/'.$event_url_link);?>" target="_blank"><?php echo VIEW;?></a> 
                                                 
-                                            <?php }if($current_status == 3){?>
+                                            <?php }
+                                            if($current_status == 3){?>
                                                 <a href="#" class="disabled"><?php echo VIEW;?></a>
-                                            <?php }if($current_status == 2){ ?>     
+                                            <?php }
+                                            if($current_status == 2){ ?>
                                                 <a href="<?php echo site_url('event/view/'.$event_url_link);?>" target="_blank"><?php echo VIEW;?></a>
                                             <?php } ?> | 
 
-                                            <?php if( $start_date > date('Y-m-d H:i:s') and $event_check == 1 and $event_cancel == 0  and $event_keep_private == 0 ) { ?>
+                                            <?php if( $start_date > date('Y-m-d H:i:s') && $event_check == 1 && $event_cancel == 0  && $event_keep_private == 0 ) { ?>
                                                             <?php if($event_feature == 0) { ?>
                                                                 <a href="<?php echo site_url('admin/events/make_feature_event/'.$id);?>" id="feature_event_active" name="feature_event_active" data-toggle="tooltip" title="Make Feature event"><i class="fa fa-star" style="font-size: 18px;color:blue;"></i></a>
                                                             <?php } else {?>

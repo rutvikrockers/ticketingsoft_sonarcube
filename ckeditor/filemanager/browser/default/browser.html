@@ -73,7 +73,7 @@ function GetUrlParam( paramName )
 		return '' ;
 }
 
-var oConnector = {} ;
+var oConnector = new Object() ;
 oConnector.CurrentFolder	= '/' ;
 
 var sConnUrl = GetUrlParam( 'Connector' ) ;
@@ -113,7 +113,7 @@ oConnector.SendCommand = function( command, params, callBackFunction )
 		return oXML.LoadUrl( sUrl ) ;
 
 	return null ;
-};
+}
 
 oConnector.CheckError = function( responseXml )
 {
@@ -149,15 +149,15 @@ oConnector.CheckError = function( responseXml )
 		}
 	}
 	return iErrorNumber ;
-};
+}
 
-var oIcons = {} ;
+var oIcons = new Object() ;
 
 oIcons.AvailableIconsArray = [
 	'ai','avi','bmp','cs','dll','doc','exe','fla','gif','htm','html','jpg','js',
 	'mdb','mp3','pdf','png','ppt','rdp','swf','swt','txt','vsd','xls','xml','zip' ] ;
 
-oIcons.AvailableIcons = {} ;
+oIcons.AvailableIcons = new Object() ;
 
 for ( var i = 0 ; i < oIcons.AvailableIconsArray.length ; i++ )
 	oIcons.AvailableIcons[ oIcons.AvailableIconsArray[i] ] = true ;
@@ -170,7 +170,7 @@ oIcons.GetIcon = function( fileName )
 		return sExtension ;
 	else
 		return 'default.icon' ;
-};
+}
 
 function OnUploadCompleted( errorNumber, fileUrl, fileName, customMsg )
 {

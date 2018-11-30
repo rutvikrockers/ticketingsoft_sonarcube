@@ -38,17 +38,7 @@
                           
                             <li class="list-group-item"><?php echo USER; ?> : <?php echo $user_email['email']; ?></li>
                             <li class="list-group-item"><?php echo ATTENDEE_UPDATE; ?> : <?php if($attendee_update == 1) { echo YES; }else { echo NO; }  ?></li>
-                            <!-- <li class="list-group-item"><?php echo ATTENDEE_PICKS; ?> : <?php if($attendee_picks == 1) { echo YES; }else { echo NO; }  ?></li>
-                            <li class="list-group-item"><?php echo ATTENDEE_UNSUBSCRIBE; ?> : <?php if($attendee_unsubscribe == 1) { echo YES; }else { echo NO; }  ?></li>
-                            <li class="list-group-item"><?php echo ATTENDEE_BUY_TICKET; ?> : <?php if($attendee_buy_ticket == 1) { echo YES; }else { echo NO; }  ?></li> -->
                             <li class="list-group-item"><?php echo ORG_UPDATE; ?> : <?php if($org_update == 1) { echo YES; }else { echo NO; }  ?></li>
-                            <!-- <li class="list-group-item"><?php echo ORG_PICKS; ?> : <?php if($org_picks == 1) { echo YES; }else { echo NO; }  ?></li>
-                            <li class="list-group-item"><?php echo ORG_UNSUBSCRIBE; ?> : <?php if($org_unsubscribe == 1) { echo YES; }else { echo NO; }  ?></li>
-                            <li class="list-group-item"><?php echo ORG_NEXT_EVENT; ?> : <?php if($org_next_event == 1) { echo YES; }else { echo NO; }  ?></li>
-                            <li class="list-group-item"><?php echo ORG_ORDER_CONFIRM; ?> : <?php if($org_order_confirm == 1) { echo YES; }else { echo NO; }  ?></li> -->
-                            <!-- <li class="list-group-item"><?php echo CREATED_AT; ?> : <?php echo $created_at; ?></li>
-                            <li class="list-group-item"><?php echo UPDATED_AT; ?> : <?php echo $updated_at; ?></li> -->
-                            
                           </ul>
                         </div>
                 </div><!-- col-lg-8  -->

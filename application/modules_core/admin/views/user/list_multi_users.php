@@ -27,23 +27,7 @@ function setaction(elename, actionval, actionmsg, formname) {
 
 	}
 }
-</script>    
-<script type="text/javascript" language="javascript">
-
-	<?php /*?>function delete_rec(id,offset)
-	{
-		var ans = confirm("<?php echo ARE_YOU_SURE_TO_DELETE_USER; ?>");
-		if(ans)
-			{
-				location.href = "<?php echo site_url('admin/admin_user/delete_user/'); ?>"+"/"+id+"/";
-
-			}else{
-
-			return false;
-
-			}
-	}<?php */?>
-</script>    
+</script>
 
   <div id="page-wrapper">
     <div class="container-fluid">
@@ -122,17 +106,6 @@ function setaction(elename, actionval, actionmsg, formname) {
             <div class="row">
             	<div class="col-lg-12 clearfix">
                 	<div class="panel panel-default">
-                    	<!-- <div class="panel-heading">
-                                    <h4 class="panel-title text-right">
-                                        <button type="button" class="btn btn-success" onclick="setaction('chk[]','active', '<?php echo ARE_YOU_SURE_YOU_WANT_TO_ACTIVE_SELECTED_USER;?>', 'frm_listpage')"><?php echo ACTIVE; ?></button>
-                                        
-                                    	<button type="button" class="btn btn-warning" onclick="setaction('chk[]','deactive', '<?php echo ARE_YOU_SURE_YOU_WANT_TO_DEACTIVE_SELECTED_USER; ?>', 'frm_listpage')"><?php echo DEACTIVE; ?></button>
-
-                                    	 <button type="button" class="btn btn-warning" onclick="setaction('chk[]','suspend', '<?php echo ARE_YOU_SURE_YOU_WANT_TO_SUSPEND_SELECTED_USER; ?>', 'frm_listpage')"><?php echo SUSPEND; ?></button>
-                                        
-                                    </h4>
-                                    
-                        </div> -->
                     	
                             <div class="panel-body">
                             
@@ -145,7 +118,7 @@ function setaction(elename, actionval, actionmsg, formname) {
                                                 <th><?php echo FIRST_NAME; ?></th>
                                                 <th><?php echo LAST_NAME; ?></th>
                                                 <th><?php echo EMAIL; ?></th>
-                                                <!-- <th><?php echo USERS_IP_ADDRESS; ?></th> -->
+                                                
                                                 
                                             </tr>
                                         </thead>
@@ -163,7 +136,6 @@ function setaction(elename, actionval, actionmsg, formname) {
                                                 <td><?php echo $row['first_name']; ?></td>
                                                 <td><?php echo $row['last_name']; ?></td>
                                                 <td><?php echo $row['email']; ?></td>
-                                                <!-- <td><?php echo $row['user_ip']; ?></td> -->
                                               
                                                 
                                             </tr>

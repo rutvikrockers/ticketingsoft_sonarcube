@@ -170,9 +170,7 @@ function confirm_unsubscribe(){
                             	<tr>
                                 	<td> 
                                     	<label>
-                                            <!--<input name="id[]" type="checkbox" value="<?php echo $id ?>" />-->
-                    				 <?php if ($unsub == 1) { } 
-                    				 else {?> <input name="id[]" type="checkbox" value="<?php echo $id ?>" /> <?php } ?>
+                    				 <?php if ($unsub != 1) { ?> <input name="id[]" type="checkbox" value="<?php echo $id ?>" /> <?php } ?>
                                         </label>
                                     </td>
                                     <td <?php if ($unsub == 1) { ?> class="unsub" <?php }?> id="email" ><?php echo $email ?></td>	
@@ -185,20 +183,12 @@ function confirm_unsubscribe(){
                                         </li>
                                         
                                         <li class="del-icon"><a href="<?php echo site_url('contacts/delete/');?>/<?php echo $id?>" onclick="return confirm_delete();" ><i class="glyphicon glyphicon-trash edit" data-toggle="tooltip" data-placement="bottom" title="Delete" data-original-title="Delete"></i></a></li>
-                                  <!--       <li class="mess-icon icon6">
-                                        	<?php if($unsub!=1) {?>
-                                        		<a href="<?php echo site_url('contacts/unsubscribe/');?>/<?php echo $id?>" data-toggle="tooltip" data-placement="bottom" title="Unsubscribe" class="edit" data-original-title="Unsubscribe" onclick="return confirm_unsubscribe();"></a>		
-                                        	<?php }else {?>
-                                        		<a href="" class="disabled"></a>
-                                        	<?php }?>
-                                        
-                                        </li> -->
                                     </ul>
                                     </td>
                                 </tr>
                  
-              <?php } }else{ ?>                 
-                             
+              <?php }
+              }else{ ?>
                              <tr>
                                 	<td colspan="6" style="text-align:center"> 
                                       <?php echo NO_CONTACT_AVAILABLE; ?>
@@ -213,13 +203,6 @@ function confirm_unsubscribe(){
                             <div class="pagi_block pagi_marB0">
                             <?php echo $page_link; ?>
                             </div>
-                        	<!--<ul class="pagination paging">
-                                  <li><a href="#">&laquo;</a></li>
-                                  <li><a href="#"  class="active">1</a></li>
-                                  <li><a href="#">2</a></li>
-                                  <li><a href="#">3</a></li>
-                                  <li><a href="#">&raquo;</a></li>
-                                </ul>-->
                                 <div class="clear"></div>
 						</div>
                         
@@ -346,7 +329,7 @@ function confirm_unsubscribe(){
 				
 			    <a href="javascript:" class="mfPopup" id="various2" style="display:none;">&nbsp;</a>	   
                     	 <div class="select-all pt">
-                    	 	<!-- <div id="selecterr" ></div> -->
+                    	 	
                         	<ul>
                             	<li><a href="javascript://" onclick="set_check('select');"><?php echo SELECT_ALL; ?></a></li>
                                 <li><a href="javascript://" onclick="set_check('clear');"><?php echo CLEAR_SELECTED; ?></a></li>

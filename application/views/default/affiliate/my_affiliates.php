@@ -205,9 +205,9 @@ $(document).ready(function() {
 <script type="text/javascript">
 	function hideshow(which){
 		if (!document.getElementById)
-  		return;
+  		return
 		if (which.style.display=="block")
-	   	which.style.display="none";
+	   	which.style.display="none"
 		else
 		  which.style.display="block"
 	}

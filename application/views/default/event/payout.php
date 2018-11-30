@@ -29,10 +29,10 @@
                     <li>
 
                         <div class="evt_stripe_connect">
-                            <!-- <h3>Stripe Connect</h3> -->
+                            
                             <div class="form-group clearfix">
 
-                                <img src="<?php echo base_url() ?>images/stripe_logo.png">
+                                <img src="<?php echo base_url() ?>images/stripe_logo.png" alt="stripe">
 
 
                             </div>
@@ -57,10 +57,9 @@
                     <li>
                         <div class="evt_fb_connect">
                             <div class="ex_paypal ex_tc">
-                                <img src="<?php echo base_url() ?>images/paypal.png">
+                                <img src="<?php echo base_url() ?>images/paypal.png" alt="paypal">
 
                             </div>
-                            <!-- <h3>PayPal email address used for this event</h3> -->
                             <div class="form-group clearfix">
                                 <div class="col-sm-4 col-xs-12 lable-rite">
                                     <label><?php echo FIRST_NAME; ?></label>
@@ -91,7 +90,6 @@
                             <div class="form-group clearfix">
                                 <div class="col-sm-8 col-sm-offset-4 col-xs-12 comonback brm20 tr8">
                                     <a class="btn-event" href="javascript:void(0);" onclick="paypal_connect(this);" grant_refund_permission="1" tmpName="Save"><?php echo SAVE; ?></a>
-                                    <!-- <a title="" href="javascript:void(0);" data-toggle="tooltip" data-placement="right" class="tool_tip_class" data-original-title="You need to grant permission to ripticket for refund, In case of order is cancelled."></a> -->
                                     <a href="javascript:void(0);" id="paypal_connect_grant_permission" target="_blank" style="display: none;">Refund</a>
                                 </div>
                             </div>

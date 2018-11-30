@@ -111,12 +111,9 @@ function ConfirmDialog(){
                                     <thead>
                                         <tr>
                                         	<th class="sorting_disabled"><input type="checkbox" id="selecctall"></th>
-                                            <!--<th>Check Send</th>-->
                                             <th><?php echo NEWSTYPE; ?></th>
                                             <th><?php echo JOB_START_DATE;?></th>
                                             <th><?php echo STATUS; ?></th>
-                                            
-                                            <!-- <th class="sorting_disabled"><?php echo ACTION; ?></th> -->
                                         </tr>
                                     </thead>
                                     <tbody>

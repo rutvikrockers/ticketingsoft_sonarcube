@@ -62,7 +62,8 @@
                                 <li>
                                     <a href="<?php echo site_url();?>admin/admin_user/list_admin"> <?php echo ADMIN_USERS; ?></a>
                                 </li>
-                                 <?php } if($list_user == 1) {?>
+                                 <?php } 
+                                 if($list_user == 1) {?>
                                 <li>
                                     <a href="<?php echo site_url();?>admin/admin_user/list_users"><?php echo USERS; ?></a>
                                 </li>
@@ -72,33 +73,13 @@
 
                         <?php if($message_conversation_list == 1) {?>
                         <li>
-                            <a href="<?php echo site_url();?>admin/message"><i class="fa fa-envelope"></i> <?php echo MESSAGE; ?></a>
+                            <a href="<?php echo site_url();?>admin/message/message_conversation"><i class="fa fa-envelope"></i> <?php echo MESSAGE; ?></a>
                         </li>
                         
                         <?php //Kalpesh Patel:This is for affiliate users//?>
-                        <?php } if($affiliate_user==1) {?>
-                       <!--  <li style="display: none;">
-                            <a href="<?php // echo site_url();?>admin/admin_user/list_affiliate_users"><i class="fa fa-sitemap"></i> <?php // echo AFFILIATE; ?></a>
-                        </li> -->
-                        <?php }  if($refferal_user==1 || $refferal_withdraw==1 ) { ?>
-                        	
-                        	   <!-- <li style="display: none;" <?php // if($this->uri->segment(2)=='refferal_setting'){echo "class='active'";}?>>
-                            <a href="#"><i class="fa fa-users"></i> <?php // echo REFFERAL; ?><i class="fa fa-fw fa-caret-down"></i></a>
-                            <ul class="collapse">
-                            	<?php // if($refferal_user == 1) {?>
-                                  <li>
-                            		<a href="<?php // echo site_url();?>admin/refferal_setting/edit_refferal_setting"><?php // echo REFFERAL_SETTING; ?></a>
-                        		</li>
-                                <?php // } if($refferal_withdraw == 1) {?>
-                                <li>
-                                    <a href="<?php // echo site_url();?>admin/refferal_setting/refferal_withdraw"><?php // echo REFFERAL_WITHDRAW; ?></a>
-                                </li>
-                                
-                                <?php // }?>
-                            </ul>
-                        </li> -->
-                        	
-                        <?php  }  ?>
+                        <?php } 
+                        if($affiliate_user==1) {?>
+                        <?php } ?>
                          <li>
                             <a href="<?php echo site_url();?>admin/fb_applications"><i class="fa fa-facebook-square"></i> <?php echo FACEBOOK_APPLICATIONS; ?></a>
                         </li>
@@ -108,7 +89,8 @@
                             <a href="<?php echo site_url();?>admin/dynamic_slider/dynamic_slider_list"><i class="fa fa-picture-o"></i> <?php echo SLIDERS; ?></a>
                         </li>
                         
-                        <?php } if($list_events == 1) {?>
+                        <?php }
+                        if($list_events == 1) {?>
                         <li>
                             <a href="<?php echo site_url();?>admin/events/list_events"><i class="fa fa-calendar-o"></i> <?php echo EVENTS; ?></a>
                         </li>
@@ -120,7 +102,8 @@
                         <li>
                             <a href="<?php echo site_url();?>admin/pages/list_pages"><i class="fa fa-file"></i> <?php echo PAGES; ?></a>
                         </li>
-                        <?php } if($list_all_transactions==1 || $list_monthly_transactions==1 ||  $list_yearly_transactions ==1) {?>
+                        <?php } 
+                        if($list_all_transactions==1 || $list_monthly_transactions==1 ||  $list_yearly_transactions ==1) {?>
                         <li <?php if($this->uri->segment(2)=='transaction'){echo "class='active'";}?>>
                             <a href="#"><i class="fa fa-credit-card"></i> <?php echo TRANSACTIONS; ?><i class="fa fa-fw fa-caret-down"></i></a>
                             <ul class="collapse">
@@ -128,14 +111,6 @@
                                 <li>
                                     <a href="<?php echo site_url();?>admin/transaction/list_all_transaction"><?php echo ALL_TRANSACTIONS; ?></a>
                                 </li>
-                                <?php } if($list_monthly_transactions == 1) {?>
-                                <!-- <li>
-                                    <a href="<?php // echo site_url();?>admin/transaction/list_monthly_transaction"><?php // echo MONTHLY_TRANSACTIONS; ?></a>
-                                </li> -->
-                                <?php } if($list_yearly_transactions == 1) {?>
-                                <!-- <li>
-                                    <a href="<?php // echo site_url();?>admin/transaction/list_yearly_transaction"><?php // echo YEARLY_TRANSACTIONS; ?></a>
-                                </li> -->
                                 <?php } ?>
                             </ul>
                         </li>
@@ -149,87 +124,93 @@
                                 <li>
                                     <a href="<?php echo site_url(); ?>admin/site_setting/edit_site_setting"><?php echo SITE_SETTING; ?></a>
                                 </li>
-                                <?php } if($list_site_theme == 1) {?>
+                                <?php } 
+                                if($list_site_theme == 1) {?>
                                 <li>
                                     <a href="<?php echo site_url(); ?>admin/site_setting/edit_site_theam"><?php echo SITE_THEMES; ?></a>
                                 </li>
-                                <?php } if($list_facebook_setting == 1) {?>
+                                <?php } 
+                                if($list_facebook_setting == 1) {?>
                                 <li>
                                     <a href="<?php echo site_url(); ?>admin/site_setting/edit_facebook_setting"><?php echo FACEBOOK_SETTING; ?></a>
                                 </li>
-                                <?php } if($list_twitter_setting == 1) {?>
+                                <?php } 
+                                if($list_twitter_setting == 1) {?>
                                 <li>
                                     <a href="<?php echo site_url(); ?>admin/site_setting/edit_twitter_setting"><?php echo TWITTER_SETTING; ?></a>
                                 </li>
-                                <?php } if($list_linkdin_setting == 1) {?>
+                                <?php } 
+                                if($list_linkdin_setting == 1) {?>
                                 <li>
                                     <a href="<?php echo site_url(); ?>admin/social_setting/edit_linkedin_setting"><?php echo LINKDIN_SETTING; ?></a>
                                 </li>
-                                <?php } if($list_google_plus_setting == 1) {?>
+                                <?php } 
+                                if($list_google_plus_setting == 1) {?>
                                 <li>
                                     <a href="<?php echo site_url(); ?>admin/social_setting/edit_google_setting"><?php echo GOOGLE_PLUS_SETTING; ?></a>
                                 </li>
-                                <?php } if($list_google_plus_setting == 1) {?>
-                                <!-- <li>
-                                    <a href="<?php echo site_url(); ?>admin/social_setting/edit_google_plus_setting"><?php echo GOOGLE_PLUS_SETTING; ?></a>
-                                </li> -->
-                                <?php } if($list_paypal_setting == 1) {?>
+                                <?php } 
+                                if($list_paypal_setting == 1) {?>
                                 <li>
                                     <a href="<?php echo site_url(); ?>admin/site_setting/edit_paypal_setting"><?php echo PAYPAL_SETTING; ?></a>
                                 </li>
-                                <?php } if($list_authorize_net_setting == 1 && $site_setting['is_wallet'] == 1) {?>
+                                <?php } 
+                                if($list_authorize_net_setting == 1 && $site_setting['is_wallet'] == 1) {?>
                                 <li>
                                     <a href="<?php echo site_url(); ?>admin/site_setting/edit_authorize_net_setting"><?php echo "Authorize Net"; ?></a>
                                 </li>
-                                <?php } if($list_paypal_setting == 1) {?>
+                                <?php } 
+                                if($list_paypal_setting == 1) {?>
                                 <li>
                                     <a href="<?php echo site_url(); ?>admin/social_setting/edit_captcha_setting"><?php echo CAPTCHA_SETTING; ?></a>
                                 </li>
-                                <?php } if($list_stripe_setting == 1) { ?>
+                                <?php } 
+                                if($list_stripe_setting == 1) { ?>
                                 <li>
                                     <a href="<?php echo site_url(); ?>admin/site_setting/edit_stripe_setting"><?php echo STRIPE_SETTING; ?></a>
                                 </li>
-                                <?php } if($list_authorize_setting == 1) {?>
-                                <!-- <li>
-                                    <a href="<?php echo site_url(); ?>index.php/admin/site_setting/edit_authorize_setting"><?php echo AUTHORIZE_SETTING; ?></a>
-                                </li> -->
-                                <?php } if($list_wallet_setting == 1) {?>
-                                <!--<li>
-                                    <a href="<?php echo site_url(); ?>index.php/admin/site_setting/edit_wallet_setting"><?php echo WALLET_SETTING; ?></a>
-                                </li>-->
-                                <?php } if($list_currency_codes == 1) {?>
+                                <?php } 
+                                if($list_currency_codes == 1) {?>
                                 <li>
                                     <a href="<?php echo site_url(); ?>admin/currency/list_currency"><?php echo CURRENCY_CODES; ?></a>
                                 </li>
-                                <?php } if($list_email_preference == 1) {?>
+                                <?php } 
+                                if($list_email_preference == 1) {?>
                                 <li>
                                     <a href="<?php echo site_url(); ?>admin/email_preferences/list_email_preference"><?php echo EMAIL_PREFERENCE; ?></a>
                                 </li>
-                                  <?php } if($list_email_preference == 1) {?>
+                                  <?php }
+                                  if($list_email_preference == 1) {?>
                                 <li>
                                     <a href="<?php echo site_url(); ?>admin/email_preferences/email_setting"><?php echo EMAIL_SETTING; ?></a>
                                 </li>
-                                <?php } if($list_newsletter_templates == 1) {?>
+                                <?php } 
+                                if($list_newsletter_templates == 1) {?>
                                 <li>
                                     <a href="<?php echo site_url(); ?>admin/newsletter/list_newsletter_template"><?php echo NEWSLETTER_TEMPLATES; ?></a>
                                 </li>
-                                <?php } if($list_newsletter_job == 1) {?>
+                                <?php } 
+                                if($list_newsletter_job == 1) {?>
                                 <li>
                                     <a href="<?php echo site_url(); ?>admin/newsletter/list_newsletter_job"><?php echo NEWSLETTER_JOB; ?></a>
                                 </li>
-                                <?php } if($list_email_templates == 1) {?>
+                                <?php } 
+                                if($list_email_templates == 1) {?>
                                 <li>
                                     <a href="<?php echo site_url(); ?>admin/email_template/list_email_template"><?php echo EMAIL_TEMPLATES; ?></a>
                                 </li>
-                                <?php } if($list_tips_setting == 1) {?>
+                                <?php } 
+                                if($list_tips_setting == 1) {?>
                                 <li>
                                     <a href="<?php echo site_url(); ?>admin/tips/list_tips"><?php echo TIPS_SETTING; ?></a>
                                 </li>
-                                <?php } if($list_all_categories == 1) {?>
+                                <?php } 
+                                if($list_all_categories == 1) {?>
                                 <li>
                                     <a href="<?php echo site_url(); ?>admin/categories/list_categories"><?php echo ALL_CATEGORIES; ?></a>
                                 </li>
-                                <?php } if($list_all_event_types == 1) {?>
+                                <?php } 
+                                if($list_all_event_types == 1) {?>
                                 <li>
                                     <a href="<?php echo site_url(); ?>admin/event_types/list_event_types"><?php echo ALL_EVENT_TYPES; ?></a>
                                 </li>
@@ -263,7 +244,8 @@
                                 <li>
                                     <a href="<?php echo site_url(); ?>admin/wallet/list_pending_withdrawal"><?php echo PENDING_WITHDRAWALS; ?></a>
                                 </li>
-                                <?php } if($list_confirmed_withdrawals == 1) {?>
+                                <?php } 
+                                if($list_confirmed_withdrawals == 1) {?>
                                 <li>
                                     <a href="<?php echo site_url(); ?>admin/wallet/list_confirm_withdrawal"><?php echo CONFIRMED_WITHDRAWALS; ?></a>
                                 </li>
@@ -283,11 +265,13 @@
                                         <a href="<?php echo site_url(); ?>admin/cancel_order/list_pending_single_cancel_ticket"><?php echo PENDING_CANCELS_TICKET_ORDER; ?></a>
                                     </li>
                                 <?php } ?>
-                                <?php } if($list_confirm_cancelled_orders == 1) {?>
+                                <?php } 
+                                if($list_confirm_cancelled_orders == 1) {?>
                                 <li>
                                     <a href="<?php echo site_url(); ?>admin/cancel_order/list_confirm_cancel"><?php echo CONFIRM_CANCELLED_ORDERS; ?></a>
                                 </li>
-                                <?php } if($list_confirm_cancelled_orders == 1) {?>
+                                <?php } 
+                                if($list_confirm_cancelled_orders == 1) {?>
                                 <li>
                                     <a href="<?php echo site_url(); ?>admin/cancel_order/list_decline_cancel"><?php echo DECLINE_CANCELLED_ORDERS; ?></a>
                                 </li>
@@ -311,15 +295,6 @@
                                 </li> 
                             </ul>
                             </li>
-
-                            <!-- <li <?php // if($this->uri->segment(2)=='event_view_layout'){echo "class='active'";}?>>
-                            <a href="#"><i class="fa fa-th-large"></i> <?php // echo EVENT_LAYOUT; ?><i class="fa fa-fw fa-caret-down"></i></a>
-                            <ul class="collapse">
-                                <li>
-                                    <a href="<?php // echo site_url(); ?>admin/event_view_layout/list_event_layout"><?php // echo EVENT_VIEW_LAYOUT; ?></a>
-                                </li>
-                            </ul>
-                            </li> -->
 
                              <li>
                                   <a href="<?php echo site_url();?>admin/admin_user/error_list"><i class="fa fa-exclamation-triangle"></i> <?php echo ERROR_LIST; ?></a>

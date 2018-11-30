@@ -3,15 +3,10 @@
             	
               <div class="pt">
                 
-                <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 test-contct">
-                   <h1><?php echo $result['pages_title'];?></h1>
-            	</div> -->
-                
               </div><!-- End pt -->
                 
                 <div class="clearfix"></div>
                 
-                <!-- <div class="festival pb"></div> -->
                 
                 <div class="col-sm-12 col-xs-12 p0-xs2  pt15 ">
                 <div class="row">    
@@ -26,9 +21,6 @@
                     <div class="event-detail event-detail2 pt pb">
                         
                         <div class="form-group clearfix">
-                                   <!-- <div class="col-sm-12 col-xs-12">
-                                   <h3><?php echo $result['pages_title'];?></h3>
-                                   </div> -->
                                </div>
                                
                                 <div class="form-group clearfix">

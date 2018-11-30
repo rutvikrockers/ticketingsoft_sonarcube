@@ -29,24 +29,7 @@ function setaction(elename, actionval, actionmsg, formname) {
 
 	}
 }
-</script>    
-<script type="text/javascript" language="javascript">
-
-	<?php /*?>function delete_rec(id,offset)
-	{
-		var ans = confirm("<?php echo ARE_YOU_SURE_TO_DELETE_USER; ?>");
-		if(ans)
-			{
-				location.href = "<?php echo site_url('admin/admin_user/delete_user/'); ?>"+"/"+id+"/";
-
-			}else{
-
-			return false;
-
-			}
-	}<?php */?>
-</script>    
-
+</script>
   <div id="page-wrapper">
     <div class="container-fluid">
             <div class="row">
@@ -112,11 +95,6 @@ function setaction(elename, actionval, actionmsg, formname) {
                                                 <th><?php echo WITHDRAW_DATE; ?></th>
                                                 <th><?php echo WITHDRAW_AMMOUNT; ?></th>
                                                 <th><?php echo WITHDRAW_STATUS; ?></th>
-                                                
-                                                <?php /*?><th><?php echo ADDRESSES; ?></th><?php */?>
-                                              <!--  <th><?php echo CURRENT_STATUS; ?></th>
-                                                
-                                                <th class="sorting_disabled"><?php echo ACTION; ?></th>-->
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -151,10 +129,6 @@ function setaction(elename, actionval, actionmsg, formname) {
 
                                                     ?>
                                                     </td>
-                                              <?php /*?>  <td><?php echo anchor('admin/admin_user/view_user/'.$row['id'].'/',VIEW)?> / 
-                                                    <?php echo anchor('admin/admin_user/edit_user/'.$row['id'].'/' , EDIT);?>/
-                                                    <?php echo anchor('admin/admin_user/refferal_user/'.$row['id'].'/' , USER_REFFERAL);?>
-                                                     <?php /*?><a href="#" onclick="delete_rec('<?php echo $row['id']; ?>')"><?php echo DELETE; ?></a><?php */?><!--</td>-->
                                                 
                                             </tr>
                                             <?php 

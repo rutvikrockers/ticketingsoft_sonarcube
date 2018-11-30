@@ -128,7 +128,7 @@
                                     <input type="radio" name="fetch_type" id="fetch_type1" value="files" checked="checked" onclick="if(this.checked){ $('#files_list').show(); $('#manually_list').hide(); }else{ $('#files_list').hide(); }">
                                    	<?php echo UPLOAD_EMAILS_FROM_CSV_FILE; ?>
                                   </label>
-                                  <?php echo DEMO_CSV;?> <a href="<?php echo site_url("contacts/export_csv");?>"><img src="<?php echo base_url();?>/images/page-line.png?>"/></a>
+                                  <?php echo DEMO_CSV;?> <a href="<?php echo site_url("contacts/export_csv");?>"><img src="<?php echo base_url();?>/images/page-line.png?>" alt="demo csv "/></a>
                                 </div>
                                 <div id="uploaddatafileInfo" style="margin-left: 30px;" class="successbox"></div>
                                 </div>

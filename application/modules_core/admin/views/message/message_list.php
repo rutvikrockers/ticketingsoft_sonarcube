@@ -116,7 +116,6 @@ function setaction(elename, actionval, actionmsg, formname) {
                                   <table class="table table-striped table-bordered table-hover" id="sample_1">
                                     <thead>
                                         <tr>
-                                        	<!-- <th class="sorting_disabled"><input type="checkbox" id="selecctall"></th> -->
                                              <th><?php echo SENDER_NAME; ?></th>
                                              <th><?php echo MESSAGE; ?></th>
                                              <th><?php echo DATE; ?></th>
@@ -155,14 +154,13 @@ function setaction(elename, actionval, actionmsg, formname) {
 													$message=$row['message_content'];
 									?>
                                         <tr class="odd gradeX">
-                                        	<!-- <td><input type="checkbox" class="checkbox1" name="chk[]" value="<?php echo $id;?>" ></td> -->
+
                                            	<td><?php echo SecureShowData($sender_name); ?></td>
                                         
                                            <td><?php echo SecureShowData($message); ?> </td>
                                            
                                            <td><?php echo $date; ?> </td>
 
-                                            <!-- <td><a href="<?php echo site_url('admin/message/delete_message').'/'.$id.'/'.$c_id?>" onclick='return confirm("<?php echo ARE_YOU_SURE_YOU_WANT_TO_DELETE_MESSAGE;?>");'> <?php echo DELETE;?></a></td> -->
                                             <td>
                                             <?php 
                                                    if($row['reply_message_id']!=0){

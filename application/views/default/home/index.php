@@ -56,7 +56,8 @@
           }
         };
         request.send();
-      }
+      };
+
       var successCallback = function(position){
         var x = position.coords.latitude;
         var y = position.coords.longitude;                        
@@ -117,7 +118,7 @@
               <?php $i=0; foreach ($get_all_dynamic_slider as $val) { 
               if($val['active']=='1')
               { ?> 
-                <li data-target="#carousel-example-generic" data-slide-to="<?php echo $i;?>" <?php if($i==0) echo 'class="active"';?>></li>         
+                <li data-target="#carousel-example-generic" data-slide-to="<?php echo $i;?>" <?php if($i==0) { echo 'class="active"'; } ?>></li>         
             <?php $i++; 
               }
           }
@@ -165,7 +166,10 @@
 
              </div>
          
-           <?php  $i++;   }     } }  ?>  
+           <?php  $i++;   
+                }     
+            } 
+        }  ?>  
    
         </div>
         <!-- Controls -->
@@ -232,7 +236,7 @@
             ?>
                            <li class="col-md-3 col-sm-4">
                          <div class="josef home-page">
-                            <a href="<?php echo site_url('event/view/'.$event_url_link);?>"><!-- <img src="<?php echo $event_img;?>" alt=" " height="258px" width="258px" > -->
+                            <a href="<?php echo site_url('event/view/'.$event_url_link);?>">
                              <div class="flexslider">
                                 <ul class="slides">
                                   <?php  
@@ -324,8 +328,6 @@
               foreach($recent_city_event as $event){
               $event_id=$event['id'];
               $event_title=$event['event_title'];
-            //  $event_start_date_time=datetimeformat($event['event_start_date_time']);
-              //echo $event['event_start_date_time'];
               $event_start_date_time=convert_System_DateLanguage($event['event_start_date_time'],true);
               $org_name=$event['name'];
               $event_logo=$event['event_logo'];
@@ -342,12 +344,11 @@
                 $event_location = setAddress($event['id'], $location_result);
               } 
               $organizers = getRecordById('organizers','id',$event['organizer_id']);
-              // $tickets = getRecordById('tickets','event_id',$event['id']);
               
             ?>
             <li class="col-md-3 col-sm-4">
                  <div class="josef home-page">
-                    <a href="<?php echo site_url('event/view/'.$event_url_link);?>"><!-- <img src="<?php echo $event_img;?>" alt=" " height="258px" width="258px" > -->
+                    <a href="<?php echo site_url('event/view/'.$event_url_link);?>">
                      <div class="flexslider">
                         <ul class="slides">
                           <?php  
@@ -390,24 +391,7 @@
                           <?php }else{
                             echo online_event;
                             } ?>
-                             <p class="eventDate"><?php echo $event_start_date_time?> <?php //echo timeFormat($event['event_start_date_time']); ?></p>
-                             <!-- <p class="eventLocation" align="right"><span class="label label-default">Free</span></p> -->
-                             
-                            
-                              <!-- <p>
-                                     			
-								<?php
-									// $ticket_price = $tickets['price'];
-									// if($ticket_price > 0){?>	
-										<span class="event-price"><?php // echo "\$0.00 - \$" . (string)$tickets['price'];?></span>
-										<?php
-									// }else{?>
-										<span class="event-price"><?php // echo "Free";?></span>
-									<?php // }
-								?>				
-                             </p> -->
-                                   
-
+                             <p class="eventDate"><?php echo $event_start_date_time?> </p>
                     </div>
                     </div>
                   </li>
@@ -459,7 +443,7 @@
                           <?php } else { ?>
                             <li class="col-sm-4 col-xs-12 cat-Item">                             
                           <?php } ?>
-                          <a href="<?php echo site_url('search/'.'?category='.$category_id.'&location='.$search_location);?>" class="cat_class <?php if($category_id==$this->input->get('category')) echo 'active';?>"> 
+                          <a href="<?php echo site_url('search/'.'?category='.$category_id.'&location='.$search_location);?>" class="cat_class <?php if($category_id==$this->input->get('category')) { echo 'active'; } ?>"> 
                             <span class="cat-overlay">
                               <span class="cat-text-area">
                                 <span class="cat-name"><?php echo SecureShowData($category_name);?></span>

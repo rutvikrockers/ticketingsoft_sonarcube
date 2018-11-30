@@ -1,7 +1,6 @@
 <?php 
 $site_setting = site_setting();
 $address='';
-// print_r($event_venue);die();
 if($event_id!=''){
   
     if($event_venue['venue_add1']!='')
@@ -15,7 +14,7 @@ if($event_id!=''){
       $address=$address.','.$event_venue['venue_add2'];
         }else
         {
-          $address=$event_venue['venue_add1'];
+          $address=$event_venue['venue_add2'];
         }
     }
     if($event_venue['venue_city']!='')
@@ -248,7 +247,6 @@ if($event_id!=''){
                             <?php 
               if($attendees){
                 foreach($attendees as $purchase){
-                  //$purchase_id = $purchase['id'];
                   $first_name = $purchase['first_name'];
                   $last_name = $purchase['last_name'];
                   $ticket_qty = $purchase['ticket_qty'];

@@ -14,7 +14,7 @@
             $address=$address.','.$event_venue['venue_add2'];
                 }else
                 {
-                    $address=$event_venue['venue_add1'];
+                    $address=$event_venue['venue_add2'];
                 }
         }
         if($event_venue['venue_city']!='')

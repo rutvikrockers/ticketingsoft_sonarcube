@@ -73,8 +73,6 @@
                                                             $ticket_type = 'Paid';
                                                         }
                                                         
-                                                        //$amount = get_currency($total);
-                                                        
                                     ?>
                                         <tr class="odd gradeX">
                                             <td><?php echo SecureShowData($first_name); ?></td>

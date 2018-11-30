@@ -10,11 +10,6 @@
             <div class="row">
             	<div class="col-lg-12 clearfix">
                 	<div class="panel panel-default">
-                		<!--<div class="panel-heading">
-                            <h4 class="panel-title text-right">
-                                <img src="<?php echo base_url(); ?>admin_images/tick1.png" alt=" " height=" " width=" "  /><a href="">Confirm All</a>
-                            </h4>
-                     </div>-->
                         <div id="collapseOne" class="panel-collapse collapse in">
                             <div class="panel-body">
                             <div id="dataTables-example_wrapper" class="dataTables_wrapper form-inline" role="grid">

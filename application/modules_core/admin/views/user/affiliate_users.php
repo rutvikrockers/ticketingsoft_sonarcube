@@ -28,33 +28,13 @@ function setaction(elename, actionval, actionmsg, formname) {
 
 	}
 }
-</script>    
-<script type="text/javascript" language="javascript">
-
-	<?php /*?>function delete_rec(id,offset)
-	{
-		var ans = confirm("<?php echo ARE_YOU_SURE_TO_DELETE_USER; ?>");
-		if(ans)
-			{
-				location.href = "<?php echo site_url('admin/admin_user/delete_user/'); ?>"+"/"+id+"/";
-
-			}else{
-
-			return false;
-
-			}
-	}<?php */?>
-</script>    
-
+</script>
   <div id="page-wrapper">
     <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-8 col-xs-12 clearfix">
                     <h1><?php echo AFFILIATE_USERS;?>  <small><?php echo SecureShowData($site_setting['site_name']);?> <?php echo ADMIN_PANEL; ?></small></h1>
                 </div>
-<!--                <div class="col-lg-4 col-xs-12 clearfix mt20 text-right">
-                	<a href="<?php echo base_url();?>index.php/admin/admin_user/add_newuser" class="btn btn-primary"><?php echo NEW_USER;?></a>
-                </div>-->
                 <div class="page-header border clearfix"></div>
                 <ol class="breadcrumb">
                     <li>
@@ -133,14 +113,6 @@ function setaction(elename, actionval, actionmsg, formname) {
             	<div class="col-lg-12 clearfix">
                 	<div class="panel panel-default">
                     	<div class="panel-heading">
-<!--                                    <h4 class="panel-title text-right">
-                                        <button type="button" class="btn btn-success" onclick="setaction('chk[]','active', '<?php echo ARE_YOU_SURE_YOU_WANT_TO_ACTIVE_SELECTED_USER;?>', 'frm_listpage')"><?php echo ACTIVE; ?></button>
-                                        
-                                    	<button type="button" class="btn btn-warning" onclick="setaction('chk[]','deactive', '<?php echo ARE_YOU_SURE_YOU_WANT_TO_DEACTIVE_SELECTED_USER; ?>', 'frm_listpage')"><?php echo DEACTIVE; ?></button>
-
-                                    	 <button type="button" class="btn btn-warning" onclick="setaction('chk[]','suspend', '<?php echo ARE_YOU_SURE_YOU_WANT_TO_SUSPEND_SELECTED_USER; ?>', 'frm_listpage')"><?php echo SUSPEND; ?></button>
-                                        
-                                    </h4>-->
                                     
                         </div>
                     	
@@ -151,7 +123,6 @@ function setaction(elename, actionval, actionmsg, formname) {
                                       <table class="table table-striped table-bordered table-hover" id="dataTables-example4">
                                         <thead>
                                             <tr>
-                                                <!--<th class="sorting_disabled"><input type="checkbox" id="selecctall"></th>-->
                                                 <th><?php echo EVENT_NAME; ?></th>
                                                 <th><?php echo AFFILIATE_USERS; ?></th>
                                                 <th><?php echo EARN_AMOUNT; ?></th>
@@ -166,15 +137,12 @@ function setaction(elename, actionval, actionmsg, formname) {
                                             <?php 
                                                 if($result)
                                                 {
-//                                                    echo "<pre/>";print_r($result); exit;
                                                     $i=0;
                                                     foreach($result as $row)
                                                         { 
                                                          $data_user = getAllRecordById('user_affiliates','affiliate_id',$row['affiliate_id']);
-//                                                         echo "<pre/>";print_r($data_user);exit;
                                                          ?>
                                                     <tr class="odd gradeX">
-                                                        <!--<td><input type="checkbox" class="checkbox1" name="chk[]" value="<?php // echo $row['id'];?>" ></td>-->
                                                         <td><?php echo SecureShowData($row['event_title']); ?></td>
                                                         <td><?php echo count($data_user); ?></td>
                                                         <td><?php if(isset($data_user[0]['due'])){

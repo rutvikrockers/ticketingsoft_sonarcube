@@ -32,7 +32,6 @@
                           <!-- add by jaimin -->
                          <div class="form-group clearfix">
                                     <div class="col-sm-3">
-                                    <?php //echo $id;?>
                                         <label><?php echo PARENT_CATEGORY; ?></label>
                                     </div>
                                     <?php $p_data = getAllRecordById('categories',' category_parent_id',0); ?> 
@@ -128,9 +127,9 @@
                                         <?php 
 										if(file_exists('upload/category_default/'.$category_image))
 										 { ?>
-                                        <img src="<?php echo base_url();?>upload/category_default/<?php echo $category_image; ?>" height="100" width="100"/>
+                                        <img src="<?php echo base_url();?>upload/category_default/<?php echo $category_image; ?>" height="100" width="100" alt="category" />
                                         <?php }else { ?>
-                                        <img src="<?php echo base_url(); ?>upload/category_default/no_img.jpg" alt=" " height="100" width="100" >
+                                        <img src="<?php echo base_url(); ?>upload/category_default/no_img.jpg" alt="category" height="100" width="100" >
                                         <?php } ?>
                                     </div>
                                     <input type="hidden" name="category_image" value="<?php echo $category_image;?>" />

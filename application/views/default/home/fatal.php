@@ -1,7 +1,7 @@
 <div class="main tac">
     <div class="error_404">
         <div class="img_404">
-            <img src="<?php echo base_url();?>images/404.png" />
+            <img src="<?php echo base_url();?>images/404.png" alt="404" />
         </div>
         <div class="text_404">
             <h2><?php echo SORRY;?></h2>

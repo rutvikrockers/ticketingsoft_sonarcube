@@ -5,44 +5,48 @@
 </style>
 <?php 
 
-
+$venue_add1 = $event_venue['venue_add1'];
+$venue_add2 = $event_venue['venue_add2'];
+$venue_city = $event_venue['venue_city'];
+$venue_state = $event_venue['venue_state'];
+$venue_country = $event_venue['venue_country'];
 $address='';
 if($venue_id!=''){
-    if($event_venue['venue_add1']!='')
+    if($venue_add1!='')
     {
-        $address=$event_venue['venue_add1'];
+        $address=$venue_add1;
     }
-    if($event_venue['venue_add2']!='')
-    {
-        if($address!=''){
-            $address=$address.','.$event_venue['venue_add2'];
-        } else {
-            $address=$event_venue['venue_add1'];
-        }
-    }
-    if($event_venue['venue_city']!='')
+    if($venue_add2!='')
     {
         if($address!=''){
-            $address=$address.','.$event_venue['venue_city'];
+            $address=$address.','.$venue_add2;
         } else {
-            $address=$event_venue['venue_city'];
+            $address=$venue_add1;
         }
     }
-    if($event_venue['venue_state']!='')
+    if($venue_city!='')
     {
         if($address!=''){
-            $address=$address.','.$event_venue['venue_state'];
+            $address=$address.','.$venue_city;
         } else {
-            $address=$event_venue['venue_state'];
+            $address=$venue_city;
         }
     }
-    if($event_venue['venue_country']!='')
+    if($venue_state!='')
+    {
+        if($address!=''){
+            $address=$address.','.$venue_state;
+        } else {
+            $address=$venue_state;
+        }
+    }
+    if($venue_country!='')
     {
         if($address!='')
         {
-            $address=$address.','.$event_venue['venue_country'];
+            $address=$address.','.$venue_country;
         } else {
-            $address=$event_venue['venue_country'];
+            $address=$venue_country;
         }
     }
 }
@@ -101,14 +105,14 @@ if($venue_id!=''){
                                     <label><?php echo Address; ?></label>
                                 </div>
                                 <div class="col-sm-8 col-xs-12">
-                                    <input type="text" onkeypress="set_address_value()" onfocus="set_address_value()" placeholder="<?php echo Address_Line; ?> 1" id="sublocality_level_2" name="venue_add1" value='<?php if($venue_id) echo SecureShowData($event_venue['venue_add1'])?>'>
+                                    <input type="text" onkeypress="set_address_value()" onfocus="set_address_value()" placeholder="<?php echo Address_Line; ?> 1" id="sublocality_level_2" name="venue_add1" value='<?php if($venue_id) { echo SecureShowData($venue_add1); } ?>'>
                                     <span class="comment" id="address1errInfo"></span><br /><br />
-                                    <input type="text" onkeypress="set_address_value()" onfocus="set_address_value()" placeholder="<?php echo Address_Line; ?> 2" id="sublocality_level_1" name="venue_add2" value='<?php if($venue_id) echo SecureShowData($event_venue['venue_add2'])?>'><br /><br />
-                                    <input type="text" onkeypress="set_address_value()" onfocus="set_address_value()" onkeyup="set_address_value()" placeholder="<?php echo City; ?> " id="locality" name="venue_city" value='<?php if($venue_id) echo SecureShowData($event_venue['venue_city'])?>' ><br /><br />
-                                    <input type="text" onkeypress="set_address_value()" onfocus="set_address_value()" placeholder="<?php echo 'State'; ?>" id="administrative_area_level_1" name="venue_state" value='<?php if($venue_id) echo SecureShowData($event_venue['venue_state'])?>'  style="width:38%;">
-                                    <input type="text" onkeypress="set_address_value()" onfocus="set_address_value()" placeholder="<?php echo "Country"; ?>" id="country" name="venue_country" style="width:38%;" value='<?php if($venue_id) echo SecureShowData($event_venue['venue_country'])?>'>
+                                    <input type="text" onkeypress="set_address_value()" onfocus="set_address_value()" placeholder="<?php echo Address_Line; ?> 2" id="sublocality_level_1" name="venue_add2" value='<?php if($venue_id) { echo SecureShowData($venue_add2); } ?>'><br /><br />
+                                    <input type="text" onkeypress="set_address_value()" onfocus="set_address_value()" onkeyup="set_address_value()" placeholder="<?php echo City; ?> " id="locality" name="venue_city" value='<?php if($venue_id) { echo SecureShowData($venue_city); } ?>' ><br /><br />
+                                    <input type="text" onkeypress="set_address_value()" onfocus="set_address_value()" placeholder="<?php echo 'State'; ?>" id="administrative_area_level_1" name="venue_state" value='<?php if($venue_id) { echo SecureShowData($venue_state); } ?>'  style="width:38%;">
+                                    <input type="text" onkeypress="set_address_value()" onfocus="set_address_value()" placeholder="<?php echo "Country"; ?>" id="country" name="venue_country" style="width:38%;" value='<?php if($venue_id) { echo SecureShowData($venue_country); } ?>'>
                                     <br /><br />
-                                    <input type="text" onkeypress="set_address_value()" onfocus="set_address_value()" placeholder="<?php echo Zip_Code; ?>" id="postal_code" name="venue_zip" style="width:60%;" value='<?php if($venue_id) echo SecureShowData($event_venue['venue_zip'])?>'>
+                                    <input type="text" onkeypress="set_address_value()" onfocus="set_address_value()" placeholder="<?php echo Zip_Code; ?>" id="postal_code" name="venue_zip" style="width:60%;" value='<?php if($venue_id) { echo SecureShowData($event_venue['venue_zip']); } ?>'>
                                     <span id="addresszipInfo" class="comment" style="margin-left: 41%;"></span>
                                     <p class="comment">  <b><a onclick="show_div('location','venue_address_div','');" href="javascript://"><?php echo 'Reset Address'; ?> </a></b> ? </p>
                                 </div>

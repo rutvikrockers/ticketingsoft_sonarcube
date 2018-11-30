@@ -7,7 +7,6 @@
                  $event_title = $event['event_title'];
                   $event_url_link = $event['event_url_link'];
                   $event_end_date_time = datetimeformat($event['event_start_date_time']);
-                  // $event_end_date_time = date('l, F d Y',strtotime($event['event_start_date_time']));
                   $event_logo = $event['event_logo'];
                   $org_name = $this->event_model->checkevent_owner($event['user_id']);
                   $org_name = $org_name['first_name'];
@@ -66,7 +65,6 @@
                                                         <div class="tour">
                                                             <p><?php echo $event_end_date_time; ?> | <?php echo timeFormat($event['event_start_date_time']); ?></p>
                                                             <h2 class="marB20"><?php echo SecureShowData($event_title); ?></h2>
-                                                          <!--   <p class="orgName"><?php echo ORGANIZED_BY; ?>: <?php echo $org_name; ?></p> -->
                                                             <?php if(!$event['online_event_option']){?>
                                                             <p><b><?php echo SecureShowData($venue_name);?></b></p>
                                                             <p class="eventLocation"><?php echo $location_result['venue_city'].', '.SecureShowData($location_result['venue_state']); ?></p>
@@ -88,23 +86,6 @@
 
 
 <?php echo $page_link; ?>
-<!--<div class="text-center">
-<div class="col-sm-12 col-xs-12">
-<b class="fr showing-result">Showing 1 - 10 of 34</b>
-</div>
-
-                <div class="pagination m0 pt pagination-centered">
-         <ul class="p0 m0">
-                <li><a href="#">←</a></li>
-                <li class="active"><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li class="disabled"><a href="#">...</a></li>
-            <li><a href="#">10</a></li>
-                <li><a href="#">→</a></li>
-         </ul>
-        </div>
-</div>-->
 <script type="text/javascript">
    $(window).load(function() {
   $('.flexslider').flexslider({

@@ -39,7 +39,7 @@ $data1['events_id'] = $id;
                             	<div class="col-sm-8 col-xs-8 width-xs">
                                 	<div class="radio">
                                           <label>
-                                            <input type="radio" name="event_type" id="optionsRadios1" value="0" <?php if($event['event_type']==0) echo 'checked' ?>>
+                                            <input type="radio" name="event_type" id="optionsRadios1" value="0" <?php if($event['event_type']==0) { echo 'checked'; } ?>>
                                             <?php echo TICKETED_EVENT; ?>
                                           </label>
                                           <p class="p0"><?php echo CHOOSE_THIS_OPTION_IF_YOUR_EVENT_IS_A_TICKETED_EVENT_MUSIC_AND_PERFORMING_ARTS_COMEDY_FESTIVAL_ETC_EXAMPLE_TERMS_BUY_TICKETS_TICKET_INFORMATION_TICKET_TYPE;?></p>
@@ -47,7 +47,7 @@ $data1['events_id'] = $id;
                                         
                                      <div class="radio pt">
                                           <label>
-                                            <input type="radio" name="event_type" id="optionsRadios2" value="1" <?php if($event['event_type']==1) echo 'checked' ?>>
+                                            <input type="radio" name="event_type" id="optionsRadios2" value="1" <?php if($event['event_type']==1) { echo 'checked'; } ?>>
                                             <?php echo REGISTRATION_EVENT; ?>
                                           </label>
                                           <p class="p0"><?php echo CHOOSE_THIS_OPTION_IF_YOUR_EVENT_IS_A_REGISTRATION_EVENT_CONFERENCE_ENDURANCE_EVENT_ETC_EXAMPLE_TERMS_REGISTER_REGISTRATION_INFORMATION_REGISTRATION_TYPE;?></p>

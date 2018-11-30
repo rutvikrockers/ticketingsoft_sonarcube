@@ -162,7 +162,6 @@ margin-bottom:20px;
                                        	<?php if ($start_now ==0 ){ ?>
                                             <?php echo STARTED ; ?>
                                         <?php }elseif ($start_now == 1) {?>
-											<?php //echo date('Y-m-d H:i',strtotime($start_date_time)) ; ?>
                                             <?php echo datetimeformat($start_date_time).' '.timeFormat($start_date_time); ?>
                                         <?php }elseif ($start_now == 2){ ?>
                                             <?php if ($start_day) {?>
@@ -183,12 +182,12 @@ margin-bottom:20px;
                                        <?php if ($end_now==0) {?>
                                         <?php echo WHEN_SALES_END ?>
                                     <?php }elseif ($end_now==1){ ?>
-                                        <?php //echo date('Y-m-d H:i',strtotime($end_date_time)) ; ?>
                                         <?php echo datetimeformat($end_date_time).' '.timeFormat($end_date_time);?>
                                     <?php }else{ ?>
                                         <?php if ($end_day){ ?>
                                             <?php echo SecureShowData($end_day); ?> <?php echo DAYS ?>
-                                        <?php } if ($end_hour){ ?>
+                                        <?php } 
+                                        if ($end_hour){ ?>
                                             <?php echo $end_hour; ?> <?php echo HOURS ?>
                                         <?php } ?>
                                         
@@ -241,13 +240,6 @@ margin-bottom:20px;
                             <div class="pagi_block pagi_marB0">
                             <?php echo $page_link_dic_code; ?>
                             </div>
-                            <!--<ul class="pagination paging">
-                                  <li><a href="#">&laquo;</a></li>
-                                  <li><a href="#"  class="active">1</a></li>
-                                  <li><a href="#">2</a></li>
-                                  <li><a href="#">3</a></li>
-                                  <li><a href="#">&raquo;</a></li>
-                                </ul>-->
                                 <div class="clear"></div>
                         </div>
                          <!-- code add by darshan end-->
@@ -322,7 +314,6 @@ margin-bottom:20px;
                                        	<?php if ( $start_now ==0 ){ ?>
                                             <?php echo STARTED; ?>
                                         <?php }elseif ($start_now == 1) {?>
-											<?php //echo date('Y-m-d H:i',strtotime($start_date_time)) ; ?>
                                             <?php echo datetimeformat($start_date_time).' '.timeFormat($start_date_time); ?>
                                         <?php }else{ ?>
                                             <?php if ($start_day) {?>
@@ -343,12 +334,12 @@ margin-bottom:20px;
                                        <?php if ($end_now==0) {?>
                                         <?php echo WHEN_SALES_END; ?>
                                     <?php }elseif ($end_now==1){ ?>
-                                        <?php //echo date('Y-m-d H:i',strtotime($end_date_time)) ; ?>
                                         <?php echo datetimeformat($end_date_time).' '.timeFormat($end_date_time);?>
                                     <?php }else{ ?>
                                         <?php if ($end_day){ ?>
                                             <?php echo SecureShowData($end_day); ?> <?php echo DAYS ?>
-                                        <?php } if ($end_hour){ ?>
+                                        <?php } 
+                                        if ($end_hour){ ?>
                                             <?php echo $end_hour; ?> <?php echo HOURS ?>
                                         <?php } ?>
                                         
@@ -401,13 +392,6 @@ margin-bottom:20px;
                             <div class="pagi_block pagi_marB0">
                             <?php echo $page_link_access_code; ?>
                             </div>
-                            <!--<ul class="pagination paging">
-                                  <li><a href="#">&laquo;</a></li>
-                                  <li><a href="#"  class="active">1</a></li>
-                                  <li><a href="#">2</a></li>
-                                  <li><a href="#">3</a></li>
-                                  <li><a href="#">&raquo;</a></li>
-                                </ul>-->
                                 <div class="clear"></div>
                         </div>
                          <!-- code add by darshan end-->

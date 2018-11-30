@@ -318,18 +318,8 @@
                             	
                             	
                                 <p class="create-promo col-sm-12 col-xs-12 pt10"><?php echo FILE_MUST_BE_CSV_AND_CAN_CONTAIN_UP_TO_CODES_SEPARATED_BY_COMMAS_OR_LISTED_ON_SEPARATE_LINES_MAXIMUM_OF_CHARACTERS_PER_CODE_SPACES_APOSTROPHES_AND_NON_ALPHANUMERIC_CHARACTERS_ARE_NOT_ALLOWED;?>
-                                <strong><?php echo "Demo CSV:"?></strong> <a href="<?php echo site_url("event/export_csv");?>"><img src="<?php echo base_url();?>/images/page-line.png?>"/></a>	
+                                <strong><?php echo "Demo CSV:"?></strong> <a href="<?php echo site_url("event/export_csv");?>"><img src="<?php echo base_url();?>/images/page-line.png?>" alt="export" /></a>	
                                 </p>
-                                
-                              <!--<div class="col-sm-12 col-xs-12 ">
-                                	
-                                    <div class="col-sm-8 col-xs-5 width-xs p0">
-                            		<input type="text" placeholder="Choose a file from your computer">
-                                    </div>
-                                   <div class="col-sm-4 col-xs-4 pleft0-xs1 pt10-xs clearfix mt10 mb">
-                                   	<a href="javascript://" class="btn-event cre-evnt">Browse</a>
-                                   </div> 
-                            	</div>-->
                             	
                             	
                                </div>
@@ -348,7 +338,7 @@
                                 
                                 <div class="col-xs-4 pright0 width-xs">
 	                                <div class="discount-dollar">
-	                                  <label><?php echo getCurrencySymbol($id);//$site_setting['currency_symbol'];?></label>
+	                                  <label><?php echo getCurrencySymbol($id); ?></label>
 	                                  </div>
 	                                <div class="col-sm-9 col-xs-9 pright0">
 	                                  	<input type="text" name="disc_amount" id="disc_amount" value="<?php echo $disc_amt; ?>">
@@ -396,7 +386,6 @@
 												$ticket_status= $ticket['ticket_status'];
 												
 												$edit_tickets = explode(',',$tickets);
-												//print_r($edit_tickets);die;
 												$check='';
 												
 												foreach($edit_tickets as $checked_ticket)
@@ -482,7 +471,8 @@
                                    			
 											}
                                    			?>
-                                    <?php } } ?>
+                                    <?php } 
+                                    } ?>
                                     
                                   </div>
                                  </div>
@@ -532,7 +522,7 @@
                                 <div class="col-sm-12 col-xs-12 p0">
                                 	<div class="radio">
                                           <label>
-                                            <input type="radio" name="starts" id="now" value="0" <?php if($starts==0) echo "checked";?>>
+                                            <input type="radio" name="starts" id="now" value="0" <?php if($starts==0) { echo "checked"; } ?>>
                                             <?php echo NOW; ?>
                                           </label>
                                         </div>
@@ -542,7 +532,7 @@
                                 <div class="discount-dollar p0">
                                   <div class="radio">
                                       <label>
-                                      <input type="radio" name="starts" id="start_select_date" value="1" <?php if($starts==1) echo "checked"; ?>>
+                                      <input type="radio" name="starts" id="start_select_date" value="1" <?php if($starts==1) { echo "checked"; } ?>>
                                       </label>
                                   </div>
                                   
@@ -561,7 +551,7 @@
                                 <div class="discount-dollar p0">
                                   <div class="radio">
                                       <label>
-                                      	<input type="radio" name="starts" id="start_day_h_m" value="2" <?php if($starts==2) echo "checked"; ?>>
+                                      	<input type="radio" name="starts" id="start_day_h_m" value="2" <?php if($starts==2) { echo "checked"; } ?>>
                                       </label>
                                   </div>
                                   
@@ -603,7 +593,7 @@
                                 <div class="col-sm-12 col-xs-12 p0">
                                 	<div class="radio">
                                           <label>
-                                            <input type="radio" name="sales_end" id="sales_end" value="0" <?php if($sales_end==0) echo "checked"; ?>>
+                                            <input type="radio" name="sales_end" id="sales_end" value="0" <?php if($sales_end==0) { echo "checked"; } ?>>
                                           <?php echo WHEN_SALES_END; ?>
                                           </label>
                                         </div>
@@ -613,7 +603,7 @@
                                 <div class="discount-dollar p0">
                                   <div class="radio">
                                       <label>
-                                      <input type="radio" name="sales_end" id="end_select_date" value="1" <?php if($sales_end==1) echo "checked"; ?>>
+                                      <input type="radio" name="sales_end" id="end_select_date" value="1" <?php if($sales_end==1) { echo "checked"; } ?>>
                                       </label>
                                   </div>
                                   
@@ -632,7 +622,7 @@
                                 <div class="discount-dollar p0">
                                   <div class="radio">
                                       <label>
-                                      	<input type="radio" name="sales_end" id="end_day_h_m" value="2" <?php if($sales_end==2) echo "checked"; ?>>
+                                      	<input type="radio" name="sales_end" id="end_day_h_m" value="2" <?php if($sales_end==2) { echo "checked"; } ?>>
                                       </label>
                                   </div>
                                   
@@ -749,15 +739,12 @@
             // When the document is ready
             $(document).ready(function () {
                 
-                $('#end_date_time').datepicker({
-                    format: "yyyy-mm-dd",
-					orientation: 'top'
-                });
-                
-                $('#start_date_time').datepicker({
-                    format: "yyyy-mm-dd",
-					orientation: 'top'
-                });
+              var today = "<?php echo $today ?>"
+							var event_end_date = "<?php echo $event_end_date ?>"
+
+							$('#start_date_time').datepicker({format: "yyyy-mm-dd",orientation: 'top', startDate : today, endDate : event_end_date });
+
+							$('#end_date_time').datepicker({format: "yyyy-mm-dd",	orientation: 'top' , startDate : today, endDate : event_end_date });
 				
             });
 			

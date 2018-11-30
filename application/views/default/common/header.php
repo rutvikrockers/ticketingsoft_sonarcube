@@ -261,7 +261,7 @@ function autotext()
 				document.getElementById('autoc').style.height = '0px';
 			}
 		}
-	};
+	}
 	
 	var text = document.getElementById('topsearch').value;
  	var RE_SSN = /^[A-Za-z0-9. ]{1,50}$/; 
@@ -271,10 +271,8 @@ function autotext()
 		if (RE_SSN.test(text)) {}
 		else 
 		{
-		      alert("Please enter valid text..!");
-          
-$("#topsearch").val(text.slice(0,-1));
-		      return false;
+            $("#topsearch").val(text.slice(0,-1));
+            return false;
 		}
 	}
 	xmlHttp.open("GET","<?php echo site_url('search/search_auto');?>/"+text+"/"+<?php echo time(); ?>,true);
@@ -408,7 +406,7 @@ function selecttext(el)
            <input type="text" class="form-control" id="topsearch" 
                   onblur="if (this.value == '') {this.value = '<?php echo SEARCH_FOR_EVENTS; ?>';}" 
                   onfocus="if (this.value == '<?php echo SEARCH_FOR_EVENTS; ?>') {this.value = '';}" 
-                  value="<?php if($_POST && isset($_POST['searchprj'])) echo $_POST['searchprj']; else echo SEARCH_FOR_EVENTS; ?>" name="event_title"  onkeyup="autotext();"/>      
+                  value="<?php if($_POST && isset($_POST['searchprj'])) { echo $_POST['searchprj']; } else { echo SEARCH_FOR_EVENTS; } ?>" name="event_title"  onkeyup="autotext();"/>      
         </div>
         <button type="submit" value="" class="btn btn-default search_btn" onclick="form_validate();">
         <i class="glyphicon glyphicon-search"></i></button>
@@ -421,10 +419,8 @@ function selecttext(el)
 	    		<div class="col-lg-9 col-md-9 col-sm-10 col-xs-9">
 	    			<input type="text" name="location_search" placeholder="<?php echo ENTER_LOCATION;?>" class="form-control input-large" id="location_search" autocomplete="off" value="" >
 				</div>
-				    <!-- <input type="hidden" value="" name="event_title"> -->
 				    <input type="hidden" value="" name="category_id">
 			    <div class="col-lg-3 col-md-3 col-sm-2 col-xs-3">
-			    	<!-- <input type="submit" value="GO" name="search_enter" class="btn-event" /> -->
 			    	<input type="submit" id="go_button" value="GO"  name="search_enter" class="btn-event" />
 			    </div> 
 	    	</div>
@@ -445,7 +441,7 @@ function selecttext(el)
                         $category_id = $par['id'];
                         $category_url_name = $par['category_url_name'];
 			?>                
-                        <li class=""> <a href="<?php echo site_url('search/'.'?category='.$category_id.'&location='.$search_location);?>" class="cat_class <?php if($category_id==$this->input->get('category')) echo 'active';?>"> <?php echo SecureShowData($category_name);?></a></li>                                                     
+                        <li class=""> <a href="<?php echo site_url('search/'.'?category='.$category_id.'&location='.$search_location);?>" class="cat_class <?php if($category_id==$this->input->get('category')) { echo 'active'; } ?>"> <?php echo SecureShowData($category_name);?></a></li>                                                     
             <?php }
                 }
                ?>

@@ -90,11 +90,6 @@
                     	<ul class="nav nav-tabs responsive hidden-xs hidden-sm">
                     	
                           <li class="active"><a href="#event" data-toggle="tab"><?php echo EVENT_EARN;?></a></li>
-                          <!-- <li><a href="#refferal" data-toggle="tab"><?php echo REFFERAL_EARN;?></a></li>
-                          <?php  if($affiliate_status == 1)
-                          { ?>
-                          <li><a href="#affiliate" data-toggle="tab"><?php echo AFFILIATE_EARN;?></a></li>
-                          <?php } ?> -->
                     </ul>
                     
                     <div class="tab-content responsive hidden-sm hidden-xs">
@@ -119,7 +114,6 @@
                             		
 											foreach($earning as $earn){
                             					
-												// $id = $earn['id'];
 												$event_title = $earn['event_title'];
                                                 $credit = 0;
                                                 $isWallet = false;
@@ -156,8 +150,7 @@
                     <td>&nbsp
 
                     <?php 
-                    if($earn['purchases_total'] == 0) {
-                    } else {
+                    if($earn['purchases_total']) {
                         if((date('Y-m-d H:i:s') > $event_end_date_time) && !$is_paid && $isWallet){ ?>
                            <a href="<?php echo site_url('account/withdraw_form/'.$event_id);?>" style="color: red;"><?php echo WITHDRAW_REQUEST;?></a>
                        	<?php }
@@ -170,7 +163,8 @@
                     <a href="<?php echo site_url('account/view_earning/0/');?>/<?php echo $event_id;?>" data-toggle="tooltip" data-placement="bottom" title="View Detail" class="mfPopup edit"><?php echo VIEW; ?></a>
                     </td>
                   </tr>
-                 <?php } }else{
+                 <?php } 
+                 }else{
                      echo '<tr><td colspan="7">'.NO_RECORDS.'</td></tr>';
                  } ?> 
                  </tbody>
@@ -206,16 +200,11 @@
                              {
                               if(is_array($vall))
                                {
-                                if( $amount=='') $amount= $vall['currency_symbol'].$vall['shares'];
-                                else $amount.=",".$vall['currency_symbol'].$vall['shares'];                             
+                                if( $amount=='') { $amount= $vall['currency_symbol'].$vall['shares']; }
+                                else { $amount.=",".$vall['currency_symbol'].$vall['shares']; }
                                }
 
                              }
-                             if($amount!='')
-                             {
-                        
-                             } 
-                           else{ } 
                           
 
                           /* this is used for a paid & due */
@@ -232,8 +221,8 @@
                                if(is_array($vall))
                                {
                                 
-                                if( $paid=='') $paid= $vall['currency_symbol'].$vall['shares'];
-                                else $paid.=",".$vall['currency_symbol'].$vall['shares'];
+                                if( $paid=='') { $paid= $vall['currency_symbol'].$vall['shares']; }
+                                else { $paid.=",".$vall['currency_symbol'].$vall['shares']; }
                               }
 
                              }
@@ -246,8 +235,8 @@
                                if(is_array($vall))
                                {
                                 
-                                if( $due=='') $due= $vall['currency_symbol'].$vall['shares'];
-                                else $due.=",".$vall['currency_symbol'].$vall['shares'];
+                                if( $due=='') { $due= $vall['currency_symbol'].$vall['shares']; }
+                                else { $due.=",".$vall['currency_symbol'].$vall['shares']; }
                               }
 
                              }
@@ -262,7 +251,7 @@
                               <td><?php                        
                                     if($paid || $due) { ?>
                                     <a href="<?php echo site_url('account/get_withdraw/');?>" class="mfPopup" style="color: red;"><?php echo "withdraw Request";?></a>
-            										    <?php } else { } ?>
+            										    <?php } ?>
                             </td>
                          </tr>
                         <?php } else{
@@ -358,7 +347,8 @@
                                   <td><?php echo $created_at; ?></td>
                                   <td><a href="<?php echo site_url('event/contact_organizer/'.$aearn['user_id'].'/'.$aearn['id']); ?>" class=" fancybox fancybox.iframe"> <?php echo Contact_the_organizer ?></a> </td>
                                 </tr>
-                               <?php } }else{
+                               <?php } 
+                               }else{
                                   echo '<tr><td colspan="7" class="relPos_H30_xs"><div class="no-record-wrap">'.NO_RECORDS.'</div></td></tr>'; 
                                } ?> 
                                                    
